@@ -7,5 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 soccer = Category.create(
-  :type => 'Soccer'
+  :game_type => 'Soccer'
+)
+
+basketball = Category.create(
+  :game_type => 'Basketball'
+)
+
+hockey = Category.create(
+  :game_type => 'Hockey'
+)
+
+fishing = Category.create(
+  :game_type => 'Offshore Fishing'
+)
+
+boardGames = Category.create(
+  :game_type => 'Board Games'
+)
+
+eGames = Category.create(
+  :game_type => 'eGames'
 )
