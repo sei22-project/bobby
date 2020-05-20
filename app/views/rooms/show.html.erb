@@ -1,2 +1,10 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
+<div class="room__container" data-room-id=<%=@room.id %>>
+		<div class="room-message__container">
+				<% @room.messages.each do |message|%>
+				<%= render 'messages/message', message: message %>
+				<% end %>
+		</div>
+		<%= render 'messages/form', message: Message.new, room: @room %>
+</div>
