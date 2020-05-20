@@ -7,4 +7,6 @@ class Game < ApplicationRecord
   validates :venue, presence: true
   validates :start, presence: true
   validates :end, presence: true
+
+  has_many :requests
 end

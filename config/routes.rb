@@ -20,5 +20,10 @@ Rails.application.routes.draw do
 
   get 'rooms/:id', to: 'rooms#show'
 
+  post 'messages', to: 'messages#create'
+
+  post 'requests', to: 'requests#create'
+  delete 'requests', to: 'requests#destroy'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

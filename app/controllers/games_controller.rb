@@ -1,5 +1,8 @@
 class GamesController < ApplicationController
+  before_action :set_game
+
   def show
+    @game = Game.find(params[:id])
   end
 
   def new
@@ -34,6 +37,10 @@ class GamesController < ApplicationController
   end
 
   private
+    def set_game
+      @game = Game.find(params[:id])
+    end
+
     def game_params
       params.require(:game).permit(:category_id, :title, :date, :start_time, :end_time, :location, :players_required, :special_requirements, :cost)
     end
