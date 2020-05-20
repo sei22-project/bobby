@@ -1,43 +1,45 @@
+<% flatpickr = require("flatpickr"); %>
+
 <h2>Build your team, hassle-free</h2>
 
 
 <%= form_with scope: :game, url: games_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+	<p>
+		<%= form.label :title %><br>
+		<%= form.text_field :title %>
+	</p>
 
-  <p>
-    <%= form.label :date %><br>
-    <%= form.text_field :date %>
-  </p>
+	<p>
+		<%= form.label :date %><br>
+		<%= form.text_field :date %>
+	</p>
 
-  <p>
-    <%= form.label :start_time %><br>
-    <%= form.text_field :start_time %>
-  </p>
+	<p>
+		<%= form.label :start_time %><br>
+		<%= form.text_field :start_time %>
+	</p>
 
-  <p>
-    <%= form.label :end_time %><br>
-    <%= form.text_field :end_time %>
-  </p>
+	<p>
+		<%= form.label :end_time %><br>
+		<%= form.text_field :end_time %>
+	</p>
 
-  <p>
-    <%= form.label :location %><br>
-    <%= form.text_field :location %>
-  </p>
+	<p>
+		<%= form.label :location %><br>
+		<%= form.text_field :location %>
+	</p>
 
-  <p>
-    <%= form.label :players_required %><br>
-    <%= form.text_field :players_required %>
-  </p>
+	<p>
+		<%= form.label :players_required %><br>
+		<%= form.text_field :players_required %>
+	</p>
 
-  <p>
-    <%= form.label :special_requirements %><br>
-    <%= form.text_area :special_requirements %>
-  </p>
+	<p>
+		<%= form.label :special_requirements %><br>
+		<%= form.text_area :special_requirements %>
+	</p>
 
-  <p>
-    <%= form.submit 'Host Game' %>
-  </p>
+	<p>
+		<%= form.submit 'Host Game' %>
+	</p>a
 <% end %>
