@@ -7,7 +7,6 @@ class RequestsController < ApplicationController
     @request.save
   end
 
-
   # DELETE /requests/1
   # DELETE /requests/1.json
   def destroy
@@ -22,6 +21,6 @@ class RequestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def request_params
-      params.require(:message).permit(:user_id, :game_id)
+      params.require(:request).permit(:user_id, :game_id)
     end
 end
