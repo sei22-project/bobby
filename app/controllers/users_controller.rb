@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :check_user
   def show
     ## This should show user dashboard.
-    current_user
+    @games = current_user.games
   end
 
   def edit
