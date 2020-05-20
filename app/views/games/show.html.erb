@@ -102,4 +102,8 @@
 		<%= render 'requests/host_request', request: request, game: @game %>
 </div>
 <%end%>
+<%# Render link to Chat Room if current_user is participant/host%>
+<% if @game.users.includes(current_user) || current_user.id== @game.host_id%>
+<%=link_to "Chat Room", controller: "rooms", action: "show", id: @room.id%>
+<%end%>
 <%end%>

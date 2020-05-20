@@ -7,6 +7,7 @@ class GamesController < ApplicationController
     @host_requests = @game.requests.select { |request| request.status == 3}
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
     @pending_request = current_user.requests.find {|request| request.status == 3 && request.game_id == @game.id}
+    @room = Room.where(game_id: @game.id)[0]
 
   end
 
