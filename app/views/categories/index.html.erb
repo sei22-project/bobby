@@ -1,5 +1,14 @@
 <!-- Search bar. Confirm whether search is for any field or for a specific field -->
 
-<p>hello world</p>
+<p>Sort By:</p>
 
-<p>testing</p>
+<form action='/categories'>
+	<label for="date">Date</label>
+	<input type="text" name="date" class="sortdate-flatpick" >
+
+	<label for="category">Category</label>
+	<input type="text" name="category" class="sortcategory-flatpick" >
+
+</form>
+
+<% javascript_pack_tag 'category' %>
