@@ -9,7 +9,14 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(request_params[:id])
-    @request.update(request_params)
+
+    if @request.update(request_params)
+      if request_params[:status] == '1'
+        game = Game.find(request_params[:game_id])
+        user = User.find(request_params[:user_id])
+        user.games.push(game)
+      end
+    end
 
     # if request_params.status == 2
     #   Game.
