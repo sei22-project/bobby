@@ -1,0 +1,91 @@
+<h1>Users#show_dashboard</h1>
+<p>Find me in app/views/users/show_dashboard.html.erb</p>
+<div class="dashboard__container">
+		<div class="user-profile-name__container">
+				<p class="user-profile-name__header">
+						<%= current_user.email%>
+				</p>
+		</div>
+		<div class="user-hosting__container">
+				<h2 class="user-hosting__header">Hosting:</h2>
+				<% @hosting_games.each do |game|%>
+				<div class="user-hosting__card">
+						<h4 class="user-hosting__title">
+								Title:
+								<%= game.title%>
+						</h4>
+						<h4 class="user-hosting__category">
+								Game Type:
+								<%= game.category.game_type%>
+						</h4>
+						<h4 class="user-hosting__venue">
+								Venue:
+								<%= game.venue%>
+						</h4>
+						<h4 class="user-hosting__players-required">
+								Players Required:
+								<%= game.players_required%>
+						</h4>
+						<h4 class="user-hosting__cost">
+								Cost:
+								<%= game.cost%>
+						</h4>
+						<h4 class="user-hosting__special-requirements">
+								Special Requirements
+								<%= game.special_requirements%>
+						</h4>
+						<h4 class="user-hosting__start">
+								Start Time:
+								<%= game.start%>
+						</h4>
+						<h4 class="user-hosting__end">
+								End Time:
+								<%= game.end%>
+						</h4>
+						<% end %>
+				</div>
+		</div>
+		<div class="user-participating__container">
+				<h2 class="user-participating__header">Participating:</h2>
+				<% @hosting_games.each do |game|%>
+				<div class="user-participating__card">
+						<h4 class="user-participating__title">
+								Title:
+								<%= game.title%>
+						</h4>
+						<h4 class="user-participating__category">
+								Game Type:
+								<%= game.category.game_type%>
+						</h4>
+						<h4 class="user-particpating__host">
+								Host:
+								<%= User.find(Game.find(2).host_id).email%>
+						</h4>
+						<h4 class="user-participating__venue">
+								Venue:
+								<%= game.venue%>
+						</h4>
+						<h4 class="user-participating__players-required">
+								Players Required:
+								<%= game.players_required%>
+						</h4>
+						<h4 class="user-participating__cost">
+								Cost:
+								<%= game.cost%>
+						</h4>
+						<h4 class="user-participating__special-requirements">
+								Special Requirements
+								<%= game.special_requirements%>
+						</h4>
+						<h4 class="user-participating__start">
+								Start Time:
+								<%= game.start%>
+						</h4>
+						<h4 class="user-particpating__end">
+								End Time:
+								<%= game.end%>
+						</h4>
+						<% end %>
+				</div>
+		</div>
+</div>
