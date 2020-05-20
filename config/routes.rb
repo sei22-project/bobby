@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'categories', to: 'categories#index', as: 'categories'
   get 'categories/:id', to: 'categories#show', as: 'category'
 
+  get 'games/new', to: 'games#new', as: 'new_game'
   get 'games/:id', to: 'games#show'
-  get 'games/new', to: 'games#new'
   get 'games/:id/edit', to: 'games#edit'
   post 'games', to: 'games#create'
   put 'games/:id', to: 'games#update'
