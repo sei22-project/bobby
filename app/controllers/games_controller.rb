@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game
+  before_action :set_game, except: [:new, :create]
 
   def show
 
@@ -30,6 +30,9 @@ class GamesController < ApplicationController
     # Insert into database
     @game = Game.new(@input_params)
     @game.save
+
+    @newgame = Game.last
+    Room.create(game_id: @newgame.id)
   end
 
   def edit
