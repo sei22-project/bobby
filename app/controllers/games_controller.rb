@@ -4,7 +4,8 @@ class GamesController < ApplicationController
   def show
 
     #Select only pending requests
-    @host_requests = @game.requests.select { |request| request.status == 3}
+    @host_requests = @game.requests.select { |request| request.status == '3'}
+    @rejected_request = current_user.requests.find {|request| request.status == '2' && request.game_id == @game.id}
 
   end
 
