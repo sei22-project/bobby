@@ -2,7 +2,10 @@ class GamesController < ApplicationController
   before_action :set_game
 
   def show
-    @game = Game.find(params[:id])
+
+    #Select only pending requests
+    @host_requests = @game.requests.select { |request| request.status == 3}
+
   end
 
   def new
@@ -19,6 +22,7 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game.update(game_params)
   end
 
   def delete

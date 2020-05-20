@@ -1,3 +1,10 @@
 <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
+<% if @game.host_id == current_user.id %>
 <%= render 'requests/form', request: Request.new, game: @game %>
+<%else %>
+<% @host_requests.each do |request| %>
+<%= request.user.email %>
+<%= render 'requests/host_request', request: request, game: @game %>
+<%end%>
+<%end%>
