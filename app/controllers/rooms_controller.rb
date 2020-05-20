@@ -3,6 +3,8 @@ class RoomsController < ApplicationController
   before_action :auth_user
 
   def show
+    #Edit links here for navbar
+    @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
   private

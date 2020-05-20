@@ -11,11 +11,11 @@
 		<%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-  <body>
+<body>
+		<%= render partial: "layouts/navbar", locals: {links: @links} %>
+		<div>
+				<%= yield %>
+		</div>
+</body>
 
-    <div>
-      <%= yield %>
-    </div>
-
-  </body>
 </html>

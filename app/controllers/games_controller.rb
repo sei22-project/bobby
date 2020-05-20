@@ -8,11 +8,14 @@ class GamesController < ApplicationController
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
     @pending_request = current_user.requests.find {|request| request.status == 3 && request.game_id == @game.id}
     @room = Room.where(game_id: @game.id)[0]
-
+    #Edit links here for navbar
+    @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join another Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
   def new
     @categories = Category.all
+    #Edit links here for navbar
+    @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
   def create
