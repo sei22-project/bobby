@@ -1,2 +1,55 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<!-- Search bar. Confirm whether search is for any field or for a specific field -->
+
+<p>Sort By:</p>
+
+<form action='/categories'>
+	<label for="date">Date</label>
+	<input type="text" name="date" class="sortdate-flatpick" >
+
+	<label for="category">Category</label>
+	<select name="category">
+		<% @categories.each do |category| %>
+			<option value=<%=category.game_type%> ><%= category.game_type %></option>
+		<% end %>
+	</select>
+
+	<input type="submit" value="Find Game">
+</form>
+
+<%
+	def get_category(category_id)
+		for category in @categories
+			if category.id == category_id
+				return category.game_type
+			end
+		end
+	end
+%>
+
+<% @games.each do |game| %>
+	<div style="border: 1px solid black;">
+		<p>
+				<%=get_category(game.category_id)%>
+		</p>
+		<p>
+				<%=game.title%>
+		</p>
+		<p>
+				<%=game.start.strftime("%d %b") if game.start%>
+		</p>
+		<p> Start time:
+				<%=game.start.strftime("%H:%M") if game.start%>
+		</p>
+		<p> End time:
+				<%=game.end.strftime("%H:%M") if game.end%>
+		</p>
+		<p>
+				<%=game.venue%>
+		</p>
+		<p> Players required:
+				<%=game.players_required%>
+		</p>
+	</div>
+<% end %>
+
+<% javascript_pack_tag 'category' %>
