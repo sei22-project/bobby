@@ -7,13 +7,14 @@
 	<input type="text" name="date" class="sortdate-flatpick" >
 
 	<label for="category">Category</label>
-	<select name="category">
+	<select name="category" class="categorySelect">
+		<option disabled selected value> -- select an option -- </option>
 		<% @categories.each do |category| %>
 			<option value=<%=category.game_type%> ><%= category.game_type %></option>
 		<% end %>
 	</select>
 
-	<input type="submit" value="Find Game">
+	<button type="button" class="sort-games-btn">Find Game</button>
 </form>
 
 <%
@@ -52,4 +53,4 @@
 	</div>
 <% end %>
 
-<% javascript_pack_tag 'category' %>
+<%= javascript_pack_tag 'category' %>

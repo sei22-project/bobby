@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'categories', to: 'categories#index', as: 'categories'
+  get 'categories/sort', to: 'categories#sort'
   get 'categories/:id', to: 'categories#show', as: 'category'
 
   get 'games/new', to: 'games#new', as: 'new_game'
