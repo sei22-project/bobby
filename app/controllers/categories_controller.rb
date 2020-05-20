@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    puts '================================================'
   end
 
   def show
