@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'categories', to: 'categories#index', as: 'categories'
   get 'categories/:id', to: 'categories#show', as: 'category'
 
+  get 'games/new', to: 'games#new', as: 'new_game'
   get 'games/:id', to: 'games#show'
   get 'games/:id/edit', to: 'games#edit'
   post 'games', to: 'games#create'
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
   put 'users/:id', to: 'users#update'
 
   get 'rooms/:id', to: 'rooms#show'
-
-  post 'messages', to: 'messages#create';
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
