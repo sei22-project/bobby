@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post 'messages', to: 'messages#create'
 
   post 'requests', to: 'requests#create'
+  put 'requests', to: 'requests#update', as: 'edit_request'
   delete 'requests', to: 'requests#destroy'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
