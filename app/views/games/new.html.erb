@@ -1,9 +1,10 @@
-<% flatpickr = require("flatpickr"); %>
-
 <h2>Build your team, hassle-free</h2>
 
-
 <%= form_with scope: :game, url: games_path, local: true do |form| %>
+
+	<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+	<%= select(:game, :category_id, options_for_select(categories_array))%>
+
 	<p>
 		<%= form.label :title %><br>
 		<%= form.text_field :title %>
@@ -11,17 +12,17 @@
 
 	<p>
 		<%= form.label :date %><br>
-		<%= form.text_field :date %>
+		<%= form.text_field :date, class: 'date-flatpick' %>
 	</p>
 
 	<p>
 		<%= form.label :start_time %><br>
-		<%= form.text_field :start_time %>
+		<%= form.text_field :start_time, class: 'timestart-flatpick' %>
 	</p>
 
 	<p>
 		<%= form.label :end_time %><br>
-		<%= form.text_field :end_time %>
+		<%= form.text_field :end_time, class: 'timeend-flatpick' %>
 	</p>
 
 	<p>
@@ -31,8 +32,14 @@
 
 	<p>
 		<%= form.label :players_required %><br>
-		<%= form.text_field :players_required %>
+		<%= form.number_field :players_required %>
 	</p>
+
+	<p>
+		<%= form.label :cost %><br>
+		<%= form.text_field :cost %>
+	</p>
+
 
 	<p>
 		<%= form.label :special_requirements %><br>
@@ -41,5 +48,7 @@
 
 	<p>
 		<%= form.submit 'Host Game' %>
-	</p>a
+	</p>
 <% end %>
+
+<%= javascript_pack_tag 'game' %>
