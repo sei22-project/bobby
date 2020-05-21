@@ -2,8 +2,9 @@ import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
 
 const date_pick = flatpickr(".date-flatpick", {
-    altInput: true
-}); // flatpickr
+    altInput: true,
+    minDate: "today"
+});
 
 
 const start_pick = flatpickr(".timestart-flatpick", {
