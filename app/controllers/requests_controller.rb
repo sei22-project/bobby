@@ -5,7 +5,10 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
-    @request.save
+    if @request.save
+      game = Game.find(request_params[:game_id])
+      redirect_to game_path(game)
+    end
   end
 
   def update
