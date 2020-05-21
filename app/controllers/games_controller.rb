@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game
+  before_action :set_game, except: [:new, :create]
 
   def show
 
@@ -7,11 +7,15 @@ class GamesController < ApplicationController
     @host_requests = @game.requests.select { |request| request.status == 3}
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
     @pending_request = current_user.requests.find {|request| request.status == 3 && request.game_id == @game.id}
-
+    @room = Room.where(game_id: @game.id)[0]
+    #Edit links here for navbar
+    @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join another Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
   def new
     @categories = Category.all
+    #Edit links here for navbar
+    @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
   def create
@@ -30,6 +34,9 @@ class GamesController < ApplicationController
     # Insert into database
     @game = Game.new(@input_params)
     @game.save
+
+    @newgame = Game.last
+    Room.create(game_id: @newgame.id)
   end
 
   def edit

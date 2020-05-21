@@ -62,6 +62,12 @@ game3 = Game.create(
   :special_requirements => 'Only high level players',
   :start => DateTime.parse('2nd July 2020 04:00:00+08:00'),
   :end => DateTime.parse('2nd July 2020 06:00:00+08:00'),
-  :category_id => 7,
+  :category_id => 6,
   :host_id => 1,
 )
+
+id_list = [1, 2, 3]
+
+id_list.each do |id|
+  Room.create(game_id: id)
+end

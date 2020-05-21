@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "signup" }
 
   get 'categories', to: 'categories#index', as: 'categories'
+  get 'categories/sort', to: 'categories#sort'
   get 'categories/:id', to: 'categories#show', as: 'category'
 
   get 'games/new', to: 'games#new', as: 'new_game'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show_profile'
   get 'users/:id/edit', to: 'users#edit'
   put 'users/:id', to: 'users#update'
-  get 'dashboard', to: 'users#show_dashboard'
+  get 'dashboard', to: 'users#show_dashboard', as: 'dashboard'
 
   get 'rooms/:id', to: 'rooms#show'
 
