@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
     end
 
     def auth_user
-      if !@room.game.users.includes(current_user) || @room.game.host_id != @current_user.id
+      if !@room.game.users.includes(current_user) && @room.game.host_id != @current_user.id
         redirect_to :root
       end
     end
