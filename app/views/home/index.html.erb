@@ -8,10 +8,10 @@
 				<h3 class="font-bold font-heading text-base uppercase">For your Favourite Games</h3>
 		</div>
 		<div>
-				<%= link_to "Log In", new_user_session_path, class:"block italic text-5xl font-bold text-shadow-brand mb-4" %>
+				<%= link_to "Log In", new_user_session_path, class:"block italic text-5xl font-bold text-shadow-brand mb-4" if !user_signed_in?%>
 		</div>
 		<div class="jumbotron-action">
-				<%= button_to "Sign Up", new_user_registration_path, class:"btn btn-default", method: "get" %>
+				<%= button_to "Sign Up", new_user_registration_path, class:"btn btn-default", method: "get" if !user_signed_in?%>
 		</div>
 </div>
 <% if (user_signed_in? == false) %>
