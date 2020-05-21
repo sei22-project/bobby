@@ -8,11 +8,12 @@ input, select, textarea, button {
 }
 
 input[type="text"], input[type="email"] , input[type="password"] {
-  @apply border-0 border-b w-full h-8
+  min-width: 50px;
+  @apply border-0 border-b w-full h-8;
 }
 
 .field label {
-  @apply font-bold font-body
+  @apply font-bold font-body inline-block
 }
 
 input[type=submit], button, .btn {
