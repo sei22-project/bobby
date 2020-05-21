@@ -19,27 +19,16 @@ const sortGames = () => {
 
     console.log(data)
 
-    // var request = new XMLHttpRequest();   // new HttpRequest instance
-
-    // request.addEventListener("load", function(){
-
-    //   console.log("DONE");
-    //   console.log( this.responseText );
-    // });
-
-    // request.open("GET", '/categories/sort');
-    // request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-    // request.send(JSON.stringify(data));
-
     Rails.ajax({
         url: "/categories/sort",
         type: "GET",
         data: JSON.stringify(data),
-        success: function(data) {
+        success: function(response) {
             console.log('completed')
+            // console.log(JSON.parse(response))
+            console.log(response)
         },
-        error: function(data) {}
+        error: function(response) {}
     })
 }
 

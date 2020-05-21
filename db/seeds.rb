@@ -38,7 +38,7 @@ game1 = Game.create(
   :special_requirements => 'players need to be at least 1.5m tall',
   :start => DateTime.parse('3rd Aug 2020 15:05:00+08:00'),
   :end => DateTime.parse('3rd Aug 2020 18:05:00+08:00'),
-  :category_id => 3,
+  :category_id => 2,
   :host_id => 1,
 )
 
@@ -50,7 +50,7 @@ game2 = Game.create(
   :special_requirements => 'casual game',
   :start => DateTime.parse('20th Sept 2020 09:00:00+08:00'),
   :end => DateTime.parse('20th Sept 2020 11:00:00+08:00'),
-  :category_id => 2,
+  :category_id => 1,
   :host_id => 2,
 )
 

@@ -9,11 +9,19 @@ class CategoriesController < ApplicationController
   end
 
   def sort
+    # Parse string to hash
     sort_params = JSON.parse(params.keys()[0])
 
-    if sort_params[:date] == ""
-      purs sort_params[:category]
+    # If sort by category
+    if sort_params["date"] == ""
+      @category = sort_params["category"].to_i
+      @games = Game.where(category_id: @category)
+
+      respond_to do |format|
+        format.json {render :json => @games}
+      end
     end
+
   end
 
   def show

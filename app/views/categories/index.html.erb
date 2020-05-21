@@ -10,7 +10,7 @@
 	<select name="category" class="categorySelect">
 		<option disabled selected value> -- select an option -- </option>
 		<% @categories.each do |category| %>
-			<option value=<%=category.game_type%> ><%= category.game_type %></option>
+			<option value=<%=category.id%> ><%= category.game_type %></option>
 		<% end %>
 	</select>
 
