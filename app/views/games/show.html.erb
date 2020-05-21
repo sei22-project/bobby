@@ -68,7 +68,7 @@
 <%else%>
 <h3 class="request-pending__header">Your request has been accepted by the Host!</h3>
 <%end%>
-<%else %>
+<%elsif@game.host_id == current_user.id %>
 <h3 class="game__header">You are the host!</h3>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
@@ -106,8 +106,8 @@
 		<%= render 'requests/host_request', request: request, game: @game %>
 </div>
 <%end%>
-<%# Render link to Chat Room if current_user is participant/host%>
-<% if @game.users.includes(current_user) || current_user.id== @game.host_id%>
-<%=link_to "Chat Room", controller: "rooms", action: "show", id: @room.id%>
 <%end%>
+<%# Render link to Chat Room if current_user is participant/host%>
+<% if @user_in_game || current_user.id == @game.host_id%>
+<%=link_to "Chat Room", controller: "rooms", action: "show", id: @room.id%>
 <%end%>

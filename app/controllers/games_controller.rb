@@ -8,6 +8,7 @@ class GamesController < ApplicationController
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
     @pending_request = current_user.requests.find {|request| request.status == 3 && request.game_id == @game.id}
     @accepted_request = current_user.requests.find {|request| request.status == 1 && request.game_id == @game.id}
+    @user_in_game = @game.users.find {|user| user.id == current_user.id}
     # @request_made = current_user.requests.find {|request| request.game_id == @game.id}
     @room = Room.where(game_id: @game.id)[0]
     #Edit links here for navbar
