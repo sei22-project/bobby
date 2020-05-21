@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   has_and_belongs_to_many :users
   belongs_to :category
-  has_one :room
+  has_one :room, dependent: :destroy
 
   validates :title, presence: true
   validates :venue, presence: true
