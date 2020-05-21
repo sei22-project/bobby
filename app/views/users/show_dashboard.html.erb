@@ -8,6 +8,7 @@
 		</div>
 		<div class="user-hosting__container">
 				<h2 class="user-hosting__header">Hosting:</h2>
+				<%if @hosting_games.any?%>
 				<% @hosting_games.each do |game|%>
 				<div class="user-hosting__card">
 						<h4 class="user-hosting__title">
@@ -43,8 +44,15 @@
 								<%= game.end%>
 						</h4>
 						<%= link_to "Details", controller: "games", action: "show", id: game.id %>
-						<% end %>
 				</div>
+				<% end %>
+				<% else %>
+				<div class="user-hosting__card">
+						<h4 class="user-hosting__message">
+								You are not hosting any games.
+						</h4>
+				</div>
+				<% end %>
 		</div>
 		<div class="user-participating__container">
 				<h2 class="user-participating__header">Participating:</h2>
