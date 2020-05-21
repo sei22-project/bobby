@@ -1,0 +1,21 @@
+.jumbotron {
+  @apply flex justify-center items-center;
+  padding-top: 3.5625rem;
+  height: 30rem;
+
+}
+
+.jumbotron-logo, .jumbotron-action {
+  @apply absolute;
+}
+
+.jumbotron-logo {
+  top: rem(60px)
+}
+
+.jumbotron-action {
+  top: rem(400px)
+}
+
+
+
