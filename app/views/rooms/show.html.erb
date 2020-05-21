@@ -4,7 +4,7 @@
 		<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
 		<div class="room-message__container">
 				<% @room.messages.each do |message|%>
-				<%= render 'messages/message', message: message %>
+				<%= render 'messages/message', message: message, user_id: @user_id%>
 				<% end %>
 		</div>
 		<%= render 'messages/form', message: Message.new, room: @room %>

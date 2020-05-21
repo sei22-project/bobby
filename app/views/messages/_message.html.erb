@@ -1,4 +1,5 @@
-<p class="room-message__container <%=" current-user" if message.user==current_user %>">
+<%#DO NOT ADD ANY REFERENCE TO CURRENT_USER HERE AS DEVISE WILL THROW AN ERROR.%>
+<p class="room-message__container">
 		<div class="message-user">
 				<%=message.user.email + ":" if message.content%>
 		</div>
