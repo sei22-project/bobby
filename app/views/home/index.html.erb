@@ -38,6 +38,7 @@ end
 		<p> Players required:
 				<%=game.players_required%>
 		</p>
+		<%= link_to "Details", controller: "games", action: "show", id: game.id %>
 </div>
 <% end %>
 <h3>Categories</h3>
