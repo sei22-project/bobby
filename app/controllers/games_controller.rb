@@ -59,6 +59,8 @@ class GamesController < ApplicationController
     @input_params = {"title" => game_params[:title], "venue" => game_params[:location], "players_required" => game_params[:players_required], "special_requirements" => game_params[:special_requirements], "start" => @start, "end" => @end, "category_id" => game_params[:category_id], "cost" => game_params[:cost], "host_id" => game_params[:host_id]}
 
     @game.update(@input_params)
+
+    redirect_to game_path(@game)
   end
 
   def destroy
