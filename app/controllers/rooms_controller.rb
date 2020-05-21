@@ -8,8 +8,8 @@ class RoomsController < ApplicationController
     @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
 
     @users = @game.users
-    host = User.find(@game.host_id)
-    @users.push(host)
+    @host = User.find(@game.host_id)
+
   end
 
   private

@@ -1,8 +1,26 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
-<div class="room__container" data-user-id=<%=@current_user.id %> data-room-id=
+<div class="room__container flex justify-around items-around" data-user-id=<%=@current_user.id %> data-room-id=
 		<%=@room.id %>>
-		<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
+		<div class="room__sidebar flex-none w-64 p-6 hidden sm:block">
+				<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
+				<div class="room-participants__container px-4 mb-2 flex flex-col justify-between items-start">
+						<div class="room-participants__header py-1 px-4 font-bold">
+								Host:
+						</div>
+						<div class="room-participants__user py-1 px-4">
+								<%=@host.email%>
+						</div>
+						<div class="room-participants__header py-1 px-4 font-bold">
+								Participants:
+						</div>
+						<%@users.each do |user|%>
+						<div class="room-participants__user py-1 px-4">
+								<%=user.email%>
+						</div>
+						<%end%>
+				</div>
+		</div>
 		<div class="room-message__container flex-1 px-6 py-4 overflow-y-scroll">
 				<% @room.messages.each do |message|%>
 				<%if message.user_id == current_user.id%>
