@@ -9,16 +9,13 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    # Parse string to hash
-    sort_params = JSON.parse(params.keys()[0])
+    @categories = Category.all
 
-    # If sort by category
-    if sort_params["date"] == ""
-      @category = sort_params["category"].to_i
-      @games = Game.where(category_id: @category)
-
+    if params[:date] == ""
+      @category_id = params[:category][:category_id].to_i
+      @games = Game.where(category_id: @category_id)
       respond_to do |format|
-        format.json {render :json => @games}
+        format.js
       end
     end
 
@@ -26,10 +23,5 @@ class CategoriesController < ApplicationController
 
   def show
   end
-
-  # private
-  #   def sort_params
-  #     params.require
-  #   end
 
 end
