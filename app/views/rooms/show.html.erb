@@ -1,11 +1,16 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
-<div class="room__container" data-room-id=<%=@room.id %>>
+<div class="room__container" data-user-id=<%=@current_user.id %> data-room-id=
+		<%=@room.id %>>
 		<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
 		<div class="room-message__container">
 				<% @room.messages.each do |message|%>
-				<%= render 'messages/message', message: message %>
+				<%if message.user_id == current_user.id%>
+				<%= render 'messages/message', message: message, user_id: @user_id%>
+				<%else%>
+				<%= render 'messages/other-message', message: message, user_id: @user_id%>
 				<% end %>
+				<%end %>
 		</div>
 		<%= render 'messages/form', message: Message.new, room: @room %>
 </div>
