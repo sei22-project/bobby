@@ -1,0 +1,11 @@
+.bg-dual-tone {
+   background: linear-gradient(
+    to right, 
+    white 0%, 
+    white 50%, 
+    theme('colors.brand') 50%, 
+    theme('colors.brand') 100%
+  );
+}
+
+

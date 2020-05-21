@@ -513,3 +513,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/osx,git,vim,node,rails,linux,macos,windows,sublimetext,intellij+all,rubymine+all,jetbrains+all
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
