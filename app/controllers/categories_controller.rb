@@ -9,8 +9,11 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    puts JSON.parse(params.keys()[0])
+    sort_params = JSON.parse(params.keys()[0])
 
+    if sort_params[:date] == ""
+      purs sort_params[:category]
+    end
   end
 
   def show
