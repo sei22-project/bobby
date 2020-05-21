@@ -1,6 +1,7 @@
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
 <div class="room__container" data-room-id=<%=@room.id %>>
+		<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
 		<div class="room-message__container">
 				<% @room.messages.each do |message|%>
 				<%= render 'messages/message', message: message %>
