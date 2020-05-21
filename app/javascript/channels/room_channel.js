@@ -3,12 +3,12 @@ import consumer from "./consumer"
 window.addEventListener('turbolinks:load', () => {
 
     //remove existing room subscriptions
-    // window.subscriptions = consumer.subscriptions
+    window.subscriptions = consumer.subscriptions
 
-    // consumer.subscriptions.subscriptions.forEach((sub) => {
-    //     if (JSON.parse(sub.identifier).channel == 'RoomChannel')
-    //         consumer.subscriptions.remove(sub)
-    // })
+    consumer.subscriptions.subscriptions.forEach((sub) => {
+        if (JSON.parse(sub.identifier).channel == 'RoomChannel')
+            consumer.subscriptions.remove(sub)
+    })
 
     //only create room subscription if in room page
     if (document.querySelector('.room__container')) {
