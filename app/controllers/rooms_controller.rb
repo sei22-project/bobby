@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
 
     @users = @game.users
     host = User.find(@game.host_id)
-    @users.push(post)
+    @users.push(host)
   end
 
   private
