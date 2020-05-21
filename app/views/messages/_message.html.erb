@@ -1,4 +1,11 @@
-<p class="room-message__content">
-		<%=message.user.email + ":" if message.content%>
-		<%= message.content %>
+<p class="room-message__container <%=" current-user" if message.user==current_user %>">
+		<div class="message-user">
+				<%=message.user.email + ":" if message.content%>
+		</div>
+		<div class="message-content">
+				<%= message.content %>
+		</div>
+		<div class="message-timestamp">
+				<%= message.created_at.to_s.split(" +")[0]%>
+		</div>
 </p>
