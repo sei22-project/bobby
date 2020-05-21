@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  require 'json'
+
   def index
     @games = Game.all
     @categories = Category.all
@@ -7,7 +9,8 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    puts params
+    puts JSON.parse(params.keys()[0])
+
   end
 
   def show
