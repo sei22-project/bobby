@@ -1,2 +1,58 @@
 <h1>Games#edit</h1>
 <p>Find me in app/views/games/edit.html.erb</p>
+<h2>Edit</h2>
+<%= form_with(model: @game, local: true, method: "put") do |form| %>
+<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+<%= select(:game, :category_id, options_for_select(categories_array))%>
+<p>
+		<%= form.label :title %><br>
+		<%= form.text_field :title %>
+</p>
+<p>
+		<h4 class="current-start-time">
+				Date:
+				<%= @game.start.to_s.split(" ")[0]%>
+		</h4>
+		<%= form.label :date %><br>
+		<%= form.text_field :date, class: 'date-flatpick' %>
+</p>
+<p>
+		<h4 class="current-start-time">
+				Start Time:
+				<%=@game.start.strftime("%I:%M %p")%>
+		</h4>
+		<%= form.label :start_time, "Pick new start time" %><br>
+		<%= form.text_field :start_time, class: 'timestart-flatpick' %>
+</p>
+<p>
+		<h4 class="current-start-time">
+				End Time:
+				<%=@game.end.strftime("%I:%M %p")%>
+		</h4>
+		<%= form.label :end_time, "Pick new end time" %><br>
+		<%= form.text_field :end_time, class: 'timeend-flatpick' %>
+</p>
+<p>
+		<%= form.label :location %><br>
+		<%= form.text_field :location, value: @game.venue %>
+</p>
+<p>
+		<%= form.label :players_required %><br>
+		<%= form.number_field :players_required %>
+</p>
+<p>
+		<%= form.label :cost %><br>
+		<%= form.text_field :cost %>
+</p>
+<p>
+		<%= form.label :special_requirements %><br>
+		<%= form.text_area :special_requirements %>
+</p>
+<p>
+		<%= form.hidden_field :host_id, value: current_user.id %>
+</p>
+<p>
+		<%= form.submit 'Edit Game' %>
+</p>
+<% end %>
+<%= javascript_pack_tag 'game' %>
