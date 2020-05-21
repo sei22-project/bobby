@@ -13,6 +13,7 @@ window.addEventListener('turbolinks:load', () => {
     //only create room subscription if in room page
     if (document.querySelector('.room__container')) {
         const roomId = document.querySelector('.room__container').dataset.roomId;
+        const userId = Number(document.querySelector('.room__container').dataset.userId);
 
         consumer.subscriptions.create({ channel: "RoomChannel", room_id: roomId }, {
             connected() {
@@ -28,7 +29,17 @@ window.addEventListener('turbolinks:load', () => {
                 // Called when there's incoming data on the websocket for this channel
                 const messageContainer = document.querySelector('.room-message__container');
 
-                messageContainer.innerHTML += data.html
+                let html;
+
+                if (userId == data.message.user_id) {
+                    html = data.html_user
+                } else {
+                    html = data.html_other
+                }
+
+                console.log('RECEIVED');
+
+                messageContainer.innerHTML += html
                 console.log(data);
             }
         });

@@ -3,11 +3,16 @@ class SendMessageJob < ApplicationJob
 
   def perform(message)
     # Do something later
-    html = ApplicationController.render(
+    html_user = ApplicationController.render(
       partial: 'messages/message',
       locals: {message: message}
     )
 
-    ActionCable.server.broadcast "room_channel_#{message.room_id}", html: html
+    html_other = ApplicationController.render(
+      partial: 'messages/other-message',
+      locals: {message: message }
+    )
+
+    ActionCable.server.broadcast "room_channel_#{message.room_id}", html_user: html_user, html_other: html_other, message: message
   end
 end
