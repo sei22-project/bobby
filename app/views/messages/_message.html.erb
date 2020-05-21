@@ -1,12 +1,15 @@
 <%#DO NOT ADD ANY REFERENCE TO CURRENT_USER HERE AS DEVISE WILL THROW AN ERROR.%>
-<p class="room-message__container current-user-message">
-		<div class="message-user">
-				<%=message.user.email + ":" if message.content%>
+<div class="room-message__container current-user-message flex flex-col items-start mb-4 text-sm">
+		<%#Insert User Icon here?%>
+		<div class="room-message-user-timestamp__container flex-1 overflow-hidden">
+				<span class="message-user font-bold">
+						<%=message.user.email if message.content%>
+				</span>
+				<span class="message-timestamp text-gray text-xs">
+						<%= message.created_at.to_s.split(" +")[0]%>
+				</span>
 		</div>
-		<div class="message-content">
+		<div class="message-content leading-normal">
 				<%= message.content %>
 		</div>
-		<div class="message-timestamp">
-				<%= message.created_at.to_s.split(" +")[0]%>
-		</div>
-</p>
+</div>
