@@ -7,7 +7,7 @@
 	<%= form.text_field :date, class: 'sortdate-flatpick' %>
 
 	<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-	<%= select(:category, :category_id, options_for_select(categories_array))%>
+	<%= select(:category, :category_id, options_for_select(categories_array), :include_blank => true)%>
 
 	<%= form.submit 'Find Game' %>
 <% end %>
@@ -23,31 +23,7 @@
 %>
 
 <div class="game-cards-container">
-	<% @games.each do |game| %>
-		<div style="border: 1px solid black" class="game-card">
-			<p>
-					<%=get_category(game.category_id)%>
-			</p>
-			<p>
-					<%=game.title%>
-			</p>
-			<p>
-					<%=game.start.strftime("%d %b") if game.start%>
-			</p>
-			<p> Start time:
-					<%=game.start.strftime("%H:%M") if game.start%>
-			</p>
-			<p> End time:
-					<%=game.end.strftime("%H:%M") if game.end%>
-			</p>
-			<p>
-					<%=game.venue%>
-			</p>
-			<p> Players required:
-					<%=game.players_required%>
-			</p>
-		</div>
-	<% end %>
+	<%= render 'categories/card' %>
 </div>
 
 

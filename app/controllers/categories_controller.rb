@@ -17,6 +17,10 @@ class CategoriesController < ApplicationController
       respond_to do |format|
         format.js
       end
+
+    elsif params[:category][:category_id] == ""
+      date = Date.parse(params[:date])
+      @games = Game.where(start: date.midnight..date.end_of_day)
     end
 
   end
