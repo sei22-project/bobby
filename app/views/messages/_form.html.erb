@@ -1,4 +1,4 @@
-<%= form_with(model: message, remote: true, class: "message-form fixed bottom-0 left-0 bg-light-gray flex w-screen justify-around sm:h-20 md:h-24") do |form| %>
+<%= form_with(model: message, remote: true, class: "message-form fixed bottom-0 left-0 bg-light-gray flex w-screen justify-around") do |form| %>
 <% if message.errors.any? %>
 <div id="error_explanation">
 		<h2>
@@ -14,11 +14,11 @@
 <% end %>
 <%= form.hidden_field :user_id, value: current_user.id %>
 <%= form.hidden_field :room_id, value: room.id %>
-<div class="message__field my-1">
-		<%= form.label :content, class: "mb-2 hidden" %>
-		<%= form.text_field :content, class: "px-4" %>
+<div class="message__field w-11/12">
+		<%= form.label :content, class: "hidden" %>
+		<%= form.text_field :content, class: "message__input px-4" %>
 </div>
-<div class="message__actions my-1">
+<div class="message__actions">
 		<%= form.submit "Send", class: 'send-message-btn' %>
 </div>
 <% end %>
