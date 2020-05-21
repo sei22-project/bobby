@@ -42,10 +42,20 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
-    @game.update(game_params)
+    # Manipulating date time input to fit model
+    @date = game_params[:date]
+    @start_time = game_params[:start_time]
+    @end_time = game_params[:end_time]
+
+    @start = DateTime.parse(@date + ' ' + @start_time + "+08:00")
+    @end = DateTime.parse(@date + ' ' + @end_time + "+08:00")
+    @input_params = {"title" => game_params[:title], "venue" => game_params[:location], "players_required" => game_params[:players_required], "special_requirements" => game_params[:special_requirements], "start" => @start, "end" => @end, "category_id" => game_params[:category_id], "cost" => game_params[:cost], "host_id" => game_params[:host_id]}
+
+    @game.update(@input_params)
   end
 
   def destroy
