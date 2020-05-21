@@ -3,28 +3,33 @@ body {
 }
 
 // Input
-
 input, select, textarea, button {
   @apply border border-solid border-black text-gray-700 shadow font-body
 }
 
 input[type="text"], input[type="email"] , input[type="password"] {
-  @apply border-0 border-b w-full h-8
+  min-width: 50px;
+  @apply border-0 border-b w-full h-8;
 }
 
 .field label {
-  @apply font-bold font-body block
+  @apply font-bold font-body inline-block
 }
 
-
-button, .btn {
-  @apply w-32 h-10 cursor-pointer
+input[type=submit], button, .btn {
+  @apply w-32 h-10 cursor-pointer transition duration-100
 }
 
 .btn-default {
-  @apply bg-black text-white
+  @apply bg-black text-white;
+  &:hover, &:active {
+    @apply bg-gray-800
+  }
 }
 
 a {
-  @apply text-accent
+  @apply text-accent;
+  &:hover {
+    color: lighten(#FF8200, 12%)
+  }
 }
