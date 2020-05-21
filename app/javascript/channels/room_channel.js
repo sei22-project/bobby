@@ -41,6 +41,11 @@ window.addEventListener('turbolinks:load', () => {
 
                 messageContainer.innerHTML += html
                 console.log(data);
+                const scrollToChatBottom = () => {
+                    messageContainer.scrollTop = messageContainer.scrollHeight;
+                }
+
+                scrollToChatBottom();
             }
         });
     }

@@ -1,15 +1,17 @@
 <%#DO NOT ADD ANY REFERENCE TO CURRENT_USER HERE AS DEVISE WILL THROW AN ERROR.%>
-<div class="room-message__container current-user-message flex flex-col items-start mb-4 text-sm">
-		<%#Insert User Icon here?%>
-		<div class="room-message-user-timestamp__container flex-1 overflow-hidden">
-				<span class="message-user font-bold">
-						<%=message.user.email if message.content%>
-				</span>
-				<span class="message-timestamp text-gray text-xs">
-						<%= message.created_at.to_s.split(" +")[0]%>
-				</span>
-		</div>
-		<div class="message-content leading-normal">
-				<%= message.content %>
+<div class="room-message__container current-user-message flex flex-col items-end mb-4 text-sm">
+		<div class="room-message__inner-container p-4 rounded-md bg-orange-100 shadow-sm">
+				<%#Insert User Icon here?%>
+				<div class="room-message-user-timestamp__container flex-1 overflow-hidden">
+						<span class="message-user font-bold">
+								<%=message.user.email if message.content%>
+						</span>
+						<span class="message-timestamp text-gray-600 text-xs">
+								<%= message.created_at.to_s.split(" +")[0]%>
+						</span>
+				</div>
+				<div class="message-content leading-normal">
+						<%= message.content %>
+				</div>
 		</div>
 </div>
