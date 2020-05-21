@@ -107,6 +107,7 @@
 		<h4 class="game-user-email">
 				<%=user.email%>
 		</h4>
+		<%end%>
 		<%=link_to "Edit", controller: "games", action: "edit", id: @game.id %>
 		<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
