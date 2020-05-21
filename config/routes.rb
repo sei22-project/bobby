@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'games/:id/edit', to: 'games#edit'
   post 'games', to: 'games#create'
   put 'games/:id', to: 'games#update'
-  delete 'games/:id', to: 'games#delete'
+  delete 'games/:id', to: 'games#destroy'
 
   get 'users/:id', to: 'users#show_profile'
   get 'users/:id/edit', to: 'users#edit'

@@ -48,7 +48,9 @@ class GamesController < ApplicationController
     @game.update(game_params)
   end
 
-  def delete
+  def destroy
+    @game.destroy
+    redirect_to dashboard_path
   end
 
   private
