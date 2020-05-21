@@ -1,6 +1,6 @@
 <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
-<% if @game.host_id != current_user.id && !@rejected_request && !@pending_request%>
+<% if @game.host_id != current_user.id && !@rejected_request && !@pending_request && !@accepted_request%>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
@@ -31,7 +31,7 @@
 		</h4>
 </div>
 <%= render 'requests/form', request: Request.new, game: @game %>
-<%elsif @rejected_request || @pending_request%>
+<%elsif @rejected_request || @pending_request || @accepted_request%>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
@@ -63,8 +63,10 @@
 </div>
 <%if @rejected_request%>
 <h3 class="request-rejected__header">You have been rejected by the Host :(</h3>
-<%else%>
+<%elsif @pending_request%>
 <h3 class="request-pending__header">Your request is pending</h3>
+<%else%>
+<h3 class="request-pending__header">Your request has been accepted by the Host!</h3>
 <%end%>
 <%else %>
 <h3 class="game__header">You are the host!</h3>

@@ -7,6 +7,8 @@ class GamesController < ApplicationController
     @host_requests = @game.requests.select { |request| request.status == 3}
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
     @pending_request = current_user.requests.find {|request| request.status == 3 && request.game_id == @game.id}
+    @accepted_request = current_user.requests.find {|request| request.status == 1 && request.game_id == @game.id}
+    # @request_made = current_user.requests.find {|request| request.game_id == @game.id}
     @room = Room.where(game_id: @game.id)[0]
     #Edit links here for navbar
     @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join another Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
