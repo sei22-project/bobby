@@ -30,7 +30,9 @@ class RequestsController < ApplicationController
   # DELETE /requests/1
   # DELETE /requests/1.json
   def destroy
-    @request.destroy
+    if @request.destroy
+      redirect_to game_path(@request.game_id)
+    end
   end
 
   private

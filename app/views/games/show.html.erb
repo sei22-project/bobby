@@ -65,7 +65,7 @@
 <h3 class="request-rejected__header">You have been rejected by the Host :(</h3>
 <%elsif @pending_request%>
 <h3 class="request-pending__header">Your request is pending</h3>
-<%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
 <%else%>
 <h3 class="request-pending__header">Your request has been accepted by the Host!</h3>
 <%end%>
