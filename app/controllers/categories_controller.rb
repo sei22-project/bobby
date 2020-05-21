@@ -7,9 +7,15 @@ class CategoriesController < ApplicationController
   end
 
   def sort
+    puts params
   end
 
   def show
   end
+
+  # private
+  #   def sort_params
+  #     params.require
+  #   end
 
 end
