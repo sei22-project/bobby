@@ -24,7 +24,7 @@
 				<%=@game.end%>
 		</h4>
 		<h4 class="game-host__header">Host:
-				<%=@game.host_id%>
+				<%=User.find(@game.host_id).email%>
 		</h4>
 		<h4 class="game-category__header">Category:
 				<%=@game.category.game_type%>
@@ -55,7 +55,7 @@
 				<%=@game.end%>
 		</h4>
 		<h4 class="game-host__header">Host:
-				<%=@game.host_id%>
+				<%=User.find(@game.host_id).email%>
 		</h4>
 		<h4 class="game-category__header">Category:
 				<%=@game.category.game_type%>
@@ -67,7 +67,13 @@
 <h3 class="request-pending__header">Your request is pending</h3>
 <%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
 <%else%>
-<h3 class="request-pending__header">Your request has been accepted by the Host!</h3>
+<h3 class="request-accepted__header">Your request has been accepted by the Host!</h3>
+<h3 class="request-accepted__participants-header">Participants:</h3>
+<%@game.users.each do |user|%>
+<h4 class="game-user-email">
+		<%=user.email%>
+</h4>
+<%end%>
 <%end%>
 <%elsif@game.host_id == current_user.id %>
 <h3 class="game__header">You are the host!</h3>
