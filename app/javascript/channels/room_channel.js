@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-window.addEventListener('load', () => {
+window.addEventListener('turbolinks:load', () => {
     if (document.querySelector('.room__container')) {
         const roomId = document.querySelector('.room__container').dataset.roomId;
 
