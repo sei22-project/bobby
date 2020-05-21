@@ -1,9 +1,9 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
 <div class="room__container flex justify-around items-around" data-user-id=<%=@current_user.id %> data-room-id=
 		<%=@room.id %>>
-		<div class="room__sidebar flex-none w-64 p-6 hidden sm:block">
-				<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
+		<div class="room__sidebar flex-none w-64 min-h-screen border-r-2 hidden sm:block">
+				<div class="room__back-link w-11/12 flex justify-center py-4">
+						<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
+				</div>
 				<div class="room-participants__container px-4 mb-2 flex flex-col justify-between items-start">
 						<div class="room-participants__header py-1 px-4 font-bold">
 								Host:
@@ -22,6 +22,9 @@
 				</div>
 		</div>
 		<div class="room-message__container flex-1 px-6 py-4 overflow-y-scroll">
+				<h1 class="room-game__title font-bold uppercase tracking-wider text-center p-4 text-xl">
+						<%= @game.title%>
+				</h1>
 				<% @room.messages.each do |message|%>
 				<%if message.user_id == current_user.id%>
 				<%= render 'messages/message', message: message, user_id: @user_id%>
