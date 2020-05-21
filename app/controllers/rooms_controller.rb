@@ -7,7 +7,9 @@ class RoomsController < ApplicationController
     #Edit links here for navbar
     @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
 
-    @users = @room.game.users
+    @users = @game.users
+    host = User.find(@game.host_id)
+    @users.push(post)
   end
 
   private
