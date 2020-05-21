@@ -27,7 +27,7 @@ class GamesController < ApplicationController
     @start = DateTime.parse(@date + ' ' + @start_time + "+08:00")
     @end = DateTime.parse(@date + ' ' + @end_time + "+08:00")
 
-    @input_params = {"title" => game_params[:title], "venue" => game_params[:location], "players_required" => game_params[:players_required], "special_requirements" => game_params[:special_requirements], "start" => @start, "end" => @end, "category_id" => game_params[:category_id], "cost" => game_params[:cost]}
+    @input_params = {"title" => game_params[:title], "venue" => game_params[:location], "players_required" => game_params[:players_required], "special_requirements" => game_params[:special_requirements], "start" => @start, "end" => @end, "category_id" => game_params[:category_id], "cost" => game_params[:cost], "host_id" => game_params[:host_id]}
 
     # Need to add host ID into the params
 
@@ -37,6 +37,8 @@ class GamesController < ApplicationController
 
     @newgame = Game.last
     Room.create(game_id: @newgame.id)
+
+    redirect_to dashboard_path
   end
 
   def edit
@@ -55,6 +57,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:category_id, :title, :date, :start_time, :end_time, :location, :players_required, :special_requirements, :cost)
+      params.require(:game).permit(:category_id, :title, :date, :start_time, :end_time, :location, :players_required, :special_requirements, :cost, :host_id)
     end
 end
