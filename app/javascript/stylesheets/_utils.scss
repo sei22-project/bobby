@@ -8,4 +8,24 @@
   );
 }
 
+.bg-dual-tone-reverse {
+   background: linear-gradient(
+    to right, 
+    theme('colors.brand') 0%, 
+    theme('colors.brand') 50%,
+    white 50%, 
+    white 100%
+  );
+}
 
+.text-alpha-black {
+  color: rgba($color: #000000, $alpha: 0.3)
+}
+
+.text-shadow-brand {
+  text-shadow: 2px 2px #FF0000;
+}
+
+@function rem($size) {
+  @return $size / 16px * 1rem;
+}
