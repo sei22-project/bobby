@@ -109,4 +109,8 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  #Action Cable: use WSS connection - for deployment to Heroku
+  config.web_socket_server_url = "wss://unit-3-project-bobby.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://unit-3-project-bobby.herokuapp.com', 'http://unit-3-project-bobby.herokuapp.com']
 end
