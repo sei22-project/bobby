@@ -2,9 +2,9 @@
 	<h2>Build your team, hassle-free</h2>
 </div>
 
-<%= form_with scope: :game, url: games_path, local: true do |form| %>
+<%= form_with scope: :game, url: games_path, local: true, class: "container mx-auto" do |form|%>
 <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "w-screen md:w-4/5 lg:w-3/5 h-8 my-2 bg-white text-gray-500"})%>
+<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "w-screen md:w-4/5 lg:w-3/5 h-8 my-2 mx-auto bg-white text-gray-500"})%>
 
 <p class="my-2">
 		<%= form.label :title, class: 'text-gray-600' %><br>
