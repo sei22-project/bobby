@@ -1,8 +1,13 @@
 <div class="h-screen bg-dual-tone flex flex-col text-center items-center justify-center">
+
 		<div>
-				<%= image_tag("master_fav_icon.png", class:' mx-auto pl-4 -mt-24') %>
+        <%= link_to root_path do %>
+				  <%= image_tag("master_fav_icon.png", class:' mx-auto pl-4 -mt-24') %>
+        <% end %>
 		</div>
+
 		<div class="container mx-auto">
+
 				<h2 class="font-heading font-bold text-2xl mt-8 mb-4">Login</h2>
 				<div class="mt-8 ">
 						<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -29,4 +34,5 @@
 						</div>
 				</div>
 		</div>
+    
 </div>
