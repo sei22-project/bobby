@@ -2,7 +2,6 @@
   @apply flex justify-center items-center;
   padding-top: 3.5625rem;
   height: 30rem;
-
 }
 
 .jumbotron-logo, .jumbotron-action {
@@ -10,12 +9,57 @@
 }
 
 .jumbotron-logo {
-  top: rem(60px)
+  top: rem(70px)
 }
 
 .jumbotron-action {
-  top: rem(400px)
+  top: 23.1512rem;
 }
 
+// card component
+.card-container {
+  width: rem(320px);
+  height: rem(202px);
+}
 
+.card {
+  font-family: "Arimo", sans-serif;
+  line-height: 1.4;
+  border-radius: 0;
+  display:inline-block;
+  color: #707070;
+  width:100%;
+  padding:rem(10px);
+  background-color:white;
+  box-shadow: 3px 3px 6px rgba(0,0,0,.10);
+}
 
+.card-img {
+  width: rem(48px);
+  height: auto;
+  border-radius: 50%;
+  float: right; // it is okay to float iamge, but not layout
+}
+
+.card-title {
+  color: #0A0A0A;
+  font-size: rem(18px)
+}
+
+.card-subtitle {
+  font-size: 1rem;
+}
+
+.card-body {
+  letter-spacing: .35px;
+  font-size: 14px;
+  margin: rem(15px) rem(18px);
+  .icon {
+    margin-right:rem(10px)
+  }
+}
+
+.card-footer {
+  color: #0A0A0A;
+  font-size: rem(18px);
+}
