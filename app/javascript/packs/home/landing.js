@@ -4,6 +4,7 @@ import Rails from "@rails/ujs";
 import "@glidejs/glide/src/assets/sass/glide.core";
 
 const breakPoints = {
+
     1200: {
       perView: 3
     },
@@ -13,7 +14,6 @@ const breakPoints = {
     },
 
     500: {
-    
       perView: 1
     }
 
