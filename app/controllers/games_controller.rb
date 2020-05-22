@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, except: [:new, :create]
+  before_action :authenticate_user!
 
   def show
 

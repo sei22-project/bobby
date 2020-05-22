@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:destroy]
+  before_action :authenticate_user!
 
   # POST /requests
   # POST /requests.json
@@ -15,11 +16,12 @@ class RequestsController < ApplicationController
     @request = Request.find(request_params[:id])
 
     if @request.update(request_params)
+      game = Game.find(request_params[:game_id])
       if request_params[:status] == '1'
-        game = Game.find(request_params[:game_id])
         user = User.find(request_params[:user_id])
         user.games.push(game)
       end
+      redirect_to game_path(game)
     end
 
     # if request_params.status == 2
