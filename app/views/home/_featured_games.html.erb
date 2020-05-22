@@ -32,10 +32,11 @@
 
               <div class="card-footer flex justify-between">
                 <p> <%= game.users.count %> /<%=game.players_required%> </p>
-                <button class="btn btn-default btn-sm">Details</button>
+                <%= button_to "Details", game_path(game.id), method:'GET', class:'btn btn-default btn-sm'%>
               </div>
 
             </div>
+
           </li>
         <% end %>
 

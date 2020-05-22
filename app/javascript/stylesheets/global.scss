@@ -21,20 +21,23 @@ input[type=submit], button, .btn {
 }
 
 .btn-default {
+
   @apply bg-black text-white;
+
   &:hover, &:active {
     @apply bg-gray-800
   }
-}
+  
+  &.btn-sm {
+    width: rem(116px);
+    height: rem(27px);
+  }
 
-.btn-sm {
-  width: rem(116px);
-  height: rem(27px);
 }
 
 a {
   @apply text-accent;
-  &:hover {
+  &:hover, &:active {
     color: lighten(#FF8200, 12%)
   }
 }
