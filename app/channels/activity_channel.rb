@@ -5,9 +5,11 @@ class ActivityChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    ActionCable.server.broadcast "activity_channel", user_email: current_user.email, user_id: current_user.id, status: 'offline'
   end
 
   def appear
-    ActionCable.server.broadcast "activity_channel", user_email: current_user.email
+    ActionCable.server.broadcast "activity_channel", user_email: current_user.email, user_id: current_user.id, status: 'online'
   end
+
 end
