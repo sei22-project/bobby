@@ -26,5 +26,6 @@
 	<%= render 'categories/card' %>
 </div>
 
-
-<%= javascript_pack_tag 'category' %>
+<% content_for :js_scripts do %>
+  <%= javascript_pack_tag 'category' %>
+<%end %>
