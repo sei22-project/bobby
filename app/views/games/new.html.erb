@@ -1,48 +1,48 @@
-<div class="text-lg">
-	<h2>Build your team, hassle-free</h2>
-</div>
 
-<%= form_with scope: :game, url: games_path, local: true, class: "container mx-auto" do |form|%>
+<%= form_with scope: :game, url: games_path, local: true, class: "container mx-auto w-full md:w-4/5 lg:w-3/5" do |form|%>
+	<div class="text-lg font-bold">
+		<h2>Build your team, hassle-free</h2>
+	</div>
 <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "w-screen md:w-4/5 lg:w-3/5 h-8 my-2 mx-auto bg-white text-gray-500"})%>
+<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "w-full h-8 my-3 rounded mx-auto bg-white text-gray-500"})%>
 
-<p class="my-2">
+<p class="block mb-4 w-full">
 		<%= form.label :title, class: 'text-gray-600' %><br>
-		<%= form.text_field :title, class: "w-screen md:w-4/5 lg:w-3/5 h-8" %>
+		<%= form.text_field :title, class: "h-8 rounded" %>
 </p>
-<p class="my-2">
+<p class="mb-4">
 		<%= form.label :date, class: 'text-gray-600' %><br>
-		<%= form.text_field :date, class: "date-flatpick w-screen md:w-4/5 lg:w-3/5 h-8 bg-white"%>
+		<%= form.text_field :date, class: "w-full date-flatpick h-8 bg-white rounded"%>
 </p>
-<p class="inline-block my-2 w-2/5">
+<p class="inline-block mb-4 w-5/12">
 		<%= form.label :start_time, class: 'text-gray-600' %><br>
-		<%= form.text_field :start_time, class: 'w-full h-8 bg-white timestart-flatpick' %>
+		<%= form.text_field :start_time, class: 'w-full h-8 bg-white rounded timestart-flatpick' %>
 </p>
-<p class="inline-block my-2 w-2/5">
+<p class="inline-block mb-4 w-5/12 float-right">
 		<%= form.label :end_time, class: 'text-gray-600' %><br>
-		<%= form.text_field :end_time, class: 'w-full h-8 bg-white timeend-flatpick' %>
+		<%= form.text_field :end_time, class: 'w-full h-8 bg-white rounded timeend-flatpick' %>
 </p>
-<p class="my-2">
+<p class="mb-4 w-full">
 		<%= form.label :location, class: 'text-gray-600' %><br>
-		<%= form.text_field :location, class: "w-screen md:w-4/5 lg:w-3/5 h-8" %>
+		<%= form.text_field :location, class: "h-8 rounded" %>
 </p>
-<p class="my-2">
+<p class="mb-4">
 		<%= form.label :players_required, class: 'text-gray-600' %><br>
-		<%= form.number_field :players_required, class: "w-screen md:w-4/5 lg:w-3/5 h-8" %>
+		<%= form.number_field :players_required, class: "w-full h-8 rounded" %>
 </p>
-<p class="my-2">
+<p class="mb-4 w-full">
 		<%= form.label :cost, class: 'text-gray-600' %><br>
-		<%= form.text_field :cost, class: "w-screen md:w-4/5 lg:w-3/5 h-8" %>
+		<%= form.text_field :cost, class: "h-8 rounded" %>
 </p>
-<p class="my-2">
+<p class="mb-4">
 		<%= form.label :special_requirements, class: 'text-gray-600' %><br>
-		<%= form.text_area :special_requirements, class: "w-screen md:w-4/5 lg:w-3/5 h-24" %>
+		<%= form.text_area :special_requirements, class: "w-full h-24 rounded" %>
 </p>
 <p>
 		<%= form.hidden_field :host_id, value: current_user.id %>
 </p>
 <p>
-		<%= form.submit 'Host Game', class: "w-4/5 bg-black hover:bg-gray-800 text-white" %>
+		<%= form.submit 'Host Game', class: "w-full bg-black hover:bg-gray-800 text-white rounded" %>
 </p>
 <% end %>
 <%= javascript_pack_tag 'game' %>
