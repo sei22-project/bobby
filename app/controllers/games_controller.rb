@@ -71,7 +71,7 @@ class GamesController < ApplicationController
 
   def remove_games_users
     @game.users.delete(User.find(params[:user_id]))
-    if current_user.requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
+    if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
       redirect_to game_path(@game)
     end
   end

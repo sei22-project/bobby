@@ -103,12 +103,15 @@
 		<h4 class="game-category__header">Category:
 				<%=@game.category.game_type%>
 		</h4>
-		<h3 class="request-accepted__participants-header">Participants:</h3>
-		<%@game.users.each do |user|%>
-		<h4 class="game-user-email">
-				<%=user.email%>
-		</h4>
-		<%end%>
+		<div class="participants__container">
+				<h3 class="request-accepted__participants-header">Participants:</h3>
+				<%@game.users.each do |user|%>
+				<h4 class="game-user-email">
+						<%=user.email%>
+				</h4>
+				<%= link_to 'Kick User', remove_games_users_path(:user_id => user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
+				<%end%>
+		</div>
 		<%=link_to "Edit", controller: "games", action: "edit", id: @game.id %>
 		<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
