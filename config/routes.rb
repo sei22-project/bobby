@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'games/new', to: 'games#new', as: 'new_game'
   get 'games/:id', to: 'games#show', as: 'game'
   get 'games/:id/edit', to: 'games#edit', as: 'edit_game'
-  post 'games', to: 'games#create'
+  post 'games/new', to: 'games#create', as: 'create_game'
   put 'games/:id', to: 'games#update'
   delete 'games/:id', to: 'games#destroy'
 
