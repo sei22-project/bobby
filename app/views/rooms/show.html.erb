@@ -6,10 +6,10 @@
 				</div>
 				<div class="room-participants__container px-4 mb-2 flex flex-col justify-between items-center">
 						<div class="room-host__header-container flex flex-col justify-around items-center rounded-md bg-orange-300 w-full mb-4 shadow-md">
-								<div class="room-participants__header py-1 px-4 font-bold text-gray-800">
+								<div class="room-participants__header py-1 px-4font-bold text-gray-800">
 										Host:
 								</div>
-								<div class="room-participants__user py-1 px-4 text-gray-700">
+								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !@host.online%>" data-user-id="<%=@host.id %>">
 										<%=@host.email%>
 								</div>
 						</div>
@@ -18,7 +18,7 @@
 										Participants:
 								</div>
 								<%@users.each do |user|%>
-								<div class="room-participants__user py-1 px-4 text-gray-700">
+								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !user.online%>" data-user-id="<%=user.id %>">
 										<%=user.email%>
 								</div>
 								<%end%>
