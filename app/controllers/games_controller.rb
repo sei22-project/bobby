@@ -20,6 +20,7 @@ class GamesController < ApplicationController
     @categories = Category.all
     #Edit links here for navbar
     @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
+
   end
 
   def create
@@ -37,12 +38,21 @@ class GamesController < ApplicationController
 
     # Insert into database
     @game = Game.new(@input_params)
-    @game.save
 
-    @newgame = Game.last
-    Room.create(game_id: @newgame.id)
+    if @game.valid?
+      @game.save
 
-    redirect_to dashboard_path
+      @newgame = Game.last
+      Room.create(game_id: @newgame.id)
+
+      redirect_to dashboard_path
+    else
+      @categories = Category.all
+      @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
+
+      render 'new'
+    end
+
   end
 
   def edit
