@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "signup" }
 
+  # landing page
+  get 'featured_games', to: 'home#featured_games';
+
   get 'categories', to: 'categories#index', as: 'categories'
   get 'categories/sort', to: 'categories#sort'
   get 'categories/:id', to: 'categories#show', as: 'category'

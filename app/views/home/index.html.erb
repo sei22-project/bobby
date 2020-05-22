@@ -11,30 +11,11 @@
 
   <h3 class="font-bold font-heading text-lg text-gray-700">Featured</h3>
 
-  <div class="card-container mx-auto h-48 m4 p10">
-    <!-- begin card -->
-    <div class="card">
+  <div id="featured_games">
 
-      <div class="card-header">
-        <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="" class="card-img">
-        <h1 class="card-title">Basketball</h1>
-        <h2 class="card-subtitle">Quick 5 v 5 full court game</h2>
-
-        <div class="card-body">
-          <p><i class="fas fa-calendar-star text-black icon"></i>Thursday, June 27</p>
-          <p><i class="fas fa-clock text-black icon"></i>12:00am - 3:00pm</p>
-          <p><i class="fas fa-compass text-black icon"></i>Bedok North 12 Basketball Court, Singapore 5033412 </p>
-        </div>
-
-        <div class="card-footer flex justify-between">
-          <p>7/10 members</p>
-          <button class="btn btn-default btn-sm">Details</button>
-        </div>
-
-      </div>
-    </div>
-    <!-- end card -->
   </div>
+
+
 
   <%
   # Function to get category names from category id
@@ -80,3 +61,5 @@
   <% end %>
 
 </div>
+
+<%= javascript_pack_tag 'home/landing' %>
