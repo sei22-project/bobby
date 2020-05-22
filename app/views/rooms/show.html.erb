@@ -9,7 +9,7 @@
 								<div class="room-participants__header py-1 px-4font-bold text-gray-800">
 										Host:
 								</div>
-								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 opacity-50" data-user-id="<%=@host.id %>">
+								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !@host.online%>" data-user-id="<%=@host.id %>">
 										<%=@host.email%>
 								</div>
 						</div>
@@ -18,7 +18,7 @@
 										Participants:
 								</div>
 								<%@users.each do |user|%>
-								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 opacity-50" data-user-id="<%=user.id %>">
+								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !user.online%>" data-user-id="<%=user.id %>">
 										<%=user.email%>
 								</div>
 								<%end%>
