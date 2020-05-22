@@ -1,5 +1,28 @@
-<% if @game_obj %>
-    <div class="card">
-      <h1 class="card-title">hi</h1>
-    </div>
-<% end %>
+<div class="card">
+
+  <div class="card-header">
+    <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="" class="card-img">
+    <h1 class="card-title"><%= game.category.game_type %></h1>
+    <h2 class="card-subtitle"><%= game.title %></h2>
+  </div>
+
+  <div class="card-body">
+
+    <p><i class="fas fa-calendar-star text-black icon"></i>
+      <%=game.start.strftime("%A, %d %b") if game.start%>
+    </p>
+
+    <p><i class="fas fa-clock text-black icon"></i>
+      <%= game.start.strftime("%H:%M %P") if game.start %> - <%=game.end.strftime("%H:%M %P") if game.end %>
+    </p>
+
+    <p><i class="fas fa-compass text-black icon"></i><%= game.venue %></p>
+
+  </div>
+
+  <div class="card-footer flex justify-between">
+    <p> <%= game.users.count %> /<%=game.players_required%> </p>
+    <%= button_to "Details", game_path(game.id),  class:'btn btn-default btn-sm', method:'get' %>
+  </div>
+
+</div>
