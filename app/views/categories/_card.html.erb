@@ -19,14 +19,14 @@
 				</h2>
 				<div class="card-body">
 						<p>
+								<i class="fas fa-calendar text-black icon"></i>
 								<%=game.start.strftime("%d %b") if game.start%>
 						</p>
-						<p> Start time:
+						<p>
 								<i class="fas fa-clock text-black icon"></i>
-								<%=game.start.strftime("%H:%M") if game.start%>
+								<%=game.start.strftime("%H:%M") if game.start%> Start time:
 						</p>
-						<p> End time:
-								<i class="fas fa-clock text-black icon"></i>
+						<p> <i class="fas fa-clock text-black icon"></i> End time:
 								<%=game.end.strftime("%H:%M") if game.end%>
 						</p>
 						<p>
