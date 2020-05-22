@@ -69,6 +69,11 @@ class GamesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def remove_games_users
+    @game.users.delete(User.find(params[:user_id]))
+    current_user.requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
+  end
+
   private
     def set_game
       @game = Game.find(params[:id])

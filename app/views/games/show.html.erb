@@ -1,6 +1,6 @@
 <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
-<% if @game.host_id != current_user.id && !@rejected_request && !@pending_request && !@accepted_request%>
+<% if @game.host_id != current_user.id && (!@rejected_request && !@pending_request && !@accepted_request)%>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
@@ -66,13 +66,14 @@
 <%elsif @pending_request%>
 <h3 class="request-pending__header">Your request is pending</h3>
 <%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
-<%else%>
+<%elsif @accepted_request%>
 <h3 class="request-accepted__header">Your request has been accepted by the Host!</h3>
 <h3 class="request-accepted__participants-header">Participants:</h3>
 <%@game.users.each do |user|%>
 <h4 class="game-user-email">
 		<%=user.email%>
 </h4>
+<%= link_to 'Leave Game', remove_games_users_path(:user_id => current_user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
 <%end%>
 <%end%>
 <%elsif@game.host_id == current_user.id %>
