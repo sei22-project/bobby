@@ -9,29 +9,39 @@
 %>
 
 <% @games.each do |game| %>
-	<div style="border: 1px solid black" class="game-card">
-		<p>
-				<%=get_category(game.category_id)%>
-		</p>
-		<p>
-				<%=game.title%>
-		</p>
-		<p>
-				<%=game.start.strftime("%d %b") if game.start%>
-		</p>
-		<p> Start time:
-				<%=game.start.strftime("%H:%M") if game.start%>
-		</p>
-		<p> End time:
-				<%=game.end.strftime("%H:%M") if game.end%>
-		</p>
-		<p>
-				<%=game.venue%>
-		</p>
-		<p> Players required:
-				<%=game.players_required%>
-		</p>
 
-		<%= link_to "Details", controller: "games", action: "show", id: game.id %>
-	</div>
+<div class="mx-auto my-6 px-3">
+
+  <!-- card will adjust to fit the dimension of its container -->
+  <div class="card game-card">
+
+    <h1 class="card-title"><%=get_category(game.category_id)%></h1>
+    <h2 class="card-subtitle"><%=game.title%></h2>
+    <div class="card-body">
+      <p>
+        <%=game.start.strftime("%d %b") if game.start%>
+      </p>
+      <p> Start time:
+        <i class="fas fa-clock text-black icon"><%=game.start.strftime("%H:%M") if game.start%>
+      </p>
+      <p> End time:
+        <i class="fas fa-clock text-black icon"><%=game.end.strftime("%H:%M") if game.end%>
+      </p>
+      <p>
+        <i class="fas fa-compass text-black icon"></i><%=game.venue%>
+      </p>
+    </div>
+
+    <div class="card-footer flex justify-between">
+      <p> Players required:
+       <%=game.players_required%>
+      </p>
+      <%= link_to "Details", controller: "games", action: "show", id: game.id, class:"btn btn-default btn-sm" %>
+    </div>
+  
+  </div>
+
+
+</div>
+
 <% end %>
