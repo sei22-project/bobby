@@ -1,6 +1,6 @@
 <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
-<% if @game.host_id != current_user.id && !@rejected_request && !@pending_request && !@accepted_request%>
+<% if @game.host_id != current_user.id && (!@rejected_request && !@pending_request && !@accepted_request) && @game_open%>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
@@ -31,7 +31,54 @@
 		</h4>
 </div>
 <%= render 'requests/form', request: Request.new, game: @game %>
-<%elsif @rejected_request || @pending_request || @accepted_request%>
+<%elsif@game.host_id == current_user.id %>
+<h3 class="game__header">You are the host!</h3>
+<div class="game__container">
+		<h4 class="game-title__header">Title:
+				<%=@game.title%>
+		</h4>
+		<h4 class="game-venue__header">Venue:
+				<%=@game.venue%>
+		</h4>
+		<h4 class="game-players__header">Players Required:
+				<%=@game.players_required%>
+		</h4>
+		<h4 class="game-cost__header">Cost:
+				<%=@game.cost%>
+		</h4>
+		<h4 class="game-requirements__header">Requirements:
+				<%=@game.special_requirements%>
+		</h4>
+		<h4 class="game-start__header">Start Time:
+				<%=@game.start%>
+		</h4>
+		<h4 class="game-end__header">End Time:
+				<%=@game.end%>
+		</h4>
+		<h4 class="game-category__header">Category:
+				<%=@game.category.game_type%>
+		</h4>
+		<div class="participants__container">
+				<h3 class="request-accepted__participants-header">Participants:</h3>
+				<%@game.users.each do |user|%>
+				<h4 class="game-user-email">
+						<%=user.email%>
+				</h4>
+				<%= link_to 'Kick User', remove_games_users_path(:user_id => user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
+				<%end%>
+		</div>
+		<%=link_to "Edit", controller: "games", action: "edit", id: @game.id %>
+		<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% @host_requests.each do |request| %>
+<div class="request__container">
+		<h4 class="request-user__header">
+				<%= request.user.email %>
+		</h4>
+		<%= render 'requests/host_request', request: request, game: @game %>
+</div>
+<%end%>
+<%elsif @rejected_request || @pending_request || @accepted_request || !@game_open%>
 <div class="game__container">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
@@ -61,63 +108,22 @@
 				<%=@game.category.game_type%>
 		</h4>
 </div>
-<%if @rejected_request%>
+<%if !@game_open && !@accepted_request && !@rejected_request && !@pending_request%>
+<h3 class="request-rejected__header">This Game is full at the moment :(</h3>
+<%elsif @rejected_request%>
 <h3 class="request-rejected__header">You have been rejected by the Host :(</h3>
 <%elsif @pending_request%>
 <h3 class="request-pending__header">Your request is pending</h3>
 <%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
-<%else%>
+<%elsif @accepted_request%>
 <h3 class="request-accepted__header">Your request has been accepted by the Host!</h3>
 <h3 class="request-accepted__participants-header">Participants:</h3>
 <%@game.users.each do |user|%>
 <h4 class="game-user-email">
 		<%=user.email%>
 </h4>
+<%= link_to 'Leave Game', remove_games_users_path(:user_id => current_user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
 <%end%>
-<%end%>
-<%elsif@game.host_id == current_user.id %>
-<h3 class="game__header">You are the host!</h3>
-<div class="game__container">
-		<h4 class="game-title__header">Title:
-				<%=@game.title%>
-		</h4>
-		<h4 class="game-venue__header">Venue:
-				<%=@game.venue%>
-		</h4>
-		<h4 class="game-players__header">Players Required:
-				<%=@game.players_required%>
-		</h4>
-		<h4 class="game-cost__header">Cost:
-				<%=@game.cost%>
-		</h4>
-		<h4 class="game-requirements__header">Requirements:
-				<%=@game.special_requirements%>
-		</h4>
-		<h4 class="game-start__header">Start Time:
-				<%=@game.start%>
-		</h4>
-		<h4 class="game-end__header">End Time:
-				<%=@game.end%>
-		</h4>
-		<h4 class="game-category__header">Category:
-				<%=@game.category.game_type%>
-		</h4>
-		<h3 class="request-accepted__participants-header">Participants:</h3>
-		<%@game.users.each do |user|%>
-		<h4 class="game-user-email">
-				<%=user.email%>
-		</h4>
-		<%end%>
-		<%=link_to "Edit", controller: "games", action: "edit", id: @game.id %>
-		<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
-<% @host_requests.each do |request| %>
-<div class="request__container">
-		<h4 class="request-user__header">
-				<%= request.user.email %>
-		</h4>
-		<%= render 'requests/host_request', request: request, game: @game %>
-</div>
 <%end%>
 <%end%>
 <%# Render link to Chat Room if current_user is participant/host%>

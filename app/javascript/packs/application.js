@@ -12,6 +12,7 @@ import "@fortawesome/fontawesome-pro/js/all";
 
 // main css import
 import '../stylesheets/application.scss';
+import 'flatpickr/dist/flatpickr.min.css';
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

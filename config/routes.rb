@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'games', to: 'games#create'
   put 'games/:id', to: 'games#update'
   delete 'games/:id', to: 'games#destroy'
+  delete 'games/:id/user/:user_id', to: 'games#remove_games_users', as: 'remove_games_users'
 
   get 'users/:id', to: 'users#show_profile'
   get 'users/:id/edit', to: 'users#edit'

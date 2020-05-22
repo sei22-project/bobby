@@ -4,6 +4,9 @@ class GamesController < ApplicationController
 
   def show
 
+    #Check if game is full (by checking accepted requests)
+    @game_open = @game.requests.where(status: 1).count < @game.players_required
+
     #Select only pending requests
     @host_requests = @game.requests.select { |request| request.status == 3}
     @rejected_request = current_user.requests.find {|request| request.status == 2 && request.game_id == @game.id}
@@ -67,6 +70,13 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     redirect_to dashboard_path
+  end
+
+  def remove_games_users
+    @game.users.delete(User.find(params[:user_id]))
+    if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
+      redirect_to game_path(@game)
+    end
   end
 
   private
