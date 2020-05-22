@@ -6,6 +6,8 @@ ruby '2.7.1'
 gem 'redis'
 # Devise for user auth
 gem 'devise'
+#Notifications
+gem 'notifications'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
