@@ -16,12 +16,15 @@
 <body>
 		<header>
 				<%= render partial: "layouts/navbar", locals: {links: @links} %>
+				<div>
+						<%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), notifications_path if user_signed_in?%>
+				</div>
 				<%= render 'layouts/messages' %>
 		</header>
 		<main role="main">
 				<%= yield %>
 		</main>
-    <%= yield :js_scripts %>
+		<%= yield :js_scripts %>
 </body>
 
 </html>
