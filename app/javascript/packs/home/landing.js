@@ -1,39 +1,44 @@
-import Glide from '@glidejs/glide'
-import Rails from "@rails/ujs";
+import Glide from '@glidejs/glide';
+import Rails from '@rails/ujs';
 // Required Core Stylesheet
-import "@glidejs/glide/src/assets/sass/glide.core";
+import '@glidejs/glide/src/assets/sass/glide.core';
+import '@glidejs/glide/src/assets/sass/glide.theme';
 
 const breakPoints = {
+  1200: {
+    perView: 3,
+  },
 
-    1200: {
-      perView: 3
-    },
+  1080: {
+    perView: 2,
+  },
 
-    1080: {
-      perView: 2
-    },
-
-    500: {
-      perView: 1
-    }
-
-}
+  500: {
+    perView: 1,
+  },
+};
 
 const glideOptions = {
-  type:         'carousel',
-  autoplay:           3000,
-  gap:                  20,
+  type: 'carousel',
+  autoplay: 3000,
+  gap: 20,
   perView: 3,
   breakpoints: breakPoints,
-}
+};
 
-document.addEventListener("turbolinks:load",function(){
-
+const getDataAndInitCarousel = () => {
   Rails.ajax({
     type: 'get',
-    url: "/featured_games",
+    url: '/featured_games',
     success: () => new Glide('.glide', glideOptions).mount(),
-    error: (err) => console.log(err)
-  })
+    error: (err) => console.log(err),
+  });
+};
 
-})
+const startCarousel = () => {
+  if (document.getElementById('featured_games')) {
+    getDataAndInitCarousel();
+  }
+};
+
+document.addEventListener('turbolinks:load', startCarousel);
