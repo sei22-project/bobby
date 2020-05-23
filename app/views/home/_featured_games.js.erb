@@ -6,4 +6,6 @@ varを使えば問題なく動作します。
 */
 
 var featured_games_div = document.getElementById('featured_games');
-featured_games.innerHTML = '<%= j render 'home/featured_games.html' %>'
+if (featured_games_div) {
+  featured_games.innerHTML = '<%= j render 'home/featured_games.html' %>'
+}

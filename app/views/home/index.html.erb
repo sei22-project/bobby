@@ -7,61 +7,29 @@
   <%= render "home/jumbotron" unless user_signed_in?%>
 </section>
 
-<div class="container mx-auto my-6 px-3">
+<div class="wrapper">
 
-  <h3 class="font-bold font-heading text-lg text-gray-700">Featured</h3>
+  <section class="section">
+    <h3 class="font-bold font-heading text-lg text-gray-700">Featured</h3>
+    <div id="featured_games">
+    </div>
+  </section>
 
-  <div id="featured_games">
 
-  </div>
+  <section class="section">
 
+    <h3>Categories</h3>
 
-
-  <%
-  # Function to get category names from category id
-  def get_category(category_id)
-    for category in @categories
-      if category.id == category_id
-        return category.game_type
-      end
-    end
-  end
-  %>
-  <% @games.each do |game| %>
-  <div style="border: 1px solid black;">
-      <p>
-          <%=get_category(game.category_id)%>
-      </p>
-      <p>
-          <%=game.title%>
-      </p>
-      <p>
-          <%=game.start.strftime("%d %b") if game.start%>
-      </p>
-      <p> Start time:
-          <%=game.start.strftime("%H:%M") if game.start%>
-      </p>
-      <p> End time:
-          <%=game.end.strftime("%H:%M") if game.end%>
-      </p>
-      <p>
-          <%=game.venue%>
-      </p>
-      <p> Players required:
-          <%=game.players_required%>
-      </p>
-      <%= link_to "Details", controller: "games", action: "show", id: game.id %>
-  </div>
-  <% end %>
-  <h3>Categories</h3>
-  <% @categories.each do |category| %>
-  <div>
+    <% @categories.each do |category| %>
+    <div>
       <%= category.game_type %>
-  </div>
-  <% end %>
+    </div>
+    <% end %>
 
-</div>
+  </section>
+
+</div><!-- end wrapper -->
 
 <% content_for :js_scripts do %>
-  <%= javascript_pack_tag 'home/landing' %>
+<%= javascript_pack_tag 'home/landing' %>
 <% end %>
