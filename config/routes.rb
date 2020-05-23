@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Notifications::Engine => "/notifications"
   root to: 'home#index'
 
   devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "signup" }
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   get 'games/new', to: 'games#new', as: 'new_game'
   get 'games/:id', to: 'games#show', as: 'game'
   get 'games/:id/edit', to: 'games#edit', as: 'edit_game'
-  post 'games', to: 'games#create'
+  post 'games/new', to: 'games#create', as: 'create_game'
   put 'games/:id', to: 'games#update'
   delete 'games/:id', to: 'games#destroy'
   delete 'games/:id/user/:user_id', to: 'games#remove_games_users', as: 'remove_games_users'

@@ -1,0 +1,19 @@
+<%if notification.target.status == 1%>
+<div class="notification__container request-accepted">
+		<h1 class="notificaition__title">Request Accepted for
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+		</h1>
+		<h2 class="notification__actor">Request accepted by:
+				<%=notification.actor.email%>
+		</h2>
+</div>
+<%elsif notification.target.status == 2%>
+<div class="notification__container request-rejected">
+		<h1 class="notificaition__title">Request Rejected for
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+		</h1>
+		<h2 class="notification__actor">Request rejected by:
+				<%=notification.actor.email%>
+		</h2>
+</div>
+<%end%>

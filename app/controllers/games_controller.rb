@@ -23,6 +23,8 @@ class GamesController < ApplicationController
     @categories = Category.all
     #Edit links here for navbar
     @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
+
+    @game_params = {"title" => "", "location" => "", "players_required" => "", "special_requirements" => "", "cost" => "", "date" => "", "start_time" => "", "end_time" => ""}
   end
 
   def create
@@ -31,8 +33,18 @@ class GamesController < ApplicationController
     @start_time = game_params[:start_time]
     @end_time = game_params[:end_time]
 
-    @start = DateTime.parse(@date + ' ' + @start_time + "+08:00")
-    @end = DateTime.parse(@date + ' ' + @end_time + "+08:00")
+    if @date == ""
+      @start = ""
+    elsif @start_time == ""
+      @start = ""
+      @end = @end_time
+    elsif @end_time == ""
+      @end = ""
+      @start = @start_time
+    else
+      @start = DateTime.parse(@date + ' ' + @start_time)
+      @end = DateTime.parse(@date + ' ' + @end_time)
+    end
 
     @input_params = {"title" => game_params[:title], "venue" => game_params[:location], "players_required" => game_params[:players_required], "special_requirements" => game_params[:special_requirements], "start" => @start, "end" => @end, "category_id" => game_params[:category_id], "cost" => game_params[:cost], "host_id" => game_params[:host_id]}
 
@@ -40,12 +52,21 @@ class GamesController < ApplicationController
 
     # Insert into database
     @game = Game.new(@input_params)
-    @game.save
 
-    @newgame = Game.last
-    Room.create(game_id: @newgame.id)
+    if @game.valid?
+      @game.save
 
-    redirect_to dashboard_path
+      @newgame = Game.last
+      Room.create(game_id: @newgame.id)
+
+      redirect_to dashboard_path
+    else
+      @categories = Category.all
+      @links = [{:name => "Home", :path => root_path},{:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
+      @game_params = game_params
+      render 'new'
+    end
+
   end
 
   def edit

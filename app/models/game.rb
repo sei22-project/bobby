@@ -3,10 +3,7 @@ class Game < ApplicationRecord
   belongs_to :category
   has_one :room, dependent: :destroy
 
-  validates :title, presence: true
-  validates :venue, presence: true
-  validates :start, presence: true
-  validates :end, presence: true
+  validates :title, :venue, :players_required, :start, :end, presence: true
 
   has_many :requests
 end
