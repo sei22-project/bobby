@@ -33,9 +33,12 @@ consumer.subscriptions.create("ActivityChannel", {
             if (data.notification_user_id == userId) {
                 const notificationContainer = document.querySelector('.notification-message__container');
                 const notificationContent = document.querySelector('.notification-message__content');
+                const notificationsLink = document.querySelector('.notifications__link');
 
                 notificationContent.innerText = `New Notification from ${data.notification_user_email} about ${data.notification_subject}`;
                 notificationContainer.classList.remove('hidden');
+
+                notificationsLink.innerText = `${data.total_notifications} Notifications`
 
                 console.log(`You have a notification from ${data.notification_user_email} about ${data.notification_subject}`);
             }

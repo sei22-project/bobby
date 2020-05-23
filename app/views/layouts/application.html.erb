@@ -17,8 +17,8 @@
 		<header>
 				<%= render partial: "layouts/navbar", locals: {links: @links} %>
 				<%= render partial: "layouts/notification_message" if user_signed_in?%>
-				<div class="notifications__link">
-						<%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), notifications_path if user_signed_in?%>
+				<div class="notifications__link-container">
+						<%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), notifications_path, class: "notifications__link" if user_signed_in?%>
 				</div>
 				<%= render 'layouts/messages' %>
 		</header>

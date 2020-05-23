@@ -7,8 +7,8 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
 
-    if Request.where(user_id: @request.user_id, game_id: @request.game_id)[0]
-      redirect_to game_path(game)
+    if Request.where(user_id: @request.user_id, game_id: @request.game_id, status: 3)[0]
+      redirect_to game_path(@request.game)
     elsif @request.save
       game = Game.find(request_params[:game_id])
       redirect_to game_path(game)
