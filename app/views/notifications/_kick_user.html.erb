@@ -1,0 +1,9 @@
+<div class="notification__container request-left-game">
+		<h1 class="notificaition__title">You were kicked from
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+		</h1>
+		<h2 class="notification__actor">
+				Kicked by
+				<%=notification.actor.email%>. Sorry man.
+		</h2>
+</div>
