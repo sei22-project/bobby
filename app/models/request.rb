@@ -37,6 +37,14 @@ class Request < ApplicationRecord
         notification.target = self
         notification.second_target = self.game
       end
+    elsif self.status == -1
+      Notification.create do |notification|
+        notification.notify_type = 'kick_user'
+        notification.actor = User.find(self.game.host_id)
+        notification.user = self.user
+        notification.target = self
+        notification.second_target = self.game
+      end
     else
       Notification.create do |notification|
         notification.notify_type = 'update_request'
