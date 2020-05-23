@@ -1,9 +1,11 @@
-<div class="notifications row">
-		<div class="heading clearfix text-xl">
-				<%= t('notifications.all_notifications') %>
-				<span class="pull-xs-right">
+<div class="notifications row flex flex-col items-stretch">
+		<div class="heading flex flex-col md:flex-row justify-between  items-center border-orange-200 border-b-2">
+				<div class="notifications__header text-xl tracking-widest">
+						<%= Notifications %>
+				</div>
+				<div class="notifications-clear__link text-sm">
 						<%= link_to 'Clear All', notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
-				</span>
+				</div>
 		</div>
 		<div class="list">
 				<% if @notifications.blank? %>
