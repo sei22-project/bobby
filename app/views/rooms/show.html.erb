@@ -1,6 +1,6 @@
-<div class="room__container flex justify-around items-around" data-user-id=<%=@current_user.id %> data-room-id=
+<div class="room__container flex flex-col sm:flex-row justify-around items-around" data-user-id=<%=@current_user.id %> data-room-id=
 		<%=@room.id %>>
-		<div class="room__sidebar flex-none w-64 min-h-screen border-r-2 hidden sm:block bg-gray-100">
+		<div class="room__sidebar flex-none sm:w-64 sm:min-h-screen border-r-2 block bg-gray-100">
 				<div class="room__back-link w-11/12 flex justify-center py-4 text-xl">
 						<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
 				</div>

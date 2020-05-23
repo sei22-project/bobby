@@ -15,9 +15,9 @@
 <%= form.hidden_field :user_id, value: current_user.id %>
 <%= form.hidden_field :room_id, value: room.id %>
 <div class="message-field__container w-11/12 flex pb-3">
-		<div class="message__field w-11/12">
+		<div class="message__field w-full">
 				<%= form.label :content, class: "hidden" %>
-				<%= form.text_field :content, class: "message__input px-4 border-gray-300 rounded-lg outline-none opacity-50" %>
+				<%= form.text_field :content, class: "message__input px-4 border-gray-400 rounded-lg outline-none opacity-50 w-full" %>
 		</div>
 		<div class="message__actions">
 				<%= form.submit "+", class: 'send-message-btn ml-3 text-2xl border-gray-300 opacity-75' %>
