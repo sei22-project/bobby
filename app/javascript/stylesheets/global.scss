@@ -33,7 +33,15 @@ input[type="text"], input[type="email"] , input[type="password"] {
 }
 
 .field label {
-  @apply font-bold font-body inline-block
+  @apply font-bold font-body inline-block;
+}
+
+a {
+  @apply text-accent;
+  &:hover,
+  &:active {
+    color: lighten(#ff8200, 12%);
+  }
 }
 
 button,
