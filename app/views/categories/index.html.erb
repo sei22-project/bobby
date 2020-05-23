@@ -12,16 +12,6 @@
 	<% end %>
 </div>
 
-<%
-	def get_category(category_id)
-		for category in @categories
-			if category.id == category_id
-				return category.game_type
-			end
-		end
-	end
-%>
-
 <div class="game-cards-container">
 	<%= render 'categories/card' %>
 </div>

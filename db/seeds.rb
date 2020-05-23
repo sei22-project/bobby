@@ -66,6 +66,42 @@ game3 = Game.create(
   :host_id => 1,
 )
 
+game4 = Game.create(
+  :title => 'more basketball',
+  :venue => 'Simei',
+  :players_required => 5,
+  :cost => 'free',
+  :special_requirements => 'gonna be really fun',
+  :start => DateTime.parse('20th Jun 2020 15:05:00+08:00'),
+  :end => DateTime.parse('20th Jun 2020 18:05:00+08:00'),
+  :category_id => 2,
+  :host_id => 1,
+)
+
+game5 = Game.create(
+  :title => 'Even more basketball',
+  :venue => 'Tampines',
+  :players_required => 5,
+  :cost => 'free',
+  :special_requirements => 'gonna be really fun',
+  :start => DateTime.parse('21st Jun 2020 15:05:00+08:00'),
+  :end => DateTime.parse('21st Jun 2020 18:05:00+08:00'),
+  :category_id => 2,
+  :host_id => 1,
+)
+
+game6 = Game.create(
+  :title => 'soccer things',
+  :venue => 'Kallang',
+  :players_required => 1,
+  :cost => '$20',
+  :special_requirements => 'full field',
+  :start => DateTime.parse('21st Jun 2020 15:05:00+08:00'),
+  :end => DateTime.parse('21st Jun 2020 18:05:00+08:00'),
+  :category_id => 1,
+  :host_id => 1,
+)
+
 id_list = [1, 2, 3]
 
 id_list.each do |id|
