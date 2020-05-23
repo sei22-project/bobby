@@ -13,10 +13,10 @@
 		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body data-user-id=<%=current_user.id if user_signed_in?%>>
 		<header>
 				<%= render partial: "layouts/navbar", locals: {links: @links} %>
-				<div>
+				<div class="notifications__link">
 						<%= link_to pluralize(Notification.unread_count(current_user), 'Notification'), notifications_path if user_signed_in?%>
 				</div>
 				<%= render 'layouts/messages' %>
