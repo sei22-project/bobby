@@ -1,8 +1,8 @@
 <div class="notification__container request-join">
 		<h1 class="notificaition__title">Received Join Request for
-				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target), class: "uppercase tracking-wide"%>
 		</h1>
-		<h2 class="notification__actor">Received request from:
+		<h2 class="notification__actor text-sm">Received request from:
 				<%=notification.actor.email%>
 		</h2>
 </div>

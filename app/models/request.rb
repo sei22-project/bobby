@@ -18,8 +18,9 @@ class Request < ApplicationRecord
     end
 
     notification = Notification.last
+    notifications = Notification.unread_count(User.find(self.game.host_id))
 
-    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title, total_notifications: notifications
   end
 
   def withdraw_join_request_notifications
@@ -32,8 +33,9 @@ class Request < ApplicationRecord
     end
 
     notification = Notification.last
+    notifications = Notification.unread_count(User.find(self.game.host_id))
 
-    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title, total_notifications: notifications
   end
 
   def update_join_request_notifications
@@ -47,8 +49,9 @@ class Request < ApplicationRecord
       end
 
       notification = Notification.last
+      notifications = Notification.unread_count(User.find(self.game.host_id))
 
-      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title, total_notifications: notifications
 
     elsif self.status == -1
       Notification.create do |notification|
@@ -60,8 +63,9 @@ class Request < ApplicationRecord
       end
 
       notification = Notification.last
+      notifications = Notification.unread_count(self.user)
 
-      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title, total_notifications: notifications
 
     else
       Notification.create do |notification|
@@ -73,8 +77,9 @@ class Request < ApplicationRecord
       end
 
       notification = Notification.last
+      notifications = Notification.unread_count(self.user)
 
-      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title, total_notifications: notifications
     end
   end
 end
