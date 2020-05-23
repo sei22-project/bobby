@@ -1,16 +1,16 @@
 <!-- Search bar. Confirm whether search is for any field or for a specific field -->
+<div class="container flex justify-between w-10/12 mx-auto mt-4">
+	<p class="font-semibold">Sort By:</p>
 
-<p>Sort By:</p>
+	<%= form_with url: categories_sort_url, method: "get", class: "w-3/5" do |form| %>
+		<%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
 
-<%= form_with url: categories_sort_url, method: "get" do |form| %>
-  <%= form.label :date %><br>
-	<%= form.text_field :date, class: 'sortdate-flatpick' %>
+		<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+		<%= select(:category, :category_id, options_for_select(categories_array), {:include_blank => true}, {class: "w-full h-8 mb-4 bg-white"})%><br>
 
-	<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-	<%= select(:category, :category_id, options_for_select(categories_array), :include_blank => true)%>
-
-	<%= form.submit 'Find Game' %>
-<% end %>
+		<%= form.submit 'Find Game', class: "bg-black text-white" %>
+	<% end %>
+</div>
 
 <%
 	def get_category(category_id)
