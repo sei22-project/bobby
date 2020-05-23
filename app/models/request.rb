@@ -16,6 +16,10 @@ class Request < ApplicationRecord
       notification.target = self
       notification.second_target = self.game
     end
+
+    notification = Notification.last
+
+    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
   end
 
   def withdraw_join_request_notifications
@@ -26,6 +30,10 @@ class Request < ApplicationRecord
       notification.target = self
       notification.second_target = self.game
     end
+
+    notification = Notification.last
+
+    ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
   end
 
   def update_join_request_notifications
@@ -37,6 +45,11 @@ class Request < ApplicationRecord
         notification.target = self
         notification.second_target = self.game
       end
+
+      notification = Notification.last
+
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+
     elsif self.status == -1
       Notification.create do |notification|
         notification.notify_type = 'kick_user'
@@ -45,6 +58,11 @@ class Request < ApplicationRecord
         notification.target = self
         notification.second_target = self.game
       end
+
+      notification = Notification.last
+
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
+
     else
       Notification.create do |notification|
         notification.notify_type = 'update_request'
@@ -53,6 +71,10 @@ class Request < ApplicationRecord
         notification.target = self
         notification.second_target = self.game
       end
+
+      notification = Notification.last
+
+      ActionCable.server.broadcast "activity_channel", notification: "You received a notification", notification_actor_id: notification.actor.id, notification_actor_email: notification.actor.email, notification_user_id: notification.user.id,notification_user_email: notification.user.email,notification_subject: notification.second_target.title
     end
   end
 end
