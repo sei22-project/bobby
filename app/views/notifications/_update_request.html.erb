@@ -1,3 +1,4 @@
+<%if notification.target%>
 <%if notification.target.status == 1%>
 <div class="notification__container request-accepted">
 		<h1 class="notificaition__title">Request Accepted for
@@ -16,4 +17,5 @@
 				<%=notification.actor.email%>
 		</h2>
 </div>
+<%end%>
 <%end%>

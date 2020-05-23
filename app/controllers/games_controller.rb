@@ -97,13 +97,17 @@ class GamesController < ApplicationController
 
     if current_user != User.find(@game.host_id)
       @game.users.delete(User.find(params[:user_id]))
-      if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
-        redirect_to game_path(@game)
+      if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0]
+        if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: 0)
+          redirect_to game_path(@game)
+        end
       end
     else
       @game.users.delete(User.find(params[:user_id]))
-      if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: -1)
-        redirect_to game_path(@game)
+      if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0]
+        if User.find(params[:user_id]).requests.where(game_id: @game.id, status: 1)[0].update(status: -1)
+          redirect_to game_path(@game)
+        end
       end
     end
   end
