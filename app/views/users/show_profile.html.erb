@@ -10,9 +10,9 @@
 				<%= form.file_field :avatar, value: @user.avatar, class: "avatar__file-input" %>
 				<div class="avatar__input-display hidden w-11/12 text-sm p-1 text-gray-600 text-center"></div>
 		</div>
-		<div class="name__field mt-1 mb-4">
+		<div class="name__field mt-1 mb-4 w-full">
 				<%= form.label :name, class: "hidden name__field-label" %><br>
-				<%= form.text_field :name, value: @user.name, class: "name__field border-0 shadow-none outline-none text-center p-1 text-xl" %>
+				<%= form.text_field :name, value: @user.name, class: "name__field border-0 shadow-none outline-none text-center p-1 text-xl uppercase w-full tracking-widest" %>
 		</div>
 		<div class="profile__btn-container mt-12">
 				<%= form.submit 'Update Profile', class: "profile__update-btn p-2 hidden" %>
