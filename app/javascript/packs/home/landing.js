@@ -1,8 +1,7 @@
 import Glide from '@glidejs/glide';
 import Rails from '@rails/ujs';
 // Required Core Stylesheet
-import '@glidejs/glide/src/assets/sass/glide.core.css';
-import '@glidejs/glide/src/assets/sass/glide.theme.css';
+
 
 const breakPoints = {
   1200: {

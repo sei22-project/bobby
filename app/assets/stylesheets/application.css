@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+
+import '@glidejs/glide/src/assets/sass/glide.core';
+import '@glidejs/glide/src/assets/sass/glide.theme';
