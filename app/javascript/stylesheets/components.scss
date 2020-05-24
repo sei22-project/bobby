@@ -72,7 +72,7 @@ ul.glide__slides {
 
 .glide_nav_container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   margin: 7px;
 
@@ -92,19 +92,20 @@ ul.glide__slides {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
+
 .gallery-item {
-  flex-grow: 1 1 30%;
   height: rem(163px);
   width: rem(150px);
   padding: rem(5px);
   margin: rem(25px) auto;
 
-  @media lg {
-    height: rem(240px);
-    width: rem(250px);
+  @screen md {
+    height: rem(230px);
+    width: rem(270px);
+    padding: 5px 30px;
   }
 }
 
@@ -113,21 +114,22 @@ ul.glide__slides {
   color: #707070;
   font-size: 15px;
 
-  @media md {
+  @screen md {
     font-size: 16px;
   }
 
-  @media lg {
+  @screen lg {
     font-size: 18px;
   }
 }
 
 .gallery-img {
+  margin: 0 auto;
   height: rem(138px);
   width: auto;
 
-  @media lg {
-    height: rem(215px);
-    width: rem(243px);
+  @screen md {
+    height: rem(200px);
+    width: rem(260px);
   }
 }
