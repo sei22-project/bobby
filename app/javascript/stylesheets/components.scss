@@ -118,3 +118,13 @@ ul.glide__slides {
     font-size: 18px; 
   }
 }
+.gallery-img {
+  height: rem(138px);
+  width: auto;
+
+  @media lg {
+    height: rem(215px);
+    width: rem(243px);
+  }
+
+}
