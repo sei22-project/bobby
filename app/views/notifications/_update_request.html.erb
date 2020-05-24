@@ -1,19 +1,26 @@
+<%if notification.target%>
 <%if notification.target.status == 1%>
 <div class="notification__container request-accepted">
-		<h1 class="notificaition__title">Request Accepted for
-				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+		<h1 class="notificaition__title">Request accepted for
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target), class: "uppercase"%>
 		</h1>
-		<h2 class="notification__actor">Request accepted by:
+		<h2 class="notification__actor text-sm">By:
 				<%=notification.actor.email%>
 		</h2>
 </div>
 <%elsif notification.target.status == 2%>
 <div class="notification__container request-rejected">
-		<h1 class="notificaition__title">Request Rejected for
-				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+		<h1 class="notificaition__title">Request rejected for
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target), class: "uppercase"%>
 		</h1>
-		<h2 class="notification__actor">Request rejected by:
+		<h2 class="notification__actor text-sm">By:
 				<%=notification.actor.email%>
 		</h2>
 </div>
+<%else%>
+<div class="notification__container request-overtaken">
+		<h1 class="notificaition__title">Further events have overtaken this notification
+		</h1>
+</div>
+<%end%>
 <%end%>

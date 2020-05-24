@@ -1,5 +1,6 @@
 module Notifications
   class NotificationsController < Notifications::ApplicationController
+
     def index
       @notifications = notifications.includes(:actor).order('id desc').page(params[:page])
 

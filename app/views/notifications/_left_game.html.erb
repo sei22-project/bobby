@@ -1,8 +1,8 @@
 <div class="notification__container request-left-game">
 		<h1 class="notificaition__title">Participant left from
-				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target)%>
+				<%=link_to notification.second_target.title, main_app.game_path(notification.second_target), class: "uppercase tracking-wide"%>
 		</h1>
-		<h2 class="notification__actor">
+		<h2 class="notification__actor text-sm">
 				<%=notification.actor.email%> left.
 		</h2>
 </div>

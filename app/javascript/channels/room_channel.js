@@ -33,6 +33,10 @@ window.addEventListener('turbolinks:load', () => {
 
                 if (userId == data.message.user_id) {
                     html = data.html_user
+                    //clearing input after sending message. A bit hacky. Consider finding another way.
+                    const sendMsgInput = document.querySelector('.message__input');
+                    sendMsgInput.value = "";
+                    console.log('FUCK');
                 } else {
                     html = data.html_other
                 }
