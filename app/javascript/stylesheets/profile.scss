@@ -1,3 +1,19 @@
 .profile__container {
 		min-height: 80vh;
 }
+
+.avatar__file-label {
+		display: inline-block;
+		padding: 8px 12px;
+		cursor: pointer;
+		border-radius: 12px;
+		background-color: orange;
+		font-size: 0.8rem;
+		color: #fff;
+}
+
+input[type="file"] {
+		visibility: hidden;
+		z-index: -1;
+		border: none;
+}

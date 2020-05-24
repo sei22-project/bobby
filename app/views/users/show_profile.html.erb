@@ -1,20 +1,22 @@
-<div class="profile__container flex justify-center items-center">
+<div class="profile__container flex flex-col justify-center items-center">
 		<%= form_with(model: @user, url: update_profile_path, local: true, method: "put", class: "flex flex-col justify-around items-center ") do |form| %>
 		<% if current_user.avatar.attached? %>
 		<%= image_tag current_user.avatar, class: "gravatar__profile mb-4" %>
 		<%else%>
 		<%= image_tag current_user.gravatar_url, class: "gravatar__profile mb-4" if user_signed_in?%>
 		<%end%>
-		<div class="avatar__field mt-2 mb-4 hidden">
-				<%= form.file_field :avatar %>
+		<div class="avatar__field mt-2 mb-4 hidden flex flex-col justify-around items-center">
+				<%= form.label :avatar, "Upload Avatar", class: "avatar__file-label "%>
+				<%= form.file_field :avatar, value: @user.avatar, class: "avatar__file-input" %>
+				<div class="avatar__input-display hidden w-11/12 text-sm p-1 text-gray-600 text-center"></div>
 		</div>
 		<div class="name__field mt-1 mb-4">
-				<%= form.label :name, class: "hidden" %><br>
-				<%= form.text_field :name, value: @user.name, class: "border-0 shadow-none border-b outline-none text-center p-1 text-xl" %>
+				<%= form.label :name, class: "hidden name__field-label" %><br>
+				<%= form.text_field :name, value: @user.name, class: "name__field border-0 shadow-none outline-none text-center p-1 text-xl" %>
 		</div>
 		<div class="profile__btn-container mt-12">
-				<%= form.submit 'Update Profile', class: "p-2 hidden" %>
-				<button class="profile__edit-btn">Edit Profile</button>
+				<%= form.submit 'Update Profile', class: "profile__update-btn p-2 hidden" %>
+				<button class="profile__edit-btn" type="button">Edit Profile</button>
 		</div>
 		<%end%>
 </div>
