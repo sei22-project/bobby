@@ -40,6 +40,25 @@
   height: rem(56px);
 }
 
+.navbar-items {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: rem(14px);
+
+  &.right {
+    margin-right: 1%;
+    margin-left: auto;
+  }
+
+  >.navbar-item:not(:last-child) {
+    margin-right: rem(15px);
+  }
+
+  @screen md {
+    font-size: rem(15px);
+  }
+}
 // card component
 .card-container {
   width: rem(320px);
