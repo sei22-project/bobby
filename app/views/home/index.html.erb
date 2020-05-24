@@ -19,9 +19,9 @@
       <% @categories.each do |category| %>
         <div class="gallery-item">
           <figure class="text-center">
-            <%= image_tag "category_images/" + 
+            <%= link_to image_tag("category_images/" +
                 category.game_type.parameterize(separator: '_') +
-                '.png', class:"gallery-img" %>
+                '.png', class:"gallery-img"), "/categories?category_id=#{category.id}"%>
             <figurecaption class="gallery-caption">
               <%= category.game_type %>
             </figurecaption>
