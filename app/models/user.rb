@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   include Gravtastic
-  gravtastic
+  gravtastic :default => 'https://www.xeus.com/wp-content/uploads/2014/09/One_User_Orange.png'
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
