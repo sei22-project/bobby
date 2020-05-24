@@ -92,6 +92,19 @@ ul.glide__slides {
   justify-content: space-between;
 }
 
+.gallery-item {
+  flex-grow: 1 1 30%;
+  height: rem(163px);
+  width: rem(150px);
+  padding:rem(5px);
+  margin: rem(25px) auto;
+
+  @media lg {
+    height: rem(240px);
+    width: rem(250px);
+  }
+
+}
 .gallery-caption {
   @apply font-heading font-bold;
   color:#707070;
