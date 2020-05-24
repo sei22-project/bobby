@@ -38,7 +38,7 @@ consumer.subscriptions.create("ActivityChannel", {
                 notificationContent.innerText = `New Notification from ${data.notification_actor_email}: "${data.notification_subject}"`;
                 notificationContainer.classList.remove('hidden');
 
-                notificationsLink.innerText = `${data.total_notifications} Notifications`
+                notificationsLink.innerText = `${data.total_notifications} New Notifications`
 
                 console.log(`You have a notification from ${data.notification_actor_email} about "${data.notification_subject}"`);
             }
