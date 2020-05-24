@@ -70,6 +70,14 @@
   width: 200px;
 }
 
+.navbar-menu-items > * {
+  color: black;
+  display: block;
+  border-bottom: 1px solid #DCDCDC;
+  margin-bottom:4px;
+  line-height: 2.2;
+}
+
 // card component
 .card-container {
   width: rem(320px);
