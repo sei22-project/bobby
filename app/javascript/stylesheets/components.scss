@@ -17,6 +17,77 @@
   top: 23.1512rem;
 }
 
+// nav
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: rem(90px);
+  width: 100%;
+  padding: 30px 3%;
+  margin: 0 auto;
+}
+
+.navbar-text_primary {
+  color: black;
+}
+
+.navbar-text_secondary {
+  color: #707070;
+}
+
+.navbar-logo {
+  width: rem(57px);
+  height: rem(56px);
+}
+
+.navbar-items {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: rem(14px);
+
+  &.right {
+    margin-right: 1%;
+    margin-left: auto;
+  }
+
+  > .navbar-item:not(:last-child) {
+    margin-right: rem(15px);
+  }
+
+  @screen md {
+    font-size: rem(15px);
+  }
+}
+
+.navbar-menu-icon {
+  display: inline-block;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  position: absolute;
+  padding: 15px;
+  top: 90px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.09);
+  width: 200px;
+}
+
+.navbar-menu-items > * {
+  color: black;
+  display: block;
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 4px;
+  line-height: 2.2;
+}
+
 // card component
 .card-container {
   width: rem(320px);
@@ -94,7 +165,6 @@ ul.glide__slides {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 .gallery-item {
   height: rem(163px);

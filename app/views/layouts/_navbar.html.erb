@@ -1,7 +1,35 @@
 <%if links%>
-<nav class="navbar">
-		<%links.each do |link| %>
-		<%= link_to link[:name], link[:path]%>
-		<%end%>
-</nav>
+  <nav class="navbar">
+
+    <div class="navbar-logo">
+      <%= link_to root_path do %>
+      <%= image_tag("master_fav_icon.png") %>
+      <% end %>
+    </div>
+
+    <div class="navbar-items">
+      <%= link_to  "Explore", categories_path, class: "navbar-item navbar-text_primary" %>
+    </div>
+
+    <div class="navbar-items right">
+      <%= link_to  "Host New Game", new_game_path, class: "navbar-item navbar-text_secondary" %>
+      <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="" class="navbar-menu-icon">
+      <div class="navbar-menu">
+        <div class="navbar-menu-items">
+          <a href="">Dashboard</a>
+          <a href="">Notifications</a>
+          <a href="">Profile</a>
+          <a href="">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <!-- >
+    <%links.each do |link| %>
+      <%= link_to link[:name], link[:path]%>
+    <%end%>
+    <!-->
+  </nav>
+
 <%end%>
