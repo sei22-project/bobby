@@ -4,12 +4,12 @@ body {
 
 // containers
 .wrapper {
-  margin: auto rem(27px);
-  padding: 0 rem(3px);
+  margin: 0 auto;
+  padding: 0 rem(30px);
+  max-width: 1239px;
 
   @screen lg {
-    margin: auto rem(77px);
-    padding: 0 rem(3px);
+    padding: 0 rem(80px);
   }
 }
 
