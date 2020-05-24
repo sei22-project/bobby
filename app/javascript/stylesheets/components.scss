@@ -59,6 +59,13 @@
     font-size: rem(15px);
   }
 }
+.navbar-menu-icon {
+  display: inline-block;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .navbar-menu {
   position: absolute;
   padding:15px;
