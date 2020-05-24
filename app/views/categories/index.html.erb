@@ -6,7 +6,7 @@
 		<%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
 
 		<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-		<%= select(:category, :category_id, options_for_select(categories_array), {:include_blank => true}, {class: "w-full h-8 mb-4 bg-white"})%><br>
+		<%= form.select(:category_id, options_for_select(categories_array), {:include_blank => "-Select Category-"}, {class: "w-full h-8 mb-4 bg-white"})%><br>
 
 		<%= form.submit 'Find Game', class: "bg-black text-white" %>
 	<% end %>
