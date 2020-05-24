@@ -68,3 +68,9 @@
 ul.glide__slides {
   padding: 5px 0;
 }
+// gallery 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
