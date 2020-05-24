@@ -26,7 +26,7 @@
           <figure class="text-center">
             <%= link_to image_tag("category_images/" +
                 category.game_type.parameterize(separator: '_') +
-                '.png', class:"gallery-img"), "/categories/sort?category_id=1" %>
+                '.png', class:"gallery-img"), "/categories?category_id=#{category.id}"%>
             <figurecaption class="gallery-caption">
               <%= category.game_type %>
             </figurecaption>
