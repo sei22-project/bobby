@@ -12,25 +12,26 @@ class CategoriesController < ApplicationController
 
   def sort
     @categories = Category.all
+    @user_id = current_user[:id]
 
     if params[:date] == "" and params[:category][:category_id] == ""
-      @games = Game.paginate(page: params[:page], per_page: 4)
+      @games = Game.where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
 
     elsif params[:date] == ""
       @category_id = params[:category][:category_id].to_i
-      @games = Game.where(category_id: @category_id).paginate(page: params[:page], per_page: 4)
+      @games = Game.where(category_id: @category_id).where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
       respond_to do |format|
         format.js
       end
 
     elsif params[:category][:category_id] == ""
       date = Date.parse(params[:date])
-      @games = Game.where(start: date.midnight..date.end_of_day).paginate(page: params[:page], per_page: 4)
+      @games = Game.where(start: date.midnight..date.end_of_day).where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
 
     else
       @category_id = params[:category][:category_id].to_i
       date = Date.parse(params[:date])
-      @games = Game.where(category_id: @category_id, start: date.midnight..date.end_of_day).paginate(page: params[:page], per_page: 4)
+      @games = Game.where(category_id: @category_id, start: date.midnight..date.end_of_day).where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
     end
 
   end
