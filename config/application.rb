@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'cloudflare_proxy'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,5 +18,6 @@ module Bobby
     # the framework and any gems in your application.
     config.time_zone = 'Singapore'
     config.active_record.default_timezone = :local
+    config.middleware.use CloudflareProxy
   end
 end
