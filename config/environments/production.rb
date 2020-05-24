@@ -1,3 +1,5 @@
+require 'cloudflare_proxy'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -114,4 +116,6 @@ Rails.application.configure do
   config.web_socket_server_url = "wss://unit-3-project-bobby.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://unit-3-project-bobby.herokuapp.com', 'http://unit-3-project-bobby.herokuapp.com']
 
+  #CloudflareProxy
+  config.middleware.use CloudflareProxy
 end
