@@ -12,7 +12,7 @@
 				<%= link_to  "Host New Game", main_app.new_game_path, class: "navbar-item navbar-text_secondary" %>
 				<%if user_signed_in?%>
 				<% if current_user.avatar.attached?%>
-				<%= image_tag current_user.avatar, class: "navbar-menu-icon object-cover" %>
+				<%= image_tag main_app.url_for(current_user.avatar), class: "navbar-menu-icon object-cover" %>
 				<%else%>
 				<%= image_tag current_user.gravatar_url, class: "navbar-menu-icon object-cover" if user_signed_in?%>
 				<%end%>
