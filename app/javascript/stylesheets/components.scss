@@ -17,6 +17,16 @@
   top: 23.1512rem;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: rem(90px);
+  width: 100%;
+  padding: 30px 3%;
+  margin: 0 auto;
+}
+
 // card component
 .card-container {
   width: rem(320px);
