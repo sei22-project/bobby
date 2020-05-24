@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+<<<<<<< HEAD
  */
 
 import '@glidejs/glide/src/assets/sass/glide.core.scss';
