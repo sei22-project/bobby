@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
+  include Gravtastic
+  gravtastic
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -7,5 +9,8 @@ class User < ApplicationRecord
   has_many :messages
   has_and_belongs_to_many :games
   has_many :requests
+
+  #Active Storage
+  has_one_attached :avatar
 
 end
