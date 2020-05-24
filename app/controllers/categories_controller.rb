@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
 
   def index
     # @games = Game.all
-    @games = Game.paginate(page: params[:page], per_page: 4)
+    @user_id = current_user[:id]
+    @games = Game.where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
     @categories = Category.all
     #Edit links here for navbar
     @links = [{:name => "Home", :path => root_path},{:name => "Host a Game", :path => new_game_path}, {:name => "Dashboard", :path => dashboard_path}]
