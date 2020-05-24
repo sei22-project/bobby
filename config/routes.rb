@@ -21,8 +21,9 @@ Rails.application.routes.draw do
 
   get 'users/:id', to: 'users#show_profile'
   get 'users/:id/edit', to: 'users#edit'
-  put 'users/:id', to: 'users#update'
+  put 'profile', to: 'users#update', as: 'update_profile'
   get 'dashboard', to: 'users#show_dashboard', as: 'dashboard'
+  get 'profile', to: 'users#show_profile', as: 'profile'
 
   get 'rooms/:id', to: 'rooms#show'
 

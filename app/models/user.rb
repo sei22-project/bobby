@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :requests
 
   #Active Storage
-  has_one_attached: :avatar
+  has_one_attached :avatar
 
 end

@@ -1,5 +1,13 @@
 .gravatar {
 		height: 20px;
-		width: auto;
+		width: 20px;
 		border-radius: 50%;
+		object-fit: cover;
+}
+
+.gravatar__profile {
+		height: 150px;
+		width: 150px;
+		border-radius: 50%;
+		object-fit: cover;
 }

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show_profile
+    @user = current_user
     @links = [{:name => "Host a Game", :path => new_game_path}, {:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
 
@@ -18,6 +19,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
+    redirect_to profile_path if current_user.update(user_params)
   end
 
   private
@@ -25,5 +28,9 @@ class UsersController < ApplicationController
       if !current_user
         redirect_to root_path
       end
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :avatar)
     end
 end
