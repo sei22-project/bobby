@@ -1,32 +1,30 @@
-<section>
-		<%= render "home/jumbotron" unless user_signed_in?%>
-</section>
+<%= render "home/jumbotron" unless user_signed_in?%>
 <div class="wrapper">
-		<section class="section">
-				<h3 class="font-heading section-title text-gray-700">Featured Groups</h3>
-				<div id="featured_games">
-				</div>
-		</section>
-		<section class="section">
-				<h3 class="font-heading section-title text-gray-700">Hot Categories</h3>
-				<div class="gallery">
-						<% @categories.each do |category| %>
-						<div class="gallery-item">
-								<%= link_to "/categories?category_id=#{category.id}" do %>
-								<figure class="text-center">
-										<%= image_tag("category_images/" +
-                        category.game_type.parameterize(separator: '_') +
-                        '.png', class:"gallery-img") %>
-										<figurecaption class="gallery-caption">
-												<%= category.game_type %>
-										</figurecaption>
-								</figure>
-								<% end %>
-						</div>
-						<% end %>
-				</div>
-		</section>
+  <section class="section">
+    <h3 class="font-heading section-title text-gray-700">Featured Groups</h3>
+    <div id="featured_games">
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="font-heading section-title text-gray-700">Hot Categories</h3>
+    <div class="gallery">
+      <% @categories.each do |category| %>
+      <div class="gallery-item">
+        <%= link_to "/categories?category_id=#{category.id}" do %>
+        <figure class="text-center">
+          <%= image_tag("category_images/" +
+                    category.game_type.parameterize(separator: '_') +
+                    '.png', class:"gallery-img") %>
+          <figurecaption class="gallery-caption">
+            <%= category.game_type %>
+          </figurecaption>
+        </figure>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </section>
 </div><!-- end wrapper -->
 <% content_for :js_scripts do %>
-  <%= javascript_pack_tag 'home/landing', 'data-turbolinks-eval': false %>
+<%= javascript_pack_tag 'home/landing', 'data-turbolinks-eval': false %>
 <% end %>

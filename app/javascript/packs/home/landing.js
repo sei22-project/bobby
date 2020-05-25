@@ -37,10 +37,9 @@ const getDataAndInitCarousel = () => {
 
 const startCarousel = (e) => {
     if (e.path[0].location.pathname == "/") {
-        document.getElementById('featured_games').innerHTML = "";
         getDataAndInitCarousel();
     }
 };
 
 document.addEventListener('turbolinks:load', startCarousel);
-document.addEventListener('turbolinks:render', startCarousel);
+document.addEventListener('turbolinks:before-render', startCarousel);
