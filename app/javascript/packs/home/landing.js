@@ -37,7 +37,7 @@ const getDataAndInitCarousel = () => {
 
 const startCarousel = () => {
     if (document.getElementById('featured_games')) {
-        // document.getElementById('featured_games').innerHTML = "";
+        document.getElementById('featured_games').innerHTML = "";
         getDataAndInitCarousel();
     }
 };
