@@ -20,6 +20,10 @@
     left:-2%;
   }
 }
+.flash_success, .flash_info {
+  background-color: #FEEE1C;
+}
+
 .jumbotron {
   @apply flex justify-center items-center;
   padding-top: 3.5625rem;
