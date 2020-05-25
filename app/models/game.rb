@@ -11,4 +11,12 @@ class Game < ApplicationRecord
     return requests.where(status: 2)
   end
 
+  def participants
+    return self.users.where.not(id: self.host_id)
+  end
+  
+  def host
+    return User.where(id: self.host_id)
+  end
+
 end
