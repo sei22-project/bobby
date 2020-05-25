@@ -218,12 +218,15 @@ ul.glide__slides {
   }
 }
 
+
 .gallery-item_short {
-  min-height: 12.375rem;
+  height: 12.375rem;
 
   @screen md {
-    min-height: 12.375rem; 
+    height: 12.375rem; 
   }
+}
+
 .gallery-item_wide {
   width: 23rem;
 }
