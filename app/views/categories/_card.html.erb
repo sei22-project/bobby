@@ -9,40 +9,38 @@
 %>
 <%= will_paginate @games, class: "float-right mb-2 text-xl md:text-lg" %>
 <% @games.each do |game| %>
-<div class="mx-auto my-6 px-3">
-		<!-- card will adjust to fit the dimension of its container -->
-		<div class="card game-card">
-				<h1 class="card-title">
-						<%=get_category(game.category_id)%>
-				</h1>
-				<h2 class="card-subtitle">
-						<%=game.title%>
-				</h2>
-				<div class="card-body">
-						<p>
-								<i class="fas fa-calendar text-black icon"></i>
-								<%=game.start.strftime("%d %b") if game.start%>
-						</p>
-						<p>
-								<i class="fas fa-clock text-black icon"></i>
-								Start time:
-								<%=game.start.strftime("%H:%M") if game.start%>
-						</p>
-						<p> <i class="fas fa-clock text-black icon"></i> End time:
-								<%=game.end.strftime("%H:%M") if game.end%>
-						</p>
-						<p>
-								<i class="fas fa-compass text-black icon"></i>
-								<%=game.venue%>
-						</p>
-				</div>
-				<div class="card-footer flex justify-between">
-						<p> Players required:
-								<%=game.players_required%>
-						</p>
-						<%= link_to "Details", controller: "games", action: "show", id: game.id, class:"btn btn-default btn-sm" %>
-				</div>
-		</div>
+<!-- card will adjust to fit the dimension of its container -->
+<div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned">
+  <h1 class="card-title">
+    <%=get_category(game.category_id)%>
+  </h1>
+  <h2 class="card-subtitle">
+    <%=game.title%>
+  </h2>
+  <div class="card-body">
+    <p>
+      <i class="fas fa-calendar text-black icon"></i>
+      <%=game.start.strftime("%d %b") if game.start%>
+    </p>
+    <p>
+      <i class="fas fa-clock text-black icon"></i>
+      Start time:
+      <%=game.start.strftime("%H:%M") if game.start%>
+    </p>
+    <p> <i class="fas fa-clock text-black icon"></i> End time:
+      <%=game.end.strftime("%H:%M") if game.end%>
+    </p>
+    <p>
+      <i class="fas fa-compass text-black icon"></i>
+      <%=game.venue%>
+    </p>
+  </div>
+  <div class="card-footer flex justify-between">
+    <p> Players required:
+      <%=game.players_required%>
+    </p>
+    <%= link_to "Details", controller: "games", action: "show", id: game.id, class:"btn btn-default btn-sm" %>
+  </div>
 </div>
 <% end %>
 <%= will_paginate @games, class: "float-right text-xl md:text-lg" %>
