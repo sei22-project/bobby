@@ -3,6 +3,7 @@
 	<p class="font-semibold">Sort By:</p>
 
 	<%= form_with url: categories_sort_url, method: "get", class: "w-3/5" do |form| %>
+		<%= form.text_field :title, placeholder: "Game Title", class: 'w-full h-8 mb-2 bg-white autocomplete' %><br>
 		<%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
 
 		<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>

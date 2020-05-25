@@ -18,11 +18,14 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    byebug
     @categories = Category.all
     @user_id = current_user[:id]
 
-    if params[:date] == "" and params[:category_id] == ""
+    if params[:title] != ""
+      @title = params[:title]
+      @games = Game.where("title like ?", "%#{@title}%").where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
+
+    elsif params[:date] == "" and params[:category_id] == ""
       @games = Game.where.not(host_id: @user_id).paginate(page: params[:page], per_page: 4)
 
     elsif params[:date] == ""
