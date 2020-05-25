@@ -1,6 +1,6 @@
 <% if @game.host_id != current_user.id && (!@rejected_request && !@pending_request && !@accepted_request) && @game_open%>
 <div class="game__container flex flex-col justify-around items-center p-2 font-body">
-		<h4 class="game-title__header text-2xl uppercase tracking-widest mb-2 p- text-center w-full font-bold">
+		<h4 class="game-title__header text-2xl uppercase tracking-widest mb-2 p- text-center w-full font-bold font-heading">
 				<%=@game.title%>
 		</h4>
 		<div class="game-what__container flex flex-col justify-around items-center w-3/5 p-3 border-b ">
@@ -21,7 +21,7 @@
 				</h4>
 		</div>
 		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-3/5">
-				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHERE?
 				</h4>
 				<h4 class="game-venue__header mb-2">
@@ -29,7 +29,7 @@
 				</h4>
 		</div>
 		<div class="game-where__container flex flex-col justify-around items-center w-3/5 p-3 border-b">
-				<h4 class="game-when__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+				<h4 class="game-when__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHEN? </h4>
 				<h4 class="game-date__header mb-1">Date:
 						<%=@game.start.strftime("%d %b %y") if @game.start%>
@@ -42,7 +42,7 @@
 				</h4>
 		</div>
 		<div class="game-who__container flex flex-col justify-around w-3/5 p-3 border-b">
-				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHO? </h4>
 				<div class="participants__container flex flex-col justify-around items-center">
 						<div class="participants__host-container flex flex-col p-2 justify-around items-center mb-2">
