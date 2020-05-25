@@ -42,4 +42,4 @@ const startCarousel = (e) => {
 };
 
 document.addEventListener('turbolinks:load', startCarousel);
-document.addEventListener('turbolinks:before-render', startCarousel);
+document.addEventListener('turbolinks:before-cache', startCarousel);
