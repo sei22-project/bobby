@@ -65,4 +65,6 @@
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'game' %>
+<% content_for :js_scripts do %>
+  <%= javascript_pack_tag 'game', "data-turbolinks-eval": false %>
+<% end %>
