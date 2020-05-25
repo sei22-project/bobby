@@ -59,6 +59,76 @@
     <h1 class="section-title">Participating</h1>
 
     <% @participating_games.each do |date, games| %>
+    <%end%>
   </section>
+
+</div>
+
+<div class="dashboard__container">
+
+		<div class="user-profile-name__container">
+				<p class="user-profile-name__header">
+						<%= current_user.email%>
+				</p>
+		</div>
+
+
+
+		<%
+=begin%>
+ <div class="user-participating__container">
+				<h2 class="user-participating__header">Participating:</h2>
+				<%if @participating_games.any?%>
+				<% @participating_games.each do |game|%>
+				<div class="user-participating__card">
+						<h4 class="user-participating__title">
+								Title:
+								<%= game.title%>
+						</h4>
+						<h4 class="user-participating__category">
+								Game Type:
+								<%= game.category.game_type%>
+						</h4>
+						<h4 class="user-particpating__host">
+								Host:
+								<%= User.find(game.host_id).email%>
+						</h4>
+						<h4 class="user-participating__venue">
+								Venue:
+								<%= game.venue%>
+						</h4>
+						<h4 class="user-participating__players-required">
+								Players Required:
+								<%= game.players_required%>
+						</h4>
+						<h4 class="user-participating__cost">
+								Cost:
+								<%= game.cost%>
+						</h4>
+						<h4 class="user-participating__special-requirements">
+								Special Requirements
+								<%= game.special_requirements%>
+						</h4>
+						<h4 class="user-participating__start">
+								Start Time:
+								<%= game.start%>
+						</h4>
+						<h4 class="user-particpating__end">
+								End Time:
+								<%= game.end%>
+						</h4>
+						<%= link_to "Details", controller: "games", action: "show", id: game.id %>
+						<% end %>
+				</div>
+				<%else%>
+				<div class="user-participating__card">
+						<h4 class="user-participating__message">
+								You have not joined any games.
+						</h4>
+				</div>
+				<%end%>
+		</div> 
+<%
+=end%>
 
 </div>
