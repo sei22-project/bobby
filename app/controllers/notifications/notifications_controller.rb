@@ -8,6 +8,9 @@ module Notifications
       Notification.read!(unread_ids)
 
       @notification_groups = @notifications.group_by { |note| note.created_at.to_date }
+
+      @links = true;
+
     end
 
     def clean
@@ -18,7 +21,7 @@ module Notifications
     private
 
     def notifications
-      raise 'You need reqiure user login for /notifications page.' unless current_user
+      raise 'You need require user login for /notifications page.' unless current_user
       Notification.where(user_id: current_user.id)
     end
   end

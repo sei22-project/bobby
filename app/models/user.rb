@@ -13,4 +13,11 @@ class User < ApplicationRecord
   #Active Storage
   has_one_attached :avatar
 
+  after_commit :update_user_name, on: :create
+
+  def update_user_name
+    user = User.last
+    user.update(name: user.email.to_s.split('@')[0])
+  end
+
 end
