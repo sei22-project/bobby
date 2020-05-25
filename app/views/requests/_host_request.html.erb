@@ -18,7 +18,7 @@
 		<%= form.hidden_field :user_id, value: request.user_id%>
 		<%= form.hidden_field :game_id, value: game.id%>
 		<div class="request-approve__btn-container">
-				<%= form.submit "Approve!", class: "btn btn-default btn-sm mr-2"%>
+				<%= form.submit "Approve!", class: "btn btn-default btn-sm mr-2 text-sm tracking-wider"%>
 		</div>
 		<% end %>
 		<%= form_with(model: request, url: edit_request_path, method: "put", remote: true) do |form| %>
@@ -40,7 +40,7 @@
 		<%= form.hidden_field :user_id, value: request.user_id%>
 		<%= form.hidden_field :game_id, value: game.id%>
 		<div class="request-reject__btn-container">
-				<%= form.submit "Reject!", class: "btn btn-default btn-sm ml-2"%>
+				<%= form.submit "Reject!", class: "btn btn-default btn-sm ml-2 text-sm tracking-wider"%>
 		</div>
 		<% end %>
 </div>
