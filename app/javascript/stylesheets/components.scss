@@ -171,6 +171,8 @@
   font-size: rem(18px);
 }
 
+.card-footer_text-sm
+
 // glide theme
 ul.glide__slides {
   padding: 5px 0;
@@ -204,13 +206,13 @@ ul.glide__slides {
 }
 
 .gallery-item {
-  height: rem(163px);
+  min-height: rem(163px);
   width: rem(150px);
   padding: rem(5px);
   margin: rem(25px) auto;
 
   @screen md {
-    height: rem(230px);
+    min-height: rem(230px);
     width: rem(270px);
     padding: 5px 30px;
   }
@@ -232,6 +234,7 @@ ul.glide__slides {
     margin-right: rem(50px);
   }
 }
+
 
 .gallery-caption {
   @apply font-heading font-bold;
