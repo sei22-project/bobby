@@ -1,3 +1,25 @@
+.flash_message {
+  position: fixed;
+  display: flex;
+  font-family: "Titillium Web", serif;
+  font-size: 1rem;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  top: 4.9rem;
+  right: 0;
+  min-height: rem(45px);
+  background-color: #FEEE1C;
+  color:black;
+
+  @screen lg {
+    top: 2.8rem;
+    width: 45vw;
+    left:-2%;
+  }
+}
 .jumbotron {
   @apply flex justify-center items-center;
   padding-top: 3.5625rem;
