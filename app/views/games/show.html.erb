@@ -156,9 +156,14 @@
 				<h3 class="request-rejected__header text-center w-full text-gray-700 text-sm p-2 italic font-body">You have been rejected by the Host :(</h3>
 				<%elsif @pending_request%>
 				<h3 class="request-pending__header text-center w-full text-gray-700 text-sm p-2 italic font-body">Your request is pending</h3>
-				<%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
+				<div class="withdraw-request__container flex flex-col justify-center items-center w-full mt-2">
+						<%= link_to 'Withdraw Request', destroy_request_path(@pending_request), method: :delete, data: { confirm: 'Are you sure?' }%>
+				</div>
 				<%elsif @accepted_request%>
 				<h3 class="request-accepted__header text-center w-full text-gray-700 text-sm p-2 italic font-body">Your request has been accepted by the Host!</h3>
+				<div class="leave-game__container flex flex-col justify-center items-center w-full mt-2">
+						<%= link_to 'Leave Game', remove_games_users_path(:user_id => current_user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?'}, class: "mt-4"%>
+				</div>
 				<%end%>
 		</div>
 		<div class="game-what__container flex flex-col justify-around items-center w-3/5 p-3 border-b ">
@@ -219,7 +224,6 @@
 						</div>
 				</div>
 		</div>
-		<%= link_to 'Leave Game', remove_games_users_path(:user_id => current_user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?'}, class: "mt-4"%>
 </div>
 <%end%>
 <%# Render link to Chat Room if current_user is participant/host%>
