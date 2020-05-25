@@ -28,5 +28,5 @@
 		</section>
 </div><!-- end wrapper -->
 <% content_for :js_scripts do %>
-<%= javascript_pack_tag 'home/landing' %>
+  <%= javascript_pack_tag 'home/landing', 'data-turbolinks-eval': false %>
 <% end %>

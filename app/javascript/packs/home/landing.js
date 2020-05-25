@@ -35,12 +35,12 @@ const getDataAndInitCarousel = () => {
     });
 };
 
-const startCarousel = () => {
-    if (document.getElementById('featured_games')) {
+const startCarousel = (e) => {
+    if (e.path[0].location.pathname == "/") {
         document.getElementById('featured_games').innerHTML = "";
         getDataAndInitCarousel();
     }
 };
 
 document.addEventListener('turbolinks:load', startCarousel);
-document.addEventListener('turbolinks:before-cache', startCarousel);
+document.addEventListener('turbolinks:render', startCarousel);
