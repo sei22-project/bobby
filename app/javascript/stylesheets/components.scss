@@ -1,3 +1,4 @@
+// flash message
 .flash_message {
   position: fixed;
   display: flex;
@@ -20,9 +21,27 @@
     left:-2%;
   }
 }
+
 .flash_success, .flash_info {
   background-color: #FEEE1C;
 }
+
+.flash_danger {
+  background-color:#FF8200 ;
+}
+
+.flash_message-close_btn {
+    cursor: pointer;
+    position: absolute;
+    right:0;
+  .close-icon {
+    font-size: rem(33px);
+    pointer-events: none;
+  }
+}
+
+
+// jumbotron component
 
 .jumbotron {
   @apply flex justify-center items-center;
