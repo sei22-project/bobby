@@ -202,6 +202,23 @@ ul.glide__slides {
   }
 }
 
+.gallery-item_short {
+  min-height: 12.375rem;
+
+  @screen md {
+    min-height: 12.375rem; 
+  }
+}
+
+.gallery-item_left_aligned {
+  margin-left: 0;
+  padding-left:0;
+  padding-bottom: rem(15px);
+  &:not(:last-child) {
+    margin-right: rem(50px);
+  }
+}
+
 .gallery-caption {
   @apply font-heading font-bold;
   color: #707070;
