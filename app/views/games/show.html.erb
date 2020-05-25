@@ -1,91 +1,142 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
 <% if @game.host_id != current_user.id && (!@rejected_request && !@pending_request && !@accepted_request) && @game_open%>
-<div class="game__container">
-		<h4 class="game-title__header">Title:
+<div class="game__container flex flex-col justify-around items-center px-2">
+		<h4 class="game-title__header text-xl uppercase tracking-widest mb-2 p- text-center w-full font-bold">
 				<%=@game.title%>
 		</h4>
-		<h4 class="game-venue__header">Venue:
-				<%=@game.venue%>
-		</h4>
-		<h4 class="game-players__header">Players Required:
-				<%=@game.players_required%>
-		</h4>
-		<h4 class="game-cost__header">Cost:
-				<%=@game.cost%>
-		</h4>
-		<h4 class="game-requirements__header">Requirements:
-				<%=@game.special_requirements%>
-		</h4>
-		<h4 class="game-date__header">Date:
-				<%=@game.start.strftime("%d %b %y") if @game.start%>
-		</h4>
-		<h4 class="game-start__header">Start Time:
-				<%=@game.start.strftime("%H:%M %P") if @game.start %>
-		</h4>
-		<h4 class="game-end__header">End Time:
-				<%=@game.end.strftime("%H:%M %P") if @game.end %>
-		</h4>
-		<h4 class="game-host__header">Host:
-				<%=User.find(@game.host_id).email%>
-		</h4>
-		<h4 class="game-category__header">Category:
-				<%=@game.category.game_type%>
-		</h4>
+		<div class="game-what__container flex flex-col justify-around items-center w-4/5 p-3 border-b ">
+				<%=image_tag("category_images/" +
+		                @game.category.game_type.parameterize(separator: '_') +
+		                '.png', class: "max-w-xs object-contain")%>
+				<h4 class="game-category__header mb-2 text-lg mb-4">
+						<%=@game.category.game_type%>
+				</h4>
+				<h4 class="game-players__header mb-2">Participants Required:
+						<%=@game.players_required%>
+				</h4>
+				<h4 class="game-cost__header mb-2">Cost:
+						<%=@game.cost%>
+				</h4>
+				<h4 class="game-requirements__header mb-2">Requirements:
+						<%=@game.special_requirements%>
+				</h4>
+		</div>
+		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-4/5">
+				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHERE?
+				</h4>
+				<h4 class="game-venue__header mb-2">
+						<%=@game.venue%>
+				</h4>
+		</div>
+		<div class="game-where__container flex flex-col justify-around items-center w-4/5 p-3 border-b">
+				<h4 class="game-when__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHEN? </h4>
+				<h4 class="game-date__header mb-1">Date:
+						<%=@game.start.strftime("%d %b %y") if @game.start%>
+				</h4>
+				<h4 class="game-start__header mb-1">Starts at:
+						<%=@game.start.strftime("%H:%M%P") if @game.start %>
+				</h4>
+				<h4 class="game-end__header mb-2">Ends:
+						<%=@game.end.strftime("%H:%M%P") if @game.end %>
+				</h4>
+		</div>
+		<div class="game-who__container flex flex-col justify-around w-4/5 p-3 border-b">
+				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHO? </h4>
+				<div class="participants__container flex flex-col justify-around items-center">
+						<h3 class="hhost__participants-header text-md">Host:</h3>
+						<h4 class="game-host">
+								<%=User.find(@game.host_id).email%>
+						</h4>
+						<h3 class="request-accepted__participants-header text-md">Participants:</h3>
+						<%@game.users.each do |user|%>
+						<h4 class="game-user-email">
+								<%=user.email%>
+						</h4>
+						<%end%>
+				</div>
+		</div>
 </div>
 <%= render 'requests/form', request: Request.new, game: @game %>
 <%elsif@game.host_id == current_user.id %>
-<h3 class="game__header">You are the host!</h3>
-<div class="game__container">
-		<h4 class="game-title__header">Title:
+<div class="game__container flex flex-col justify-around items-center px-2">
+		<h4 class="game-title__header text-xl uppercase tracking-widest mb-2 p- text-center w-full font-bold">
 				<%=@game.title%>
 		</h4>
-		<h4 class="game-venue__header">Venue:
-				<%=@game.venue%>
-		</h4>
-		<h4 class="game-players__header">Players Required:
-				<%=@game.players_required%>
-		</h4>
-		<h4 class="game-cost__header">Cost:
-				<%=@game.cost%>
-		</h4>
-		<h4 class="game-requirements__header">Requirements:
-				<%=@game.special_requirements%>
-		</h4>
-		<h4 class="game-date__header">Date:
-				<%=@game.start.strftime("%d %b %y") if @game.start%>
-		</h4>
-		<h4 class="game-start__header">Start Time:
-				<%=@game.start.strftime("%H:%M %P") if @game.start %>
-		</h4>
-		<h4 class="game-end__header">End Time:
-				<%=@game.end.strftime("%H:%M %P") if @game.end %>
-		</h4>
-		<h4 class="game-category__header">Category:
-				<%=@game.category.game_type%>
-		</h4>
-		<div class="participants__container">
-				<h3 class="request-accepted__participants-header">Participants:</h3>
-				<%@game.users.each do |user|%>
-				<h4 class="game-user-email">
-						<%=user.email%>
-				</h4>
-				<%= link_to 'Kick User', remove_games_users_path(:user_id => user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
+		<div class="host-requests__container flex flex-col justify-around items-center w-1/2">
+				<h3 class="game__header mb-4 text-center w-full text-gray-700 text-sm pb-4 border-b-2 border-yellow-400 italic">Hey
+						<%=current_user.name%>, you are the host!</h3>
+				<% if @host_requests.any?%>
+				<h3 class="host-requests__header">Pending Requests</h3>
+				<%end%>
+				<% @host_requests.each do |request| %>
+				<div class="request__container">
+						<h4 class="request-user__header text-center pb-2">
+								<%= request.user.email %>
+						</h4>
+						<%= render 'requests/host_request', request: request, game: @game %>
+				</div>
 				<%end%>
 		</div>
-		<%=link_to "Edit", controller: "games", action: "edit", id: @game.id %>
-		<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<div class="game-what__container flex flex-col justify-around items-center w-4/5 p-3 border-b ">
+				<%=image_tag("category_images/" +
+                @game.category.game_type.parameterize(separator: '_') +
+                '.png', class: "max-w-xs object-contain")%>
+				<h4 class="game-category__header mb-2 text-lg mb-4">
+						<%=@game.category.game_type%>
+				</h4>
+				<h4 class="game-players__header mb-2">Participants Required:
+						<%=@game.players_required%>
+				</h4>
+				<h4 class="game-cost__header mb-2">Cost:
+						<%=@game.cost%>
+				</h4>
+				<h4 class="game-requirements__header mb-2">Requirements:
+						<%=@game.special_requirements%>
+				</h4>
+		</div>
+		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-4/5">
+				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHERE?
+				</h4>
+				<h4 class="game-venue__header mb-2">
+						<%=@game.venue%>
+				</h4>
+		</div>
+		<div class="game-when__container flex flex-col justify-around items-center w-4/5 p-3 border-b">
+				<h4 class="game-when__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHEN? </h4>
+				<h4 class="game-date__header mb-1">Date:
+						<%=@game.start.strftime("%d %b %y") if @game.start%>
+				</h4>
+				<h4 class="game-start__header mb-1">Starts at:
+						<%=@game.start.strftime("%H:%M%P") if @game.start %>
+				</h4>
+				<h4 class="game-end__header mb-2">Ends:
+						<%=@game.end.strftime("%H:%M%P") if @game.end %>
+				</h4>
+		</div>
+		<div class="game-who__container flex flex-col justify-around w-4/5 p-3 border-b">
+				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2">
+						WHO? </h4>
+				<div class="participants__container flex flex-col justify-around items-center">
+						<h3 class="request-accepted__participants-header text-md">Participants:</h3>
+						<%@game.users.each do |user|%>
+						<h4 class="game-user-email">
+								<%=user.email%>
+						</h4>
+						<%= link_to 'Kick User', remove_games_users_path(:user_id => user.id), id: @game.id, method: :delete, data: { confirm: 'Are you sure?' }%>
+						<%end%>
+				</div>
+		</div>
+		<div class="game-edit-delete__links-container flex justify-around w-3/4 py-4">
+				<%=link_to "Edit", controller: "games", action: "edit", id: @game.id, class: "" %>
+				<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?', class: "" } %>
+		</div>
 </div>
-<% @host_requests.each do |request| %>
-<div class="request__container">
-		<h4 class="request-user__header">
-				<%= request.user.email %>
-		</h4>
-		<%= render 'requests/host_request', request: request, game: @game %>
-</div>
-<%end%>
 <%elsif @rejected_request || @pending_request || @accepted_request || !@game_open%>
-<div class="game__container">
+<div class="game__container flex flex-col justify-around items-center px-2">
 		<h4 class="game-title__header">Title:
 				<%=@game.title%>
 		</h4>
@@ -104,11 +155,11 @@
 		<h4 class="game-date__header">Date:
 				<%=@game.start.strftime("%d %b %y") if @game.start%>
 		</h4>
-		<h4 class="game-start__header">Start Time:
-				<%=@game.start.strftime("%H:%M %P") if @game.start %>
+		<h4 class="game-start__header">Starts at:
+				<%=@game.start.strftime("%H:%M%P") if @game.start %>
 		</h4>
-		<h4 class="game-end__header">End Time:
-				<%=@game.end.strftime("%H:%M %P") if @game.end %>
+		<h4 class="game-end__header">Ends:
+				<%=@game.end.strftime("%H:%M%P") if @game.end %>
 		</h4>
 		<h4 class="game-host__header">Host:
 				<%=User.find(@game.host_id).email%>
@@ -137,5 +188,7 @@
 <%end%>
 <%# Render link to Chat Room if current_user is participant/host%>
 <% if @user_in_game || current_user.id == @game.host_id%>
-<%=link_to "Chat Room", controller: "rooms", action: "show", id: @room.id%>
+<div class="chat-room-link__container w-full flex justify-center">
+		<%=link_to "Chat Room", controller: "rooms", action: "show", id: @room.id, class: "chat-room__link btn btn-default"%>
+</div>
 <%end%>
