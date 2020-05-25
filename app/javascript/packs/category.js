@@ -1,6 +1,9 @@
 // Datepickr
 import flatpickr from "flatpickr";
 
-const date_pick = flatpickr(".sortdate-flatpick", {
+document.addEventListener('turbolinks:load', function (e) {
+  const date_pick = flatpickr(".sortdate-flatpick", {
     altInput: true
-}); // flatpickr
+  }); // flatpickr
+
+})
