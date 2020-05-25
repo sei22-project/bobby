@@ -26,35 +26,38 @@
 		width: 100%;
 		padding: 30px 3%;
 		margin: 0 auto;
+  @screen lg {
+    padding: 70px 5%;
+  }
 }
 
 .navbar-text_primary {
-		color: black;
+  color: black;
 }
 
 .navbar-text_secondary {
-		color: #707070;
+  color: #707070;
 }
 
 .navbar-logo {
-		width: rem(57px);
-		height: rem(56px);
+  width: rem(57px);
+  height: rem(56px);
 }
 
 .navbar-items {
-		display: inline-flex;
-		align-items: center;
-		font-weight: bold;
-		font-size: rem(14px);
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: rem(14px);
 
-		&.right {
-				margin-right: 1%;
-				margin-left: auto;
-		}
+  &.right {
+    margin-left: auto;
+  }
 
-		>.navbar-item:not(:last-child) {
-				margin-right: rem(15px);
-		}
+  >.navbar-item:not(:nth-last-child(2)) {
+    margin: auto rem(15px);
+    padding: auto rem(15px);
+  }
 
 		@screen md {
 				font-size: rem(15px);
