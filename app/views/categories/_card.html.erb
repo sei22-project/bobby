@@ -7,7 +7,6 @@
 		end
 	end
 %>
-
 <%= will_paginate @games, class: "float-right mb-2" %>
 <% @games.each do |game| %>
 <div class="mx-auto my-6 px-3">
@@ -26,7 +25,8 @@
 						</p>
 						<p>
 								<i class="fas fa-clock text-black icon"></i>
-								<%=game.start.strftime("%H:%M") if game.start%> Start time:
+								Start time:
+								<%=game.start.strftime("%H:%M") if game.start%>
 						</p>
 						<p> <i class="fas fa-clock text-black icon"></i> End time:
 								<%=game.end.strftime("%H:%M") if game.end%>
