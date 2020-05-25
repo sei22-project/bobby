@@ -69,6 +69,12 @@
   cursor: pointer;
 }
 
+%is_closed {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .navbar-menu {
   position: absolute;
   padding: 15px;
