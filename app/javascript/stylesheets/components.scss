@@ -77,15 +77,18 @@
 
 .navbar-menu {
   position: absolute;
-  padding: 15px;
+  background:#fdfdfd; 
   z-index: 1;
   padding: rem(15px);
   top: rem(85px);
   right: 5%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.09);
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.15);
   width: 200px;
+  @extend %is_closed;
+}
+
 .is_open {
   visibility: visible;
   opacity: 1;
@@ -100,6 +103,8 @@
   margin-bottom: 4px;
   line-height: 2.2;
 }
+
+
 
 // card component
 .card-container {
