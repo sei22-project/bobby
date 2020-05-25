@@ -1,31 +1,31 @@
 .jumbotron {
-		@apply flex justify-center items-center;
-		padding-top: 3.5625rem;
-		height: 30rem;
+  @apply flex justify-center items-center;
+  padding-top: 3.5625rem;
+  height: 30rem;
 }
 
 .jumbotron-logo,
 .jumbotron-action {
-		@apply absolute;
+  @apply absolute;
 }
 
 .jumbotron-logo {
-		top: rem(70px);
+  top: rem(70px);
 }
 
 .jumbotron-action {
-		top: 23.1512rem;
+  top: 23.1512rem;
 }
 
 // nav
 .navbar {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		height: rem(90px);
-		width: 100%;
-		padding: 30px 3%;
-		margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: rem(90px);
+  width: 100%;
+  padding: 30px 3%;
+  margin: 0 auto;
   @screen lg {
     padding: 70px 5%;
   }
@@ -59,17 +59,18 @@
     padding: auto rem(15px);
   }
 
-		@screen md {
-				font-size: rem(15px);
-		}
+  @screen md {
+    font-size: rem(15px);
+  }
 }
 
 .navbar-menu-icon {
-		display: inline-block;
-		height: 55px;
-		width: 55px;
-		border-radius: 50%;
-		cursor: pointer;
+  display: inline-block;
+  height: rem(55px);
+  width: rem(55px);
+  min-width:rem(50px);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 %is_closed {
@@ -80,7 +81,7 @@
 
 .navbar-menu {
   position: absolute;
-  background:#fdfdfd; 
+  background: #fdfdfd;
   z-index: 1;
   padding: rem(15px);
   top: rem(85px);
@@ -107,124 +108,122 @@
   line-height: 2.2;
 }
 
-
-
 // card component
 .card-container {
-		width: rem(320px);
-		height: rem(202px);
+  width: rem(320px);
+  height: rem(202px);
 }
 
 .card {
-		font-family: 'Arimo', sans-serif;
-		line-height: 1.4;
-		border-radius: 0;
-		display: inline-block;
-		color: #707070;
-		width: 100%;
-		padding: rem(10px);
-		background-color: white;
-		box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arimo', sans-serif;
+  line-height: 1.4;
+  border-radius: 0;
+  display: inline-block;
+  color: #707070;
+  width: 100%;
+  padding: rem(10px);
+  background-color: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-img {
-		width: rem(48px);
-		height: auto;
-		border-radius: 50%;
-		float: right; // it is okay to float iamge, but not layout
+  width: rem(48px);
+  height: auto;
+  border-radius: 50%;
+  float: right; // it is okay to float iamge, but not layout
 }
 
 .card-title {
-		color: #0a0a0a;
-		font-size: rem(18px);
+  color: #0a0a0a;
+  font-size: rem(18px);
 }
 
 .card-subtitle {
-		font-size: 1rem;
+  font-size: 1rem;
 }
 
 .card-body {
-		letter-spacing: 0.35px;
-		font-size: 14px;
-		margin: rem(15px) rem(18px);
+  letter-spacing: 0.35px;
+  font-size: 14px;
+  margin: rem(15px) rem(18px);
 
-		.icon {
-				margin-right: rem(10px);
-		}
+  .icon {
+    margin-right: rem(10px);
+  }
 }
 
 .card-footer {
-		color: #0a0a0a;
-		font-size: rem(18px);
+  color: #0a0a0a;
+  font-size: rem(18px);
 }
 
 // glide theme
 ul.glide__slides {
-		padding: 5px 0;
+  padding: 5px 0;
 }
 
 .glide_nav_container {
-		display: flex;
-		justify-content: flex-start;
-		padding: 20px;
-		margin: 7px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  margin: 7px;
 
-		>.glide__bullets {
-				bottom: auto;
+  > .glide__bullets {
+    bottom: auto;
 
-				>.glide__bullet {
-						background-color: #fff;
-						border: 1px solid #0a0a0a;
-				}
+    > .glide__bullet {
+      background-color: #fff;
+      border: 1px solid #0a0a0a;
+    }
 
-				>.glide__bullet--active {
-						background-color: #000;
-				}
-		}
+    > .glide__bullet--active {
+      background-color: #000;
+    }
+  }
 }
 
 // gallery
 .gallery {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-item {
-		height: rem(163px);
-		width: rem(150px);
-		padding: rem(5px);
-		margin: rem(25px) auto;
+  height: rem(163px);
+  width: rem(150px);
+  padding: rem(5px);
+  margin: rem(25px) auto;
 
-		@screen md {
-				height: rem(230px);
-				width: rem(270px);
-				padding: 5px 30px;
-		}
+  @screen md {
+    height: rem(230px);
+    width: rem(270px);
+    padding: 5px 30px;
+  }
 }
 
 .gallery-caption {
-		@apply font-heading font-bold;
-		color: #707070;
-		font-size: 15px;
+  @apply font-heading font-bold;
+  color: #707070;
+  font-size: 15px;
 
-		@screen md {
-				font-size: 16px;
-		}
+  @screen md {
+    font-size: 16px;
+  }
 
-		@screen lg {
-				font-size: 18px;
-		}
+  @screen lg {
+    font-size: 18px;
+  }
 }
 
 .gallery-img {
-		margin: 0 auto;
-		height: rem(138px);
-		width: auto;
-		object-fit: contain;
+  margin: 0 auto;
+  height: rem(138px);
+  width: auto;
+  object-fit: contain;
 
-		@screen md {
-				height: rem(200px);
-				width: rem(260px);
-		}
+  @screen md {
+    height: rem(200px);
+    width: rem(260px);
+  }
 }
