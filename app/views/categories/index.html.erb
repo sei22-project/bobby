@@ -1,22 +1,33 @@
 <!-- Search bar. Confirm whether search is for any field or for a specific field -->
-<div class="container flex justify-between w-10/12 mx-auto mt-4">
-	<p class="font-semibold">Sort By:</p>
+<div class="wrapper">
 
-	<%= form_with url: categories_sort_url, method: "get", class: "w-3/5" do |form| %>
-		<%= form.text_field :title, placeholder: "Game Title", class: 'w-full h-8 mb-2 bg-white autocomplete' %><br>
-		<%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
+  <div class="section flex justify-between">
+    <p class="font-semibold">Filter by:</p>
 
-		<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-		<%= form.select(:category_id, options_for_select(categories_array), {:include_blank => "-Select Category-"}, {class: "w-full h-8 mb-4 bg-white"})%><br>
+    <%= form_with url: categories_sort_url, method: "get", class: "w-3/5" do |form| %>
+      <%= form.text_field :title, placeholder: "Game Title", class: 'w-full h-8 mb-2 bg-white autocomplete' %><br>
+      <%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
 
-		<%= form.submit 'Find Game', class: "bg-black text-white" %>
-	<% end %>
-</div>
+      <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+      <%= form.select(:category_id, options_for_select(categories_array), {:include_blank => "-Select Category-"}, {class: "w-full h-8 mb-4 bg-white"})%><br>
 
-<div class="game-cards-container">
-	<%= render 'categories/card' %>
+      <%= form.submit 'Find Game', class: "bg-black text-white" %>
+
+    <% end %>
+
+  </div>
+
+  <div class="section">
+  
+    <div class="game-cards-container">
+      <%= render 'categories/card' %>
+    </div>
+
+  </div>
+
+
 </div>
 
 <% content_for :js_scripts do %>
-  <%= javascript_pack_tag 'category' %>
+  <%= javascript_pack_tag 'category', 'data-turbolinks-eval': false,'data-turbolinks-track': 'reload'%>
 <%end %>
