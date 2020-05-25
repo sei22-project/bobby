@@ -78,8 +78,10 @@
 .navbar-menu {
   position: absolute;
   padding: 15px;
-  top: 90px;
-  right: 50px;
+  z-index: 1;
+  padding: rem(15px);
+  top: rem(85px);
+  right: 5%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.09);
