@@ -33,10 +33,25 @@
 
 .navbar-text_primary {
   color: black;
+  font-size: rem(14px);
+  @screen md {
+    font-size: rem(16px);
+  }
+  @screen lg {
+    font-size: rem(19px);
+  }
 }
 
 .navbar-text_secondary {
   color: #707070;
+  font-size: rem(14px);
+  @screen md {
+    font-size: rem(15px);
+  }
+
+  @screen lg {
+    font-size: rem(17px);
+  }
 }
 
 .navbar-logo {
