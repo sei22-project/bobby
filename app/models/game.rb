@@ -6,4 +6,9 @@ class Game < ApplicationRecord
   validates :title, :venue, :players_required, :start, :end, presence: true
 
   has_many :requests
+
+  def pending_requests
+    return requests.where(status: 2)
+  end
+
 end
