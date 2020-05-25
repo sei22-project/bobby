@@ -1,5 +1,14 @@
+html,body {
+  height:100%;
+}
+
+
 body {
-  @apply font-body text-black;
+  @apply font-body text-black flex flex-col;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 // containers
