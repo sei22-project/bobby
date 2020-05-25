@@ -206,13 +206,13 @@ ul.glide__slides {
 }
 
 .gallery-item {
-  min-height: rem(163px);
+  height: rem(163px);
   width: rem(150px);
   padding: rem(5px);
   margin: rem(25px) auto;
 
   @screen md {
-    min-height: rem(230px);
+    height: rem(230px);
     width: rem(270px);
     padding: 5px 30px;
   }
