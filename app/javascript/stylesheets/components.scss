@@ -63,7 +63,6 @@
   display: inline-flex;
   align-items: center;
   font-weight: bold;
-  font-size: rem(14px);
 
   &.right {
     margin-left: auto;
@@ -74,9 +73,7 @@
     padding: auto rem(15px);
   }
 
-  @screen md {
-    font-size: rem(15px);
-  }
+
 }
 
 .navbar-menu-icon {
