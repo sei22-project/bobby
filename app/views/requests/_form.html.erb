@@ -1,21 +1,23 @@
-<%= form_with(model: request, remote: true) do |form| %>
-<% if request.errors.any? %>
-<div id="error_explanation">
-		<h2>
-				<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-		<ul>
-				<% request.errors.full_messages.each do |message| %>
-				<li>
-						<%= message %>
-				</li>
-				<% end %>
-		</ul>
+<div class="join-game__btn-container w-full flex justify-center py-4">
+		<%= form_with(model: request, remote: true) do |form| %>
+		<% if request.errors.any? %>
+		<div id="error_explanation">
+				<h2>
+						<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+				<ul>
+						<% request.errors.full_messages.each do |message| %>
+						<li>
+								<%= message %>
+						</li>
+						<% end %>
+				</ul>
+		</div>
+		<% end %>
+		<%= form.hidden_field :user_id, value: current_user.id %>
+		<%= form.hidden_field :game_id, value: @game.id %>
+		<%= form.hidden_field :status, value: 3 %>
+		<div class="actions">
+				<%= form.submit "Join Game!", class: "btn btn-default"%>
+		</div>
+		<% end %>
 </div>
-<% end %>
-<%= form.hidden_field :user_id, value: current_user.id %>
-<%= form.hidden_field :game_id, value: @game.id %>
-<%= form.hidden_field :status, value: 3 %>
-<div class="actions">
-		<%= form.submit "Join Game!"%>
-</div>
-<% end %>

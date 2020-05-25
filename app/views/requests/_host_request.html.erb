@@ -1,44 +1,46 @@
-<%= form_with(model: request, url: edit_request_path, method: "put", remote: true) do |form| %>
-<% if request.errors.any? %>
-<div id="error_explanation">
-		<h2>
-				<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-		<ul>
-				<% request.errors.full_messages.each do |message| %>
-				<li>
-						<%= message %>
-				</li>
-				<% end %>
-		</ul>
+<div class="request-approve-reject__btns flex justify-around items-center w-full">
+		<%= form_with(model: request, url: edit_request_path, method: "put", remote: true) do |form| %>
+		<% if request.errors.any? %>
+		<div id="error_explanation">
+				<h2>
+						<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+				<ul>
+						<% request.errors.full_messages.each do |message| %>
+						<li>
+								<%= message %>
+						</li>
+						<% end %>
+				</ul>
+		</div>
+		<% end %>
+		<%= form.hidden_field :id, value: request.id%>
+		<%= form.hidden_field :status, value: 1%>
+		<%= form.hidden_field :user_id, value: request.user_id%>
+		<%= form.hidden_field :game_id, value: game.id%>
+		<div class="request-approve__btn-container">
+				<%= form.submit "Approve!", class: "btn btn-default btn-sm mr-2"%>
+		</div>
+		<% end %>
+		<%= form_with(model: request, url: edit_request_path, method: "put", remote: true) do |form| %>
+		<% if request.errors.any? %>
+		<div id="error_explanation">
+				<h2>
+						<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+				<ul>
+						<% request.errors.full_messages.each do |message| %>
+						<li>
+								<%= message %>
+						</li>
+						<% end %>
+				</ul>
+		</div>
+		<% end %>
+		<%= form.hidden_field :id, value: request.id%>
+		<%= form.hidden_field :status, value: 2%>
+		<%= form.hidden_field :user_id, value: request.user_id%>
+		<%= form.hidden_field :game_id, value: game.id%>
+		<div class="request-reject__btn-container">
+				<%= form.submit "Reject!", class: "btn btn-default btn-sm ml-2"%>
+		</div>
+		<% end %>
 </div>
-<% end %>
-<%= form.hidden_field :id, value: request.id%>
-<%= form.hidden_field :status, value: 1%>
-<%= form.hidden_field :user_id, value: request.user_id%>
-<%= form.hidden_field :game_id, value: game.id%>
-<div class="actions">
-		<%= form.submit "Approve!"%>
-</div>
-<% end %>
-<%= form_with(model: request, url: edit_request_path, method: "put", remote: true) do |form| %>
-<% if request.errors.any? %>
-<div id="error_explanation">
-		<h2>
-				<%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-		<ul>
-				<% request.errors.full_messages.each do |message| %>
-				<li>
-						<%= message %>
-				</li>
-				<% end %>
-		</ul>
-</div>
-<% end %>
-<%= form.hidden_field :id, value: request.id%>
-<%= form.hidden_field :status, value: 2%>
-<%= form.hidden_field :user_id, value: request.user_id%>
-<%= form.hidden_field :game_id, value: game.id%>
-<div class="actions">
-		<%= form.submit "Reject!"%>
-</div>
-<% end %>
