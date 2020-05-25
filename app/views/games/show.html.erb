@@ -17,11 +17,14 @@
 		<h4 class="game-requirements__header">Requirements:
 				<%=@game.special_requirements%>
 		</h4>
+		<h4 class="game-date__header">Date:
+				<%=@game.start.strftime("%d %b %y") if @game.start%>
+		</h4>
 		<h4 class="game-start__header">Start Time:
-				<%=@game.start%>
+				<%=@game.start.strftime("%H:%M %P") if @game.start %>
 		</h4>
 		<h4 class="game-end__header">End Time:
-				<%=@game.end%>
+				<%=@game.end.strftime("%H:%M %P") if @game.end %>
 		</h4>
 		<h4 class="game-host__header">Host:
 				<%=User.find(@game.host_id).email%>
@@ -49,11 +52,14 @@
 		<h4 class="game-requirements__header">Requirements:
 				<%=@game.special_requirements%>
 		</h4>
+		<h4 class="game-date__header">Date:
+				<%=@game.start.strftime("%d %b %y") if @game.start%>
+		</h4>
 		<h4 class="game-start__header">Start Time:
-				<%=@game.start%>
+				<%=@game.start.strftime("%H:%M %P") if @game.start %>
 		</h4>
 		<h4 class="game-end__header">End Time:
-				<%=@game.end%>
+				<%=@game.end.strftime("%H:%M %P") if @game.end %>
 		</h4>
 		<h4 class="game-category__header">Category:
 				<%=@game.category.game_type%>
@@ -95,11 +101,14 @@
 		<h4 class="game-requirements__header">Requirements:
 				<%=@game.special_requirements%>
 		</h4>
+		<h4 class="game-date__header">Date:
+				<%=@game.start.strftime("%d %b %y") if @game.start%>
+		</h4>
 		<h4 class="game-start__header">Start Time:
-				<%=@game.start%>
+				<%=@game.start.strftime("%H:%M %P") if @game.start %>
 		</h4>
 		<h4 class="game-end__header">End Time:
-				<%=@game.end%>
+				<%=@game.end.strftime("%H:%M %P") if @game.end %>
 		</h4>
 		<h4 class="game-host__header">Host:
 				<%=User.find(@game.host_id).email%>
