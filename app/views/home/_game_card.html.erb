@@ -22,7 +22,7 @@
 
   <div class="card-footer flex justify-between">
     <p> <%= game.users.count %>/<%= pluralize( game.players_required, 'member' ) %></p>
-    <%= button_to "Details", game_path(game.id),  class:'btn btn-default btn-sm', method:'get' %>
+    <%= link_to "Details", game_path(game.id),  class:'btn btn-default btn-sm', method:'get' %>
   </div>
 
 </div>
