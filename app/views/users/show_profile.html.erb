@@ -15,8 +15,8 @@
 				<%= form.text_field :name, value: @user.name, class: "name__field border-0 shadow-none outline-none text-center p-1 text-xl uppercase w-full tracking-widest" %>
 		</div>
 		<div class="profile__btn-container mt-12">
-				<%= form.submit 'Update Profile', class: "profile__update-btn p-2 hidden" %>
-				<button class="profile__edit-btn" type="button">Edit Profile</button>
+				<%= form.submit 'Update Profile', class: "profile__update-btn hidden btn-default btn" %>
+				<button class="profile__edit-btn btn-default btn" type="button">Edit Profile</button>
 		</div>
 		<%end%>
 </div>
