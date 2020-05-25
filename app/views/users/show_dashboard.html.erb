@@ -5,6 +5,14 @@
 
   <div class="section">
     <h1 class="section-title">Currently Hosting</h1>
+    
+    <% if @hosting_games.empty? %>
+      <div class="section text-center">
+        <h1 class="font-bold font-lg">You are not hosting any games at the moment.</h1>
+        <%= link_to  "Host a new game now? ", main_app.new_game_path, class: "font-bold font-lg" %>
+      </div>
+    <% end %>
+
     <% @hosting_games.each do |date, games| %>
 
       <% if games.count %>
@@ -15,7 +23,7 @@
         <div class="gallery justify-start">
           <% games.each do |game| %>
   
-          <div class="card gallery-item gallery-item_short gallery-item_left_aligned">
+          <div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned">
 
             <div class="card-header">
 
@@ -48,8 +56,10 @@
             </div>
 
           </div>
+          
           <% end %>
         </div>
+
       <% end %>
 
     <% end %>
@@ -58,77 +68,70 @@
   <section>
     <h1 class="section-title">Participating</h1>
 
+    <% if @participating_games.empty? %>
+      <div class="section text-center">
+        <h1 class="font-bold font-lg">You are not participating in any games yet</h1>
+        <%= link_to  "Join a game?", main_app.categories_path, class:'font-bold font-md' %>
+      </div>
+    <% end %>
+
     <% @participating_games.each do |date, games| %>
-    <%end%>
+
+      <% if games.count %>
+
+        <h2 class="section-subtitle">
+          <%= date %>, <span class="text-gray-700"><%= distance_of_time_in_words(Time.now, games[0].start) %>&nbsp;later</span>
+        </h2>
+
+        <div class="gallery justify-start">
+          <% games.each do |game| %>
+  
+          <div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned">
+
+            <div class="card-header">
+
+              <% if game.host.avatar.attached?%>
+                <%= image_tag main_app.url_for(game.host.avatar), class: "card-img object-cover" %>
+                <%else%>
+                  <%= image_tag game.host.gravatar_url, class: "card-img object-cover" %>
+              <%end%>
+
+
+              <h1 class="card-subtitle text-right">
+                <%= game.category.game_type %>
+              </h1>
+
+              <h2 class="card-title">
+                <%= game.title %>
+              </h2>
+
+            </div>
+
+            <div class="card-body ml-0">
+               <p><i class="fas fa-calendar-star text-black icon"></i>
+                 <%= game.start.strftime("%H:%M %P") if game.start %> - <%=game.end.strftime("%H:%M %P") if game.end %>
+               </p>
+            </div>
+
+            <div class="card-body ml-0">
+              <p> <i class="fas fa-compass text-black icon"></i> <%= game.venue%> </p>
+            </div>
+
+            <div class="card-footer flex justify-between items-center">
+              <%= button_to "Details", game_path(game.id),  class:'btn btn-default btn-sm', method:'get' %>
+              <div>
+               <p> <%= game.users.count %>/<%= pluralize( game.players_required, 'member' ) %></p>
+              </div>
+            </div>
+
+          </div>
+
+          <% end %>
+        </div>
+  
+      <% end %>
+
+    <% end %>
   </section>
-
-</div>
-
-<div class="dashboard__container">
-
-		<div class="user-profile-name__container">
-				<p class="user-profile-name__header">
-						<%= current_user.email%>
-				</p>
-		</div>
-
-
-
-		<%
-=begin%>
- <div class="user-participating__container">
-				<h2 class="user-participating__header">Participating:</h2>
-				<%if @participating_games.any?%>
-				<% @participating_games.each do |game|%>
-				<div class="user-participating__card">
-						<h4 class="user-participating__title">
-								Title:
-								<%= game.title%>
-						</h4>
-						<h4 class="user-participating__category">
-								Game Type:
-								<%= game.category.game_type%>
-						</h4>
-						<h4 class="user-particpating__host">
-								Host:
-								<%= User.find(game.host_id).email%>
-						</h4>
-						<h4 class="user-participating__venue">
-								Venue:
-								<%= game.venue%>
-						</h4>
-						<h4 class="user-participating__players-required">
-								Players Required:
-								<%= game.players_required%>
-						</h4>
-						<h4 class="user-participating__cost">
-								Cost:
-								<%= game.cost%>
-						</h4>
-						<h4 class="user-participating__special-requirements">
-								Special Requirements
-								<%= game.special_requirements%>
-						</h4>
-						<h4 class="user-participating__start">
-								Start Time:
-								<%= game.start%>
-						</h4>
-						<h4 class="user-particpating__end">
-								End Time:
-								<%= game.end%>
-						</h4>
-						<%= link_to "Details", controller: "games", action: "show", id: game.id %>
-						<% end %>
-				</div>
-				<%else%>
-				<div class="user-participating__card">
-						<h4 class="user-participating__message">
-								You have not joined any games.
-						</h4>
-				</div>
-				<%end%>
-		</div> 
-<%
-=end%>
 
 </div>
