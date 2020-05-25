@@ -76,7 +76,6 @@
 }
 
 .navbar-menu {
-<<<<<<< HEAD
   position: absolute;
   background:#fdfdfd; 
   z-index: 1;
@@ -103,24 +102,6 @@
   border-bottom: 1px solid #dcdcdc;
   margin-bottom: 4px;
   line-height: 2.2;
-=======
-		position: absolute;
-		padding: 15px;
-		top: 90px;
-		right: 50px;
-		display: flex;
-		flex-direction: column;
-		box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.09);
-		width: 200px;
-}
-
-.navbar-menu-items>* {
-		color: black;
-		display: block;
-		border-bottom: 1px solid #dcdcdc;
-		margin-bottom: 4px;
-		line-height: 2.2;
->>>>>>> 3535ddb4b6e41dde802d13ec8c050684aba86020
 }
 
 
