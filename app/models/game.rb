@@ -8,7 +8,7 @@ class Game < ApplicationRecord
   has_many :requests
 
   def pending_requests
-    return requests.where(status: 2)
+    return requests.where(status: 3)
   end
 
   def participants
