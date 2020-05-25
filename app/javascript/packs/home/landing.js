@@ -42,3 +42,4 @@ const startCarousel = () => {
 };
 
 document.addEventListener('turbolinks:load', startCarousel);
+document.addEventListener('turbolinks:render', startCarousel);

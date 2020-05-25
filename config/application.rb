@@ -17,5 +17,8 @@ module Bobby
     # the framework and any gems in your application.
     config.time_zone = 'Singapore'
     config.active_record.default_timezone = :local
+
+    # error handling
+    config.exceptions_app = self.routes
   end
 end
