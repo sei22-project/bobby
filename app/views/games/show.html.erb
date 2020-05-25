@@ -10,11 +10,13 @@
 				<h4 class="game-category__header mb-2 text-xl mb-4">
 						<%=@game.category.game_type%>
 				</h4>
-				<h4 class="game-players__header mb-2">Participants Required:
-						<%=@game.players_required%>
+				<h4 class="game-players__header mb-2">
+						<span class="game-players__number <%=" text-orange-500" if @spare_participants %>
+								<%="text-gray-500" if !@spare_participants%>">
+								<%="#{@game_participants} / #{@game.players_required} "%></span>Participants
 				</h4>
 				<h4 class="game-cost__header mb-2">Cost:
-						<%=@game.cost%>
+						<%=@game.cost.to_s.capitalize%>
 				</h4>
 				<h4 class="game-requirements__header mb-2">Requirements:
 						<%=@game.special_requirements%>
@@ -70,7 +72,7 @@
 		</h4>
 		<div class="host-requests__container flex flex-col justify-around items-center w-3/5 border-t-2 border-b-2 border-yellow-400 py-6">
 				<h3 class="game__header text-center w-full text-gray-700 text-sm p-2 italic font-body">Hey
-						<%=current_user.name%>, you are the Host!</h3>
+						<%=current_user.name.downcase.capitalize%>, you are the Host!</h3>
 				<% if @host_requests.any?%>
 				<h3 class="host-requests__header font-heading mb-1 mt-4">Pending Requests</h3>
 				<%end%>
@@ -90,11 +92,13 @@
 				<h4 class="game-category__header mb-2 text-xl mb-4 font-heading">
 						<%=@game.category.game_type%>
 				</h4>
-				<h4 class="game-players__header mb-2 font-body">Participants Required:
-						<%=@game.players_required%>
+				<h4 class="game-players__header mb-2 font-body">
+						<span class="game-players__number <%=" text-orange-500" if @spare_participants %>
+								<%="text-gray-500" if !@spare_participants%>">
+								<%="#{@game_participants} / #{@game.players_required} "%></span>Participants
 				</h4>
 				<h4 class="game-cost__header mb-2">Cost:
-						<%=@game.cost%>
+						<%=@game.cost.to_s.capitalize%>
 				</h4>
 				<h4 class="game-requirements__header mb-2">Requirements:
 						<%=@game.special_requirements%>
@@ -173,11 +177,13 @@
 				<h4 class="game-category__header mb-2 text-xl mb-4 font-heading">
 						<%=@game.category.game_type%>
 				</h4>
-				<h4 class="game-players__header mb-2">Participants Required:
-						<%=@game.players_required%>
+				<h4 class="game-players__header mb-2">
+						<span class="game-players__number <%=" text-orange-500" if @spare_participants %>
+								<%="text-gray-500" if !@spare_participants%>">
+								<%="#{@game_participants} / #{@game.players_required} "%></span>Participants
 				</h4>
 				<h4 class="game-cost__header mb-2">Cost:
-						<%=@game.cost%>
+						<%=@game.cost.to_s.capitalize%>
 				</h4>
 				<h4 class="game-requirements__header mb-2">Requirements:
 						<%=@game.special_requirements%>

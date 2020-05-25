@@ -15,6 +15,9 @@ class GamesController < ApplicationController
     @user_in_game = @game.users.find {|user| user.id == current_user.id}
     # @request_made = current_user.requests.find {|request| request.game_id == @game.id}
     @room = Room.where(game_id: @game.id)[0]
+
+    @game_participants = @game.requests.where(status: 1).count
+    @spare_participants = @game_participants < @game.players_required
     #Edit links here for navbar
     @links = [{:name => "Home", :path => root_path}, {:name => "Host a Game", :path => new_game_path}, {:name => "Join a Game", :path => categories_path}, {:name => "Dashboard", :path => dashboard_path}]
   end
