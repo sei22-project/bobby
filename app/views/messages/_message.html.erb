@@ -4,7 +4,7 @@
 				<%#Insert User Icon here?%>
 				<div class="room-message-user-timestamp__container flex-1 overflow-hidden">
 						<span class="message-user font-bold">
-								<%=message.user.email if message.content%>
+								<%=message.user.name.downcase.capitalize if message.content%>
 						</span>
 						<span class="message-timestamp text-gray-600 text-xs">
 								<%= message.created_at.to_s.split(" +")[0]%>

@@ -1,33 +1,30 @@
-<div class="room__container flex flex-col sm:flex-row justify-around items-around sm:max-w-screen-lg" data-user-id=<%=@current_user.id %> data-room-id=
+<div class="room__container flex flex-col sm:flex-row justify-around items-around sm:max-w-screen-lg font-body" data-user-id=<%=@current_user.id %> data-room-id=
 		<%=@room.id %>>
-		<div class="room__sidebar flex-none sm:w-64 sm:min-h-screen border-r-2 block bg-gray-100">
-				<div class="room__back-link w-full flex justify-center py-4 text-xl">
-						<%= link_to "Back", controller: "games", action: "show", id: @game.id %>
-				</div>
+		<div class="room__sidebar flex-none sm:w-72 sm:min-h-screen border-r-2 block bg-gray-100 pt-4 pb-1">
 				<div class="room-participants__container px-4 mb-2 flex flex-col justify-between items-center">
 						<div class="room-host__header-container flex flex-col justify-around items-center rounded-md bg-orange-300 w-full mb-4 shadow-md">
-								<div class="room-participants__header py-1 px-4font-bold text-gray-800">
-										Host:
+								<div class="room-participants__header py-1 px-4font-bold text-gray-800 mt-1 font-bold">
+										Host
 								</div>
-								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !@host.online%>" data-user-id="<%=@host.id %>">
-										<%=@host.email%>
+								<div class="room-participants__user py-1 px-4 mb-2 text-gray-700 text-sm <%='opacity-50' if !@host.online%>" data-user-id="<%=@host.id %>">
+										<%=@host.name.downcase.capitalize + " (#{@host.email})"%>
 								</div>
 						</div>
 						<div class="room-participants__header-container flex flex-col justify-around items-center rounded-md bg-gray-300 w-full shadow-md">
-								<div class="room-participants__header py-1 px-4 font-bold text-gray-800">
-										Participants:
+								<div class="room-participants__header py-1 px-4 font-bold text-gray-800 mt-1">
+										Participants
 								</div>
 								<%@users.each do |user|%>
-								<div class="room-participants__user py-1 px-4 m-2 text-gray-700 <%='opacity-50' if !user.online%>" data-user-id="<%=user.id %>">
-										<%=user.email%>
+								<div class="room-participants__user py-1 px-4 mb-2 text-gray-700 text-sm <%='opacity-50' if !user.online%>" data-user-id="<%=user.id %>">
+										<%=user.name.downcase.capitalize + " (#{user.email})"%>
 								</div>
 								<%end%>
 						</div>
 				</div>
 		</div>
-		<div class="room-message__container flex-1 px-6 py-4 overflow-y-scroll max-h-screen max-w-screen">
-				<h1 class="room-game__title font-bold uppercase tracking-widest text-center p-4 text-sm sm:text-xl border-2 border-orange-500 mb-4 rounded-md text-gray-700 shadow-md">
-						<%= @game.title%>
+		<div class="room-message__container bg-white flex-1 px-6 py-4 overflow-y-scroll max-h-screen max-w-screen">
+				<h1 class="room-game__title font-bold uppercase tracking-widest text-center p-4 text-sm sm:text-xl border-2 border-gray-100 mb-4 rounded-md shadow-md font-heading">
+						<%= link_to "#{@game.title}", controller: "games", action: "show", id: @game.id %>
 				</h1>
 				<% @room.messages.each do |message|%>
 				<%if message.user_id == current_user.id%>
