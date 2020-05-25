@@ -37,7 +37,15 @@ body {
 }
 
 .section-subtitle {
-  
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Titillium Web", serif;
+  color: #000;
+  border-bottom: 1px solid #4a5568;
+  @screen lg {
+    font-size: rem(18px);
+  }
 }
 
 // Input

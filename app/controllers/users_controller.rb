@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     end
 
     def group_by_day(obj) 
-      sort_by_day = -> ( d ) {d.start.strftime("%Y-%m-%d")}
+      sort_by_day = -> ( d ) {d.start.strftime("%A, %b %d %y")}
       return obj.group_by(&sort_by_day)
     end
 

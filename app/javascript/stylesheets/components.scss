@@ -33,10 +33,25 @@
 
 .navbar-text_primary {
   color: black;
+  font-size: rem(14px);
+  @screen md {
+    font-size: rem(16px);
+  }
+  @screen lg {
+    font-size: rem(19px);
+  }
 }
 
 .navbar-text_secondary {
   color: #707070;
+  font-size: rem(14px);
+  @screen md {
+    font-size: rem(15px);
+  }
+
+  @screen lg {
+    font-size: rem(17px);
+  }
 }
 
 .navbar-logo {
@@ -48,7 +63,6 @@
   display: inline-flex;
   align-items: center;
   font-weight: bold;
-  font-size: rem(14px);
 
   &.right {
     margin-left: auto;
@@ -59,9 +73,7 @@
     padding: auto rem(15px);
   }
 
-  @screen md {
-    font-size: rem(15px);
-  }
+
 }
 
 .navbar-menu-icon {
@@ -135,10 +147,12 @@
 
 .card-title {
   color: #0a0a0a;
+  font-weight: 600;
   font-size: rem(18px);
 }
 
 .card-subtitle {
+  color: #4a5568;
   font-size: 1rem;
 }
 
@@ -156,6 +170,8 @@
   color: #0a0a0a;
   font-size: rem(18px);
 }
+
+.card-footer_text-sm
 
 // glide theme
 ul.glide__slides {
@@ -190,17 +206,35 @@ ul.glide__slides {
 }
 
 .gallery-item {
-  height: rem(163px);
+  min-height: rem(163px);
   width: rem(150px);
   padding: rem(5px);
   margin: rem(25px) auto;
 
   @screen md {
-    height: rem(230px);
+    min-height: rem(230px);
     width: rem(270px);
     padding: 5px 30px;
   }
 }
+
+.gallery-item_short {
+  min-height: 12.375rem;
+
+  @screen md {
+    min-height: 12.375rem; 
+  }
+}
+
+.gallery-item_left_aligned {
+  margin-left: 0;
+  padding-left:0;
+  padding-bottom: rem(15px);
+  &:not(:last-child) {
+    margin-right: rem(50px);
+  }
+}
+
 
 .gallery-caption {
   @apply font-heading font-bold;
