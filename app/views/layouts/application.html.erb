@@ -22,10 +22,12 @@
 				</div> -->
 				<%= render 'layouts/messages' %>
 		</header>
-		<main role="main">
-				<%= yield %>
-		</main>
-		<%= yield :js_scripts %>
+  <main role="main">
+    <%= yield %>
+  </main>
+  <%= render 'layouts/footer' %>
+  <%= yield :js_scripts %>
 </body>
+
 
 </html>
