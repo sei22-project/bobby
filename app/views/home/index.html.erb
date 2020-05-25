@@ -5,7 +5,7 @@
 <div class="wrapper">
 
   <section class="section">
-    <h3 class="font-heading section-title text-gray-700">Featured  Groups</h3>
+    <h3 class="font-heading section-title text-gray-700">Featured Groups</h3>
     <div id="featured_games">
     </div>
   </section>
@@ -17,16 +17,20 @@
 
     <div class="gallery">
       <% @categories.each do |category| %>
-        <div class="gallery-item">
-          <figure class="text-center">
-            <%= link_to image_tag("category_images/" +
-                category.game_type.parameterize(separator: '_') +
-                '.png', class:"gallery-img"), "/categories?category_id=#{category.id}"%>
-            <figurecaption class="gallery-caption">
-              <%= category.game_type %>
-            </figurecaption>
-          </figure>
-        </div>
+      <div class="gallery-item">
+
+        <%= link_to "/categories?category_id=#{category.id}" do %>
+        <figure class="text-center">
+          <%= image_tag("category_images/" +
+                        category.game_type.parameterize(separator: '_') +
+                        '.png', class:"gallery-img") %>
+          <figurecaption class="gallery-caption">
+            <%= category.game_type %>
+          </figurecaption>
+        </figure>
+        <% end %>
+
+      </div>
       <% end %>
     </div>
 
