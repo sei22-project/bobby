@@ -23,6 +23,23 @@ body {
   }
 }
 
+
+.section-title {
+  color: #4a5568;
+  font-size: rem(18px);
+  font-weight: bold;
+  font-family: "Titillium Web", serif;
+  margin-bottom: rem(15px);
+  @screen lg {
+    font-size: rem(20px);
+    margin-bottom: rem(25px)
+  }
+}
+
+.section-subtitle {
+  
+}
+
 // Input
 input,
 select,
