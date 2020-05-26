@@ -10,7 +10,7 @@
 <%= will_paginate @games, class: "mb-2 text-xl md:text-lg" %>
 <% @games.each do |game| %>
 <!-- card will adjust to fit the dimension of its container -->
-<div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned p-2">
+<div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned p-1">
 		<%if User.find(game.host_id)%>
 		<% if User.find(game.host_id).avatar.attached?%>
 		<%= image_tag main_app.url_for(User.find(game.host_id).avatar), class: "card-img object-cover js-menu-toggle navbar-item" %>
