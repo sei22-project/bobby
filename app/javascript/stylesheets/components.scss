@@ -1,43 +1,46 @@
 // flash message
 .flash_message {
-  position: fixed;
-  display: flex;
-  font-family: "Titillium Web", serif;
-  font-size: 1rem;
-  font-weight: bold;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  top: 4.9rem;
-  right: 0;
-  min-height: rem(45px);
-  background-color: #FEEE1C;
-  color:black;
+		position: fixed;
+		display: flex;
+		font-family: "Titillium Web", serif;
+		font-size: 1rem;
+		font-weight: bold;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin: 0 auto;
+		top: 4.9rem;
+		right: 0;
+		min-height: rem(45px);
+		background-color: #FEEE1C;
+		color: black;
+		z-index: 3;
 
-  @screen lg {
-    top: 2.8rem;
-    width: 45vw;
-    left:-2%;
-  }
+		@screen lg {
+				top: 2.8rem;
+				width: 45vw;
+				left: -2%;
+		}
 }
 
-.flash_success, .flash_info {
-  background-color: #FEEE1C;
+.flash_success,
+.flash_info {
+		background-color: #FEEE1C;
 }
 
 .flash_danger {
-  background-color:#FF8200 ;
+		background-color: #FF8200;
 }
 
 .flash_message-close_btn {
-    cursor: pointer;
-    position: absolute;
-    right:0;
-  .close-icon {
-    font-size: rem(33px);
-    pointer-events: none;
-  }
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+
+		.close-icon {
+				font-size: rem(33px);
+				pointer-events: none;
+		}
 }
 
 
@@ -313,5 +316,5 @@ ul.glide__slides {
 }
 
 .flatpickr-calendar {
-  border-radius: 0px;
+		border-radius: 0px;
 }
