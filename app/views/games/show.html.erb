@@ -18,7 +18,7 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+				<div class="requirements__container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200">
 						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
 						</h4>
 						<div class="game-requirements__content w-full text-sm text-center">
@@ -104,11 +104,11 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+				<div class="requirements__container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200">
 						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
 						</h4>
 						<div class="game-requirements__content w-full text-sm text-center">
-								<%=@game.special_requirements%>
+								<%=@game.special_requirements.capitalize%>
 						</div>
 				</div>
 		</div>
@@ -197,7 +197,7 @@
 						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
 						</h4>
 						<div class="game-requirements__content w-full text-sm text-center">
-								<%=@game.special_requirements%>
+								<%=@game.special_requirements.capitalize%>
 						</div>
 				</div>
 		</div>
