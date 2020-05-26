@@ -36,7 +36,7 @@ window.addEventListener('turbolinks:load', () => {
                     //clearing input after sending message. A bit hacky. Consider finding another way.
                     const sendMsgInput = document.querySelector('.message__input');
                     sendMsgInput.value = "";
-                    console.log('FUCK');
+
                 } else {
                     html = data.html_other
                 }
