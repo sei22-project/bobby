@@ -110,7 +110,7 @@ game4 = Game.create(
 
 game5 = Game.create(
   :title => 'Boomers can play chess',
-  :venue => 'Tampines, my house. I cook chicken curry.',
+  :venue => 'Tampines, my house.',
   :players_required => 5,
   :cost => 'free',
   :special_requirements => 'Last time ppl say IQ is impt but I think nowsadays EQ more impt esp for chess. See you tomolo.',
