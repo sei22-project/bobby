@@ -74,6 +74,7 @@ class GamesController < ApplicationController
 
   def edit
     @categories = Category.all
+    @links = true
   end
 
   def update
