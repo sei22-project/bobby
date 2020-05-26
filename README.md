@@ -2,9 +2,9 @@
 
 ![logo](/app/assets/images/master_fav_icon.png)
 
-the missing buddy for your favourite games.
+*The missing buddy for your favourite games*
 
-**[https://www.bobby-app.ga/](https://www.bobby-app.ga/)**
+Visit bobby at **[https://www.bobby-app.ga/](https://www.bobby-app.ga/)**
 
 ## The App
 
