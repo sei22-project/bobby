@@ -4,7 +4,7 @@
 
 *The missing buddy for your favourite games*
 
-Visit bobby at **[https://www.bobby-app.ga/](https://www.bobby-app.ga/)**
+Visit bobby at **[https://www.bobby-app.ga/](https://www.bobby-app.ga/)** *(please use Chrome for the best experience)*
 
 ## The App
 
