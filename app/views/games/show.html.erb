@@ -18,9 +18,13 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<h4 class="game-requirements__header mb-2">Requirements:
-						<%=@game.special_requirements%>
-				</h4>
+				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
+						</h4>
+						<div class="game-requirements__content w-full text-sm text-center">
+								<%=@game.special_requirements%>
+						</div>
+				</div>
 		</div>
 		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-3/5">
 				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
@@ -100,9 +104,13 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<h4 class="game-requirements__header mb-2">Requirements:
-						<%=@game.special_requirements%>
-				</h4>
+				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
+						</h4>
+						<div class="game-requirements__content w-full text-sm text-center">
+								<%=@game.special_requirements%>
+						</div>
+				</div>
 		</div>
 		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-3/5">
 				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
@@ -185,9 +193,13 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<h4 class="game-requirements__header mb-2">Requirements:
-						<%=@game.special_requirements%>
-				</h4>
+				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
+						</h4>
+						<div class="game-requirements__content w-full text-sm text-center">
+								<%=@game.special_requirements%>
+						</div>
+				</div>
 		</div>
 		<div class="game-where__container flex flex-col justify-around items-center p-3 border-b w-3/5">
 				<h4 class="game-where__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
