@@ -149,8 +149,8 @@
 				</div>
 		</div>
 		<div class="game-edit-delete__links-container flex justify-around w-2/4 py-4">
-				<%=link_to "Edit", {controller: "games", action: "edit"}, id: @game.id, class: "btn btn-default mr-6 bg-white text-black border-2 border-black" %>
-				<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default ml-6 bg-white text-black border-2 border-black" %>
+				<%=link_to "Edit", {controller: "games", action: "edit"}, id: @game.id, class: "btn btn-default mr-6 bg-white text-black border-b border-orange-400 uppercase tracking-wider" %>
+				<%= link_to 'Delete', @game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default ml-6 bg-white text-black border-b border-orange-400 uppercase tracking-wider" %>
 		</div>
 </div>
 <%elsif @rejected_request || @pending_request || @accepted_request || !@game_open%>
