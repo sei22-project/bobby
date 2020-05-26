@@ -39,7 +39,12 @@
     <p> Players required:
       <%=game.players_required%>
     </p>
-    <%= link_to "Details", controller: "games", action: "show", id: game.id, class:"btn btn-default btn-sm" %>
+    <%= link_to "Details", game_path(game.id),  class:'btn btn-default btn-sm' %>
+    <%
+=begin%>
+ <%= link_to "Details", controller: "games", action: "show", id: game.id, class: "btn btn-default btn-sm" %> 
+<%
+=end%>
   </div>
 </div>
 <% end %>
