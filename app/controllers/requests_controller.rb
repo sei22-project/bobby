@@ -57,4 +57,5 @@ class RequestsController < ApplicationController
     def request_params
       params.require(:request).permit(:user_id, :game_id, :status, :id)
     end
+    
 end

@@ -1,58 +1,70 @@
 <div class="wrapper">
-  <h2>Edit</h2>
-  <%= form_with(model: @game, local: true, method: "put") do |form| %>
-  <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-  <%= select(:game, :category_id, options_for_select(categories_array))%>
-  <p>
-  		<%= form.label :title %><br>
-  		<%= form.text_field :title %>
-  </p>
-  <p>
-  		<h4 class="current-start-time">
-  				Date:
-  				<%= @game.start.to_s.split(" ")[0]%>
-  		</h4>
-  		<%= form.label :date %><br>
-  		<%= form.text_field :date, class: 'date-flatpick' %>
-  </p>
-  <p>
-  		<h4 class="current-start-time">
-  				Start Time:
-  				<%=@game.start.strftime("%I:%M %p")%>
-  		</h4>
-  		<%= form.label :start_time, "Pick new start time" %><br>
-  		<%= form.text_field :start_time, class: 'timestart-flatpick' %>
-  </p>
-  <p>
-  		<h4 class="current-start-time">
-  				End Time:
-  				<%=@game.end.strftime("%I:%M %p")%>
-  		</h4>
-  		<%= form.label :end_time, "Pick new end time" %><br>
-  		<%= form.text_field :end_time, class: 'timeend-flatpick' %>
-  </p>
-  <p>
-  		<%= form.label :location %><br>
-  		<%= form.text_field :location, value: @game.venue %>
-  </p>
-  <p>
-  		<%= form.label :players_required %><br>
-  		<%= form.number_field :players_required %>
-  </p>
-  <p>
-  		<%= form.label :cost %><br>
-  		<%= form.text_field :cost %>
-  </p>
-  <p>
-  		<%= form.label :special_requirements %><br>
-  		<%= form.text_area :special_requirements %>
-  </p>
-  <p>
-  		<%= form.hidden_field :host_id, value: current_user.id %>
-  </p>
-  <p>
-  		<%= form.submit 'Edit Game' %>
-  </p>
-  <% end %>
-  <%= javascript_pack_tag 'game' %>
+
+  <section class="section">
+    <%= form_with(model: @game, local: true, method: "put", class: "container mx-auto w-full md:w-4/5 lg:w-3/5 pb-16") do |form| %>
+    <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+    <%= select(:game, :category_id, options_for_select(categories_array),{}, {class: "shadow shadow-none w-full h-8 my-3 mx-auto bg-white border-0 border-b border-black text-gray-600 md:mb-6  xl:mb-10"})%>
+
+    <div class="block mb-4  md:mb-6 xl:mb-10">
+      <%= form.label :title, class: 'text-gray-600' %><br>
+      <%= form.text_field :title, class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
+    </div>
+
+    <div class="mb-4 md:mb-6 xl:mb-10">
+      <h4 class="current-start-time">
+        Date:
+        <%= @game.start.to_s.split(" ")[0]%>
+      </h4>
+      <%= form.label :date %><br>
+      <%= form.text_field :date, class: 'date-flatpick' %>
+    </div>
+
+
+    <div class="inline-block mb-4 w-5/12 md:mb-6 xl:mb-10">
+      <h4 class="current-start-time">
+        Start Time:
+        <%=@game.start.strftime("%I:%M %p")%>
+      </h4>
+      <%= form.label :start_time, "Pick new start time" %><br>
+      <%= form.text_field :start_time, class: 'timestart-flatpick' %>
+    </div>
+
+    <div class="inline-block mb-4 w-5/12 float-right md:mb-6 xl:mb-10"> 
+      <h4 class="current-start-time">
+        End Time:
+        <%=@game.end.strftime("%I:%M %p")%>
+      </h4>
+      <%= form.label :end_time, "Pick new end time" %><br>
+      <%= form.text_field :end_time, class: 'timeend-flatpick' %>
+    </div>
+
+    <div class="mb-4 md:mb-6 xl:mb-10">
+      <%= form.label :location %><br>
+      <%= form.text_field :location, value: @game.venue %>
+    </div>
+
+    <div class="mb-4 md:mb-6 xl:mb-10">
+      <%= form.label :players_required %><br>
+      <%= form.number_field :players_required %>
+    </div>
+
+    <div class="mb-4 md:mb-6 xl:mb-10">
+      <%= form.label :cost %><br>
+      <%= form.text_field :cost %>
+    </div>
+    <div class="mb-4 md:mb-6 xl:mb-10">
+      <%= form.label :special_requirements %><br>
+      <%= form.text_area :special_requirements,  class: "shadow shadow-none w-full h-24 bg-white border-b border-black" %>
+    </div>
+    <p>
+      <%= form.hidden_field :host_id, value: current_user.id %>
+    </p>
+    <p>
+      <%= form.submit 'Submit', class: "w-full bg-black hover:bg-gray-800 text-white py-2" %>
+    </p>
+    <% end %>
+  </section>
+
 </div>
+
+<%= javascript_pack_tag 'game' %>
