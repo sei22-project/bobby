@@ -72,7 +72,7 @@ redis-server
 ## Documentation
 
 - **[Mockups](/source/)**
-- **[ERD](/source/bobby-app-erd.png)**
+- **[ERD](https://github.com/sei22-project/bobby/blob/master/app/source/bobby-app-erd.png)**
 
 ## Team
 
