@@ -47,7 +47,7 @@
 						<%=@game.end.strftime("%H:%M%P") if @game.end %>
 				</h4>
 		</div>
-		<div class="game-who__container flex flex-col justify-around w-3/5 p-3 border-b">
+		<div class="game-who__container flex flex-col justify-around w-3/5 p-3">
 				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHO? </h4>
 				<div class="participants__container flex flex-col justify-around items-center">
@@ -57,7 +57,8 @@
 										<%=User.find(@game.host_id).email%>
 								</h4>
 						</div>
-						<div class="participants__participants-container flex flex-col p-2 justify-around items-center mb-2">
+						<%if @game.users.any?%>
+						<div class="participants__participants-container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200 mb-2">
 								<h3 class="request-accepted__participants-header text-md font-bold ">Participants</h3>
 								<%@game.users.each do |user|%>
 								<h4 class="game-user-email py-1">
@@ -65,6 +66,7 @@
 								</h4>
 								<%end%>
 						</div>
+						<%end%>
 				</div>
 		</div>
 </div>
@@ -133,10 +135,11 @@
 						<%=@game.end.strftime("%H:%M%P") if @game.end %>
 				</h4>
 		</div>
-		<div class="game-who__container flex flex-col justify-around w-3/5 p-3 border-b">
+		<div class="game-who__container flex flex-col justify-around w-3/5 p-3">
 				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHO? </h4>
-				<div class="participants__container flex flex-col justify-around items-center">
+				<%if @game.users.any?%>
+				<div class="participants__container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200 mb-2">
 						<h3 class="request-accepted__participants-header text-md font-bold mb-1">Participants</h3>
 						<%@game.users.each do |user|%>
 						<h4 class="game-user-email">
@@ -147,6 +150,7 @@
 						</div>
 						<%end%>
 				</div>
+				<%end%>
 		</div>
 		<div class="game-edit-delete__links-container flex justify-around w-2/4 py-4">
 				<%=link_to "Edit", {controller: "games", action: "edit"}, id: @game.id, class: "btn btn-default mr-6 bg-white text-black border-b border-orange-400 uppercase tracking-wider" %>
@@ -193,7 +197,7 @@
 				<h4 class="game-cost__header mb-2">Cost:
 						<%=@game.cost.to_s.capitalize%>
 				</h4>
-				<div class="requirements__container p-4 w-full flex flex-col justify-around align-center border-2 border-gray-200">
+				<div class="requirements__container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200">
 						<h4 class="game-requirements__header mb-2 text-center font-bold">Requirements
 						</h4>
 						<div class="game-requirements__content w-full text-sm text-center">
@@ -222,17 +226,18 @@
 						<%=@game.end.strftime("%H:%M%P") if @game.end %>
 				</h4>
 		</div>
-		<div class="game-who__container flex flex-col justify-around w-3/5 p-3 border-b">
+		<div class="game-who__container flex flex-col justify-around w-3/5 p-3">
 				<h4 class="game-who__header w-full text-center text-lg text-orange-600 tracking-wider mb-2 font-heading">
 						WHO? </h4>
 				<div class="participants__container flex flex-col justify-around items-center">
-						<div class="participants__host-container flex flex-col p-2 justify-around items-center mb-2">
+						<div class="participants__host-container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200 mb-2">
 								<h3 class="host__participants-header text-md font-bold">Host</h3>
 								<h4 class="game-host py-1 pb-4">
 										<%=User.find(@game.host_id).email%>
 								</h4>
 						</div>
-						<div class="participants__participants-container flex flex-col p-2 justify-around items-center mb-2">
+						<%if @game.users.any?%>
+						<div class="participants__participants-container p-4 w-full flex flex-col justify-around items-center border-2 border-gray-200 mb-2">
 								<h3 class="request-accepted__participants-header text-md font-bold ">Participants</h3>
 								<%@game.users.each do |user|%>
 								<h4 class="game-user-email py-1">
@@ -240,6 +245,7 @@
 								</h4>
 								<%end%>
 						</div>
+						<%end%>
 				</div>
 		</div>
 </div>
