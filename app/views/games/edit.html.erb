@@ -1,7 +1,11 @@
 <div class="wrapper">
 
   <section class="section">
+
+
     <%= form_with(model: @game, local: true, method: "put", class: "container mx-auto w-full md:w-4/5 lg:w-3/5 pb-16") do |form| %>
+
+
     <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
     <%= select(:game, :category_id, options_for_select(categories_array),{}, {class: "shadow shadow-none w-full h-8 my-3 mx-auto bg-white border-0 border-b border-black text-gray-600 md:mb-6  xl:mb-10"})%>
 
@@ -15,8 +19,8 @@
         Date:
         <%= @game.start.to_s.split(" ")[0]%>
       </h4>
-      <%= form.label :date %><br>
-      <%= form.text_field :date, class: 'date-flatpick' %>
+      <%= form.label :date, class: 'text-gray-600' %><br>
+      <%= form.text_field :date, class: 'shadow shadow-none w-full date-flatpick h-8 bg-white border-0 border-b border-black' %>
     </div>
 
 
@@ -25,8 +29,8 @@
         Start Time:
         <%=@game.start.strftime("%I:%M %p")%>
       </h4>
-      <%= form.label :start_time, "Pick new start time" %><br>
-      <%= form.text_field :start_time, class: 'timestart-flatpick' %>
+      <%= form.label :start_time, "Pick new start time",class: 'text-gray-600' %><br>
+      <%= form.text_field :start_time, class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timestart-flatpick' %>
     </div>
 
     <div class="inline-block mb-4 w-5/12 float-right md:mb-6 xl:mb-10"> 
@@ -34,26 +38,26 @@
         End Time:
         <%=@game.end.strftime("%I:%M %p")%>
       </h4>
-      <%= form.label :end_time, "Pick new end time" %><br>
-      <%= form.text_field :end_time, class: 'timeend-flatpick' %>
+      <%= form.label :end_time, "Pick new end time", class:"text-gray-600" %><br>
+      <%= form.text_field :end_time, class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timeend-flatpick' %>
     </div>
 
     <div class="mb-4 md:mb-6 xl:mb-10">
-      <%= form.label :location %><br>
-      <%= form.text_field :location, value: @game.venue %>
+      <%= form.label :location, class:'text-gray-600' %><br>
+      <%= form.text_field :location, value: @game.venue, class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
     </div>
 
     <div class="mb-4 md:mb-6 xl:mb-10">
-      <%= form.label :players_required %><br>
-      <%= form.number_field :players_required %>
+      <%= form.label :players_required,  class: 'text-gray-600' %><br>
+      <%= form.number_field :players_required, class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
     </div>
 
     <div class="mb-4 md:mb-6 xl:mb-10">
-      <%= form.label :cost %><br>
-      <%= form.text_field :cost %>
+      <%= form.label :cost, class: 'text-gray-600' %><br>
+      <%= form.text_field :cost, class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
     </div>
     <div class="mb-4 md:mb-6 xl:mb-10">
-      <%= form.label :special_requirements %><br>
+      <%= form.label :special_requirements,class: 'text-gray-600' %><br>
       <%= form.text_area :special_requirements,  class: "shadow shadow-none w-full h-24 bg-white border-b border-black" %>
     </div>
     <p>
