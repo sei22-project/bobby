@@ -1,33 +1,23 @@
 <!-- Search bar. Confirm whether search is for any field or for a specific field -->
 <div class="wrapper">
-
-  <div class="section flex justify-between">
-    <p class="font-semibold">Filter by:</p>
-
-    <%= form_with url: categories_sort_url, method: "get", class: "w-3/5" do |form| %>
-      <%= form.text_field :title, placeholder: "Game Title", class: 'w-full h-8 mb-2 bg-white autocomplete' %><br>
-      <%= form.text_field :date, class: 'w-full h-8 mb-2 bg-white sortdate-flatpick' %><br>
-
-      <% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-      <%= form.select(:category_id, options_for_select(categories_array), {:include_blank => "-Select Category-"}, {class: "w-full h-8 mb-4 bg-white"})%><br>
-
-      <%= form.submit 'Find Game', class: "bg-black text-white px-4 py-1" %>
-
-    <% end %>
-
-  </div>
-
-  <div class="section">
-  
-    <div class="game-cards-container">
-      <%= render 'categories/card' %>
-    </div>
-
-  </div>
-
-
+		<div class="section flex flex-col justify-between items-center text-center font-body pb-8 border-b">
+				<p class="font-semibold py-4 font-heading text-2xl">Search for a Game!</p>
+				<%= form_with url: categories_sort_url, method: "get", class: "flex flex-col justify-around items-center w-11/12 py-2" do |form| %>
+				<div class="categories__fields-container flex flex-col sm:flex-row justify-around items-center w-full">
+						<%= form.text_field :title, placeholder: "Title", class: 'w-full h-10 bg-white autocomplete mr-2 px-2' %><br>
+						<%= form.text_field :date, placeholder: "Date", class: 'w-full h-10 bg-white sortdate-flatpick mr-2 px-2' %><br>
+						<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
+						<%= form.select(:category_id, options_for_select(categories_array), {:include_blank => "-Select Category-"}, {class: "w-full h-10 bg-white mr-2 px-2"})%><br>
+				</div>
+				<%= form.submit 'Find Game', class: "btn-default btn px-4 mx-2 sm:mt-6" %>
+				<% end %>
+		</div>
+		<div class="section sm:flex sm:justify-center">
+				<div class="game-cards-container">
+						<%= render 'categories/card' %>
+				</div>
+		</div>
 </div>
-
 <% content_for :js_scripts do %>
-  <%= javascript_pack_tag 'category', 'data-turbolinks-eval': true,'data-turbolinks-track': 'reload'%>
+<%= javascript_pack_tag 'category', 'data-turbolinks-eval': true,'data-turbolinks-track': 'reload'%>
 <%end %>
