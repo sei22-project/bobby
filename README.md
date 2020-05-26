@@ -2,9 +2,9 @@
 
 ![logo](/app/assets/images/master_fav_icon.png)
 
-- the missing buddy for your favourite games.
+the missing buddy for your favourite games.
 
-**[Visit >> Heroku](https://www.bobby-app.ga/)**
+**[https://www.bobby-app.ga/](https://www.bobby-app.ga/)**
 
 ## The App
 
@@ -41,15 +41,15 @@ redis-server
 ## Application Development Process
 ### Built With
 - **[Ruby 2.7.1](https://www.ruby-lang.org/en/)** - Main Language
-- **[Rails 6.0.3.1](https://rubyonrails.org)** - Backend Framework
-		- Action Cable - Websockets / IO activity
-		- Active Storage
-		- [Notifications Engine](https://github.com/rails-engine/notifications) - Notifications framework, mountable as an engine
-		- TurboLinks: - JavaScript snippet using AJAX to emulate SPAs, installed by default in Rails
-		- [Glide.js](https://glidejs.com/) - ES6 dependency-free carousel/slider
-		- [Pry] (https://github.com/pry/pry) - IRB alternative with additional capabilities
-		- [Gravtastic](https://github.com/chrislloyd/gravtastic) - Framework for integrating user gravatars
-		- [Will-Paginate](https://rubygems.org/gems/will_paginate/versions/3.1.6) - API for rendering pagination links
+- **[Rails 6.0.3.1](https://rubyonrails.org)** <br />- Backend Framework
+		<br />-> Action Cable - Websockets / IO activity
+		<br />-> Active Storage
+		<br />-> [Notifications Engine](https://github.com/rails-engine/notifications) - Notifications framework, mountable as an engine
+		<br />-> TurboLinks: - JavaScript snippet using AJAX to emulate SPAs, installed by default in Rails
+		<br />-> [Glide.js](https://glidejs.com/) - ES6 dependency-free carousel/slider
+		<br />-> [Pry](https://github.com/pry/pry) - IRB alternative with additional capabilities
+		<br />-> [Gravtastic](https://github.com/chrislloyd/gravtastic) - Framework for integrating user gravatars
+		<br />-> [Will-Paginate](https://rubygems.org/gems/will_paginate/versions/3.1.6) - API for rendering pagination links
 
 - **[PostgreSQL 12.1](https://www.postgresql.org/)** - SQL Database
 - **[Redis 6.0.3](https://redis.io/)** - Non-relational in-memory Database (used for Action Cable Pub/Sub)
@@ -72,7 +72,7 @@ redis-server
 ## Documentation
 
 - **[Mockups](/source/)**
-- **[ERD](/source/bobby-app-erd.jpg)**
+- **[ERD](/source/bobby-app-erd.png)**
 
 ## Team
 
