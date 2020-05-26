@@ -69,5 +69,5 @@
 		</div>
 </div>
 <% content_for :js_scripts do %>
-<%= javascript_pack_tag 'game', "data-turbolinks-eval": false, async: true%>
+<%= javascript_pack_tag 'game', 'data-turbolinks-track': 'reload', defer: true%>
 <% end %>
