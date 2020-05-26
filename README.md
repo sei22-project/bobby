@@ -8,7 +8,7 @@ Visit bobby at **[https://www.bobby-app.ga/](https://www.bobby-app.ga/)**
 
 ## The App
 
-Can't make up the numbers for your game? Are flaky friends bailing on you at the last minute, leaving you stranded with your game arrangements and leaving you and others out-of-pocket? Or do you just want a way to meet like-minded people who enjoy the same things in life?
+Can't make up the numbers for your game? Are flaky friends bailing on you at the last minute, leaving you and others stranded with your game arrangements and out-of-pocket? Or do you just want a way to meet like-minded people who enjoy the same things in life?
 
 Introducing bobby, the missing buddy for your favourite games. bobby is stylish, easy-going, eligible, and 100% committed to you (being able to enjoy your favourite games). Everyone could use a bobby in their life. 
 
@@ -45,7 +45,7 @@ redis-server
 		<br />-> Action Cable - Websockets / IO activity
 		<br />-> Active Storage
 		<br />-> [Notifications Engine](https://github.com/rails-engine/notifications) - Notifications framework, mountable as an engine
-		<br />-> TurboLinks: - JavaScript snippet using AJAX to emulate SPAs, installed by default in Rails
+		<br />-> TurboLinks - JavaScript snippet using AJAX to emulate SPAs, installed by default in Rails
 		<br />-> [Glide.js](https://glidejs.com/) - ES6 dependency-free carousel/slider
 		<br />-> [Pry](https://github.com/pry/pry) - IRB alternative with additional capabilities
 		<br />-> [Gravtastic](https://github.com/chrislloyd/gravtastic) - Framework for integrating user gravatars
@@ -54,6 +54,8 @@ redis-server
 - **[PostgreSQL 12.1](https://www.postgresql.org/)** - SQL Database
 - **[Redis 6.0.3](https://redis.io/)** - Non-relational in-memory Database (used for Action Cable Pub/Sub)
 - **[TailwindCSS](https://tailwindcss.com/)** - Utility CSS Framework
+- **[Cloudflare](https://cloudflare.com/)** - SSL Provider
+
 
 ### Approach
 - Brainstorming using Padlet
