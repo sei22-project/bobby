@@ -6,11 +6,3 @@ document.addEventListener('turbolinks:load', function (e) {
     altInput: true
   }); // flatpickr
 })
-
-document.addEventListener('turbolinks:before-cache', function (e) {
-
-  flatpickr(".sortdate-flatpick", {
-    altInput: true
-  }); // flatpickr
-
-})
