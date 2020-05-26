@@ -1,29 +1,29 @@
-<div class="wrapper">
-  <div class="notifications row flex flex-col items-stretch">
-      <div class="heading flex flex-col md:flex-row justify-between  items-center border-orange-200 border-b-2">
-          <div class="notifications__header text-xl tracking-widest">
-              <%= Notifications %>
-          </div>
-          <div class="notifications-clear__link text-sm">
-              <%= link_to 'Clear All', notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
-          </div>
-      </div>
-      <div class="list">
-          <% if @notifications.blank? %>
-          <div class="no-records">
-              <%= t('notifications.no_records') %>
-          </div>
-          <% else %>
-          <% @notification_groups.each do |group, notifications| %>
-          <div class="notification-group">
-              <div class="group-title">
-                  <%= group %>
-              </div>
-              <%= render notifications %>
-          </div>
-          <% end %>
-          <% end %>
-      </div>
-      <%= paginate @notifications %>
-  </div>
+<div class="wrapper font-body">
+		<div class="notifications row flex flex-col items-stretch">
+				<div class="heading flex flex-col md:flex-row justify-between  items-center border-orange-200 border-b-2">
+						<div class="notifications__header text-xl tracking-widest font-heading uppercase">
+								<%= Notifications %>
+						</div>
+						<div class="notifications-clear__link text-sm">
+								<%= link_to 'Clear All', notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
+						</div>
+				</div>
+				<div class="list">
+						<% if @notifications.blank? %>
+						<div class="no-records">
+								<%= t('notifications.no_records') %>
+						</div>
+						<% else %>
+						<% @notification_groups.each do |group, notifications| %>
+						<div class="notification-group font-body">
+								<div class="group-title font-heading">
+										<%= group %>
+								</div>
+								<%= render notifications %>
+						</div>
+						<% end %>
+						<% end %>
+				</div>
+				<%= paginate @notifications %>
+		</div>
 </div>
