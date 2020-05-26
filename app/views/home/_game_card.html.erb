@@ -27,8 +27,8 @@
 				</p>
 		</div>
 		<div class="card-footer flex justify-between">
-				<p>
-						<%= game.users.count %>/
+				<p class="<%=" text-orange-600"if game.users.count < game.players_required %>">
+						<%= game.users.count %> /
 						<%= pluralize( game.players_required, 'player' ) %>
 				</p>
 				<%= link_to "Details", game_path(game.id),  class:'btn btn-default btn-sm' %>

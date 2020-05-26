@@ -10,42 +10,49 @@
 <%= will_paginate @games, class: "mb-2 text-xl md:text-lg" %>
 <% @games.each do |game| %>
 <!-- card will adjust to fit the dimension of its container -->
-<div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned">
-  <h1 class="card-title">
-    <%=get_category(game.category_id)%>
-  </h1>
-  <h2 class="card-subtitle">
-    <%=game.title%>
-  </h2>
-  <div class="card-body">
-    <p>
-      <i class="fas fa-calendar text-black icon"></i>
-      <%=game.start.strftime("%d %b") if game.start%>
-    </p>
-    <p>
-      <i class="fas fa-clock text-black icon"></i>
-      Start time:
-      <%=game.start.strftime("%H:%M") if game.start%>
-    </p>
-    <p> <i class="fas fa-clock text-black icon"></i> End time:
-      <%=game.end.strftime("%H:%M") if game.end%>
-    </p>
-    <p>
-      <i class="fas fa-compass text-black icon"></i>
-      <%=game.venue%>
-    </p>
-  </div>
-  <div class="card-footer flex justify-between">
-    <p> Players required:
-      <%=game.players_required%>
-    </p>
-    <%= link_to "Details", game_path(game.id),  class:'btn btn-default btn-sm' %>
-    <%
+<div class="card gallery-item gallery-item_short gallery-item_wide gallery-item_left_aligned p-2">
+		<%if User.find(game.host_id)%>
+		<% if User.find(game.host_id).avatar.attached?%>
+		<%= image_tag main_app.url_for(User.find(game.host_id).avatar), class: "card-img object-cover js-menu-toggle navbar-item" %>
+		<%else%>
+		<%= image_tag User.find(game.host_id).gravatar_url, class: "card-img object-cover js-menu-toggle navbar-item" if User.find(game.host_id)%>
+		<%end%>
+		<%end%>
+		<h1 class="card-title">
+				<%=get_category(game.category_id)%>
+		</h1>
+		<h2 class="card-subtitle">
+				<%=game.title%>
+		</h2>
+		<div class="card-body">
+				<p>
+						<i class="fas fa-calendar text-black icon"></i>
+						<%=game.start.strftime("%d %b") if game.start%>
+				</p>
+				<p>
+						<i class="fas fa-clock text-black icon"></i>
+						Start time:
+						<%=game.start.strftime("%H:%M") if game.start%>
+				</p>
+				<p> <i class="fas fa-clock text-black icon"></i> End time:
+						<%=game.end.strftime("%H:%M") if game.end%>
+				</p>
+				<p>
+						<i class="fas fa-compass text-black icon"></i>
+						<%=game.venue%>
+				</p>
+		</div>
+		<div class="card-footer flex justify-between">
+				<p> Players required:
+						<%=game.players_required%>
+				</p>
+				<%= link_to "Details", game_path(game.id),  class:'btn btn-default btn-sm' %>
+				<%
 =begin%>
- <%= link_to "Details", controller: "games", action: "show", id: game.id, class: "btn btn-default btn-sm" %> 
-<%
+				<%= link_to "Details", controller: "games", action: "show", id: game.id, class: "btn btn-default btn-sm" %>
+				<%
 =end%>
-  </div>
+		</div>
 </div>
 <% end %>
 <%= will_paginate @games, class: "text-xl md:text-lg" %>
