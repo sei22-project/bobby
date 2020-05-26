@@ -1,11 +1,11 @@
 <div class="wrapper">
 		<div class="section">
-				<%= form_with scope: :game, url: create_game_path, local: true, class: "container mx-auto w-full md:w-4/5 lg:w-3/5 pb-16" do |form|%>
+				<%= form_with scope: :game, url: create_game_path, local: true, class: "container flex flex-col justify-around mx-auto w-full md:w-4/5 lg:w-3/5 pb-16 font-body" do |form|%>
 				<div class="text-lg font-bold mb-4">
-						<h2>Build your team, hassle-free</h2>
+						<h2 class="text-center font-heading text-2xl">Build your team, hassle-free</h2>
 				</div>
 				<% categories_array = @categories.all.map { |category| [category.game_type, category.id] } %>
-				<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "shadow shadow-none w-full h-8 my-3 mx-auto bg-white border-0 border-b border-black text-gray-600 md:mb-6  xl:mb-10"})%>
+				<%= select(:game, :category_id, options_for_select(categories_array), {}, {class: "shadow shadow-none w-full h-8 my-3 mx-auto bg-white border-0 border-b border-black mb-8 text-xl text-gray-600 md:mb-6 text-center xl:mb-10"})%>
 				<div class="block mb-4  md:mb-6 xl:mb-10">
 						<%= form.label :title, class: 'text-gray-600' %><br>
 						<%= form.text_field :title, value: @game_params["title"], class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
@@ -23,19 +23,21 @@
 								<%= show_errors(@game, :end) %>
 						</p>
 				</div>
-				<div class="inline-block mb-4 w-5/12 md:mb-6 xl:mb-10">
-						<%= form.label :start_time, class: 'text-gray-600' %><br>
-						<%= form.text_field :start_time, value: @game_params["start_time"], class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timestart-flatpick' %>
-						<p class="text-sm text-orange-500">
-								<%= show_errors(@game, :start) %>
-						</p>
-				</div>
-				<div class="inline-block mb-4 w-5/12 float-right md:mb-6 xl:mb-10">
-						<%= form.label :end_time, class: 'text-gray-600' %><br>
-						<%= form.text_field :end_time, value: @game_params["end_time"], class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timeend-flatpick' %>
-						<p class="text-sm text-orange-500">
-								<%= show_errors(@game, :end) %>
-						</p>
+				<div class="start-end-time__container flex justify-between items-center">
+						<div class="inline-block mb-4 w-5/12 md:mb-6 xl:mb-10">
+								<%= form.label :start_time, class: 'text-gray-600' %><br>
+								<%= form.text_field :start_time, value: @game_params["start_time"], class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timestart-flatpick' %>
+								<p class="text-sm text-orange-500">
+										<%= show_errors(@game, :start) %>
+								</p>
+						</div>
+						<div class="inline-block mb-4 w-5/12 float-right md:mb-6 xl:mb-10">
+								<%= form.label :end_time, class: 'text-gray-600' %><br>
+								<%= form.text_field :end_time, value: @game_params["end_time"], class: 'shadow shadow-none w-full h-8 bg-white border-0 border-b border-black timeend-flatpick' %>
+								<p class="text-sm text-orange-500">
+										<%= show_errors(@game, :end) %>
+								</p>
+						</div>
 				</div>
 				<div class="mb-4 md:mb-6 xl:mb-10">
 						<%= form.label :location, class: 'text-gray-600' %><br>
@@ -55,9 +57,9 @@
 						<%= form.label :cost, class: 'text-gray-600' %><br>
 						<%= form.text_field :cost, value: @game_params["cost"], class: "shadow shadow-none w-full h-8 bg-white border-0 border-b border-black" %>
 				</div>
-				<div class="mb-4 md:mb-6 xl:mb-10">
-						<%= form.label :special_requirements, class: 'text-gray-600' %><br>
-						<%= form.text_area :special_requirements, value: @game_params["special_requirements"], class: "shadow shadow-none w-full h-24 bg-white border-b border-black" %>
+				<div class="mb-4 md:mb-6 xl:mb-10 w-full text-center">
+						<%= form.label :special_requirements, class: 'text-gray-600 text-center w-full mb-4 uppercase tracking-wider' %><br><br>
+						<%= form.text_area :special_requirements, value: @game_params["special_requirements"], class: "shadow shadow-none w-full h-24 bg-white border-b border-black p-1" %>
 				</div>
 				<div>
 						<%= form.hidden_field :host_id, value: current_user.id %>
