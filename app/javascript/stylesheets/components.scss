@@ -190,7 +190,7 @@
 
 .card-img {
 		width: rem(48px);
-		height: auto;
+		height: rem(48px);
 		border-radius: 50%;
 		float: right; // it is okay to float iamge, but not layout
 }

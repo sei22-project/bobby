@@ -80,10 +80,10 @@
 				<h3 class="game__header text-center w-full text-gray-700 text-sm p-2 italic font-body">Hey
 						<%=current_user.name.downcase.capitalize%>, you are the Host!</h3>
 				<% if @host_requests.any?%>
-				<h3 class="host-requests__header font-heading mb-1 mt-4">Pending Requests</h3>
+				<h3 class="host-requests__header font-heading mb-2 mt-4 font-bold">Pending Requests</h3>
 				<%end%>
 				<% @host_requests.each do |request| %>
-				<div class="request__container">
+				<div class="request__container mb-2">
 						<h4 class="request-user__header text-center pb-2">
 								<%= request.user.email %>
 						</h4>
